@@ -1340,7 +1340,7 @@ class PlayState extends MusicBeatState
 
 		if (FlxG.save.data.accuracyDisplay)
 		{
-			scoreTxt.text = "Score:" + songScore + " | Misses:" + misses + " | Accuracy:" + truncateFloat(accuracy, 2) + "% " + (fc ? "| FC" : misses == 0 ? "| A" : accuracy <= 75 ? "| BAD" : "");
+			scoreTxt.text = "Score:" + songScore + " | Misses:" + misses + " | Accuracy:" + truncateFloat(accuracy, 2) + "% " + (accuracy == 100 ? "| SS" : fc ? "| FC" : accuracy <= 75 ? "| BAD" : "");
 		}
 		else
 		{
@@ -2347,7 +2347,7 @@ class PlayState extends MusicBeatState
 
 	function updateAccuracy()
 		{
-			if (misses > 0 || accuracy < 96)
+			if (misses > 0)
 				fc = false;
 			else
 				fc = true;
