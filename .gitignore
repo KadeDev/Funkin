@@ -1,3 +1,4 @@
 export/
 .vscode/
+.gitignore
 APIStuff.hx
