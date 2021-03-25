@@ -70,7 +70,7 @@ class Note extends FlxSprite
 					animation.add('greenholdend', [6]);
 					animation.add('redholdend', [7]);
 					animation.add('blueholdend', [5]);
-
+					
 					animation.add('purplehold', [0]);
 					animation.add('greenhold', [2]);
 					animation.add('redhold', [3]);
@@ -97,6 +97,11 @@ class Note extends FlxSprite
 				animation.addByPrefix('greenhold', 'green hold piece');
 				animation.addByPrefix('redhold', 'red hold piece');
 				animation.addByPrefix('bluehold', 'blue hold piece');
+
+				animation.addByPrefix('purpleholdend', 'pruple end hold');
+				animation.addByPrefix('greenholdend', 'green hold end');
+				animation.addByPrefix('redholdend', 'red hold end');
+				animation.addByPrefix('blueholdend', 'blue hold end');
 
 				setGraphicSize(Std.int(width * 0.7));
 				updateHitbox();
