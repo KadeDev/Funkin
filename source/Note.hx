@@ -136,8 +136,6 @@ class Note extends FlxSprite
 		}
 
 		// trace(prevNote);
-
-		trace(animation.curAnim.name);
 		
 		if (isSustainNote && prevNote != null)
 		{
