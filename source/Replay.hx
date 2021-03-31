@@ -77,7 +77,11 @@ class Replay
         var data:String = Json.stringify(json);
 
         #if sys
-        File.saveContent("assets/replays/replay-" + PlayState.SONG.song + "-time" + Date.now().getTime() + ".kadeReplay", data);
+        try {
+		File.saveContent("assets/replays/replay-" + PlayState.SONG.song + "-time" + Date.now().getTime() + ".kadeReplay", data);
+		} catch(e) {
+		trace(e.message);
+		}
         #end
     }
 
