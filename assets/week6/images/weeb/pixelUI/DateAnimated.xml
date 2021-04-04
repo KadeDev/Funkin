@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="DateAnimated.png">
+	<!-- Created with Adobe Animate version 21.0.1.37179 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="DATE!!0000" x="0" y="0" width="550" height="223" pivotX="245.85" pivotY="-18.85" frameX="-221" frameY="-77" frameWidth="996" frameHeight="402"/>
+	<SubTexture name="DATE!!0001" x="550" y="0" width="996" height="402"/>
+	<SubTexture name="DATE!!0002" x="550" y="0" width="996" height="402"/>
+	<SubTexture name="DATE!!0003" x="0" y="402" width="868" height="350" frameX="-63" frameY="-23" frameWidth="996" frameHeight="402"/>
+	<SubTexture name="DATE!!0004" x="0" y="402" width="868" height="350" frameX="-63" frameY="-23" frameWidth="996" frameHeight="402"/>
+	<SubTexture name="DATE!!0005" x="868" y="402" width="886" height="357" frameX="-54" frameY="-20" frameWidth="996" frameHeight="402"/>
+	<SubTexture name="DATE!!0006" x="868" y="402" width="886" height="357" frameX="-54" frameY="-20" frameWidth="996" frameHeight="402"/>
+	<SubTexture name="DATE!!0007" x="868" y="402" width="886" height="357" frameX="-54" frameY="-20" frameWidth="996" frameHeight="402"/>
+	<SubTexture name="DATE!!0008" x="868" y="402" width="886" height="357" frameX="-54" frameY="-20" frameWidth="996" frameHeight="402"/>
+	<SubTexture name="DATE!!0009" x="868" y="402" width="886" height="357" frameX="-54" frameY="-20" frameWidth="996" frameHeight="402"/>
+	<SubTexture name="DATE!!0010" x="868" y="402" width="886" height="357" frameX="-54" frameY="-20" frameWidth="996" frameHeight="402"/>
+	<SubTexture name="DATE!!0011" x="0" y="759" width="542" height="219" frameX="-225" frameY="-79" frameWidth="996" frameHeight="402"/>
+	<SubTexture name="DATE!!0012" x="542" y="759" width="228" height="93" frameX="-380" frameY="-133" frameWidth="996" frameHeight="402"/>
+	<SubTexture name="DATE!!0013" x="770" y="759" width="112" height="46" frameX="-438" frameY="-153" frameWidth="996" frameHeight="402"/>
+	<SubTexture name="DATE!!0014" x="882" y="759" width="2" height="2" frameX="-492" frameY="-172" frameWidth="996" frameHeight="402"/>
+</TextureAtlas>

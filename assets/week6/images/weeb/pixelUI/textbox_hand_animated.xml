@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="textbox_hand_animated.png">
+	<!-- Created with Adobe Animate version 21.0.1.37179 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="textbox hand animated0000" x="0" y="0" width="17" height="11" pivotX="10" pivotY="6" frameX="-1" frameY="0" frameWidth="20" frameHeight="13"/>
+	<SubTexture name="textbox hand animated0001" x="17" y="0" width="17" height="11" frameX="-1" frameY="0" frameWidth="20" frameHeight="13"/>
+	<SubTexture name="textbox hand animated0002" x="34" y="0" width="20" height="13"/>
+	<SubTexture name="textbox hand animated0003" x="0" y="13" width="20" height="13"/>
+</TextureAtlas>

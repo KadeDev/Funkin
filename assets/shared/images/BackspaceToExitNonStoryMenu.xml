@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="BackspaceToExitNonStoryMenu.png">
+	<!-- Created with Adobe Animate version 21.0.1.37179 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="backspace to exit0000" x="0" y="0" width="280" height="106" pivotX="0" pivotY="0"/>
+	<SubTexture name="backspace to exit0001" x="0" y="106" width="280" height="106"/>
+	<SubTexture name="backspace to exit0002" x="0" y="212" width="280" height="106"/>
+	<SubTexture name="backspace to exit0003" x="0" y="318" width="280" height="106"/>
+</TextureAtlas>
