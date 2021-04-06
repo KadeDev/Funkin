@@ -517,15 +517,12 @@ class PlayState extends MusicBeatState
 					bgTrees.scrollFactor.set(0.85, 0.85);
 					add(bgTrees);
 
-					if (FlxG.save.data.effects)
-						{
-							var treeLeaves:FlxSprite = new FlxSprite(repositionShit, -40);
-							treeLeaves.frames = Paths.getSparrowAtlas('weeb/petals');
-							treeLeaves.animation.addByPrefix('leaves', 'PETALS ALL', 24, true);
-							treeLeaves.animation.play('leaves');
-							treeLeaves.scrollFactor.set(0.85, 0.85);
-							add(treeLeaves);
-						}
+					var treeLeaves:FlxSprite = new FlxSprite(repositionShit, -40);
+					treeLeaves.frames = Paths.getSparrowAtlas('weeb/petals');
+					treeLeaves.animation.addByPrefix('leaves', 'PETALS ALL', 24, true);
+					treeLeaves.animation.play('leaves');
+					treeLeaves.scrollFactor.set(0.85, 0.85);
+					add(treeLeaves);
 
 
 					var widShit = Std.int(bgSky.width * 6);
