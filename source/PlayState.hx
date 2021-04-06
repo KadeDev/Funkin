@@ -260,20 +260,20 @@ class PlayState extends MusicBeatState
 		switch (SONG.song.toLowerCase())
 		{
 			case 'tutorial':
-				dialogue = ["Hey you're pretty cute.", 'Use the arrow keys to keep up \nwith me singing.'];
+				dialogue = ["Hey, you're pretty cute.", 'Use the arrow keys to keep up \nwith my singing.'];
 			case 'bopeebo':
 				dialogue = [
 					'HEY!',
-					"You think you can just sing\nwith my daughter like that?",
-					"If you want to date her...",
+					"You think you can just sing\nwith MY daughter like that?",
+					"If you want to date HER...",
 					"You're going to have to go \nthrough ME first!"
 				];
 			case 'fresh':
-				dialogue = ["Not too shabby boy.", ""];
+				dialogue = ["Not too shabby, boy.", "But you won't win this one."];
 			case 'dadbattle':
 				dialogue = [
-					"gah you think you're hot stuff?",
-					"If you can beat me here...",
+					"GAH, you think YOU'RE hot stuff?",
+					"If you can beat me here, at my magnum opus...",
 					"Only then I will even CONSIDER letting you\ndate my daughter!"
 				];
 			case 'senpai':
@@ -1588,6 +1588,8 @@ class PlayState extends MusicBeatState
 		if (FlxG.keys.justPressed.NINE)
 		{
 			if (iconP1.animation.curAnim.name == 'bf-old')
+				iconP1.animation.play('bf-old-alt');
+			else if (iconP1.animation.curAnim.name == 'bf-old-alt')
 				iconP1.animation.play(SONG.player1);
 			else
 				iconP1.animation.play('bf-old');
