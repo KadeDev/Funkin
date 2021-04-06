@@ -37,7 +37,7 @@ class StoryMenuState extends MusicBeatState
 	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true, true];
 
 	var weekCharacters:Array<Dynamic> = [
-		['gf', 'bf', ''],
+		['', 'bf', 'gf'],
 		['dad', 'bf', 'gf'],
 		['spooky', 'bf', 'gf'],
 		['pico', 'bf', 'gf'],
@@ -47,13 +47,13 @@ class StoryMenuState extends MusicBeatState
 	];
 
 	var weekNames:Array<String> = [
-		"",
-		"Daddy Dearest",
+		"How to Funk",
+		"Who should she call Daddy",
 		"Spooky Month",
-		"PICO",
+		"Pico's Musical School",
 		"MOMMY MUST MURDER",
 		"RED SNOW",
-		"hating simulator ft. moawling"
+		"Hating Simulator"
 	];
 
 	var txtWeekTitle:FlxText;
