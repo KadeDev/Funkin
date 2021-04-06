@@ -110,6 +110,27 @@ class DownscrollOption extends Option
 	}
 }
 
+class EffectsEnabledOption extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		FlxG.save.data.effects = !FlxG.save.data.effects;
+		display = updateDisplay();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return FlxG.save.data.effects ? "Effects Off" : "Effects On";
+	}
+}
+
 class AccuracyOption extends Option
 {
 	public function new(desc:String)
