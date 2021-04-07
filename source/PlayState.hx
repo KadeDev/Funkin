@@ -352,8 +352,21 @@ class PlayState extends MusicBeatState
 			{
 					curStage = 'limo';
 					defaultCamZoom = 0.90;
-
-					var skyBG:FlxSprite = new FlxSprite(-120, -50).loadGraphic(Paths.image('limo/limoSunset'));
+					switch(SONG.song.toLowerCase())
+					{
+						case 'milf'
+						{
+							var skyBG:FlxSprite = new FlxSprite(-120, -50).loadGraphic(Paths.image('limo/LimoSundown'));
+						}
+						case 'high'
+						{
+							var skyBG:FlxSprite = new FlxSprite(-120, -50).loadGraphic(Paths.image('limo/limoSunset'));
+						}
+						case 'satin-panties'
+						{
+							var skyBG:FlxSprite = new FlxSprite(-120, -50).loadGraphic(Paths.image('limo/LimoSunny'));
+						}
+					}
 					skyBG.scrollFactor.set(0.1, 0.1);
 					add(skyBG);
 
