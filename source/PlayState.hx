@@ -354,15 +354,15 @@ class PlayState extends MusicBeatState
 					defaultCamZoom = 0.90;
 					switch(SONG.song.toLowerCase())
 					{
-						case 'milf'
+						case 'milf':
 						{
 							var skyBG:FlxSprite = new FlxSprite(-120, -50).loadGraphic(Paths.image('limo/LimoSundown'));
 						}
-						case 'high'
+						case 'high':
 						{
 							var skyBG:FlxSprite = new FlxSprite(-120, -50).loadGraphic(Paths.image('limo/limoSunset'));
 						}
-						case 'satin-panties'
+						case 'satin-panties':
 						{
 							var skyBG:FlxSprite = new FlxSprite(-120, -50).loadGraphic(Paths.image('limo/LimoSunny'));
 						}
