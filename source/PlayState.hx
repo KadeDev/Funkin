@@ -357,18 +357,22 @@ class PlayState extends MusicBeatState
 						case 'milf':
 						{
 							var skyBG:FlxSprite = new FlxSprite(-120, -50).loadGraphic(Paths.image('limo/LimoSundown'));
+							skyBG.scrollFactor.set(0.1, 0.1);
+							add(skyBG);
 						}
 						case 'high':
 						{
 							var skyBG:FlxSprite = new FlxSprite(-120, -50).loadGraphic(Paths.image('limo/limoSunset'));
+							skyBG.scrollFactor.set(0.1, 0.1);
+							add(skyBG);
 						}
 						case 'satin-panties':
 						{
 							var skyBG:FlxSprite = new FlxSprite(-120, -50).loadGraphic(Paths.image('limo/LimoSunny'));
+							skyBG.scrollFactor.set(0.1, 0.1);
+							add(skyBG);
 						}
 					}
-					skyBG.scrollFactor.set(0.1, 0.1);
-					add(skyBG);
 
 					var bgLimo:FlxSprite = new FlxSprite(-200, 480);
 					bgLimo.frames = Paths.getSparrowAtlas('limo/bgLimo');
