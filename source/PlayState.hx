@@ -380,15 +380,16 @@ class PlayState extends MusicBeatState
 					bgLimo.animation.play('drive');
 					bgLimo.scrollFactor.set(0.4, 0.4);
 					add(bgLimo);
-
-					grpLimoDancers = new FlxTypedGroup<BackgroundDancer>();
-					add(grpLimoDancers);
-
-					for (i in 0...5)
-					{
-							var dancer:BackgroundDancer = new BackgroundDancer((370 * i) + 130, bgLimo.y - 400);
-							dancer.scrollFactor.set(0.4, 0.4);
-							grpLimoDancers.add(dancer);
+					if (!FlxG.save.data.effects){
+						grpLimoDancers = new FlxTypedGroup<BackgroundDancer>();
+						add(grpLimoDancers);
+	
+						for (i in 0...5)
+						{
+								var dancer:BackgroundDancer = new BackgroundDancer((370 * i) + 130, bgLimo.y - 400);
+								dancer.scrollFactor.set(0.4, 0.4);
+								grpLimoDancers.add(dancer);
+						}
 					}
 
 					var overlayShit:FlxSprite = new FlxSprite(-500, -600).loadGraphic(Paths.image('limo/limoOverlay'));
@@ -3162,6 +3163,7 @@ class PlayState extends MusicBeatState
 		if (curBeat % 8 == 7 && curSong == 'Bopeebo')
 		{
 			boyfriend.playAnim('hey', true);
+			gf.playAnim('cheer', true);
 		}
 
 		if (curBeat % 16 == 15 && SONG.song == 'Tutorial' && dad.curCharacter == 'gf' && curBeat > 16 && curBeat < 48)
@@ -3173,7 +3175,11 @@ class PlayState extends MusicBeatState
 		switch (curStage)
 		{
 			case 'school':
-				bgGirls.dance();
+				if (!FlxG.save.data.effects)
+					{
+						bgGirls.dance();
+					}
+
 
 			case 'mall':
 				if (!FlxG.save.data.effects){
@@ -3183,10 +3189,13 @@ class PlayState extends MusicBeatState
 				}
 
 			case 'limo':
-				grpLimoDancers.forEach(function(dancer:BackgroundDancer)
-				{
-					dancer.dance();
-				});
+				if (!FlxG.save.data.effects){
+					grpLimoDancers.forEach(function(dancer:BackgroundDancer)
+						{
+							dancer.dance();
+						});
+				}
+
 
 				if (FlxG.random.bool(10) && fastCarCanDrive)
 					fastCarDrive();
