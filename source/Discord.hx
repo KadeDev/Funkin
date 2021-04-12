@@ -1,7 +1,9 @@
 package;
 
 import Sys.sleep;
+#if desktop
 import discord_rpc.DiscordRpc;
+#end
 
 using StringTools;
 
@@ -9,6 +11,7 @@ class DiscordClient
 {
 	public function new()
 	{
+		#if desktop
 		trace("Discord Client starting...");
 		DiscordRpc.start({
 			clientID: "557069829501091850", // change this to what ever the fuck you want lol
@@ -26,21 +29,26 @@ class DiscordClient
 		}
 
 		DiscordRpc.shutdown();
+		#end
 	}
 
 	public static function shutdown()
 	{
+		#if desktop
 		DiscordRpc.shutdown();
+		#end
 	}
 
 	static function onReady()
 	{
+		#if desktop
 		DiscordRpc.presence({
 			details: "In the Menus",
 			state: null,
 			largeImageKey: 'icon',
 			largeImageText: "fridaynightfunkin"
 		});
+		#end
 	}
 
 	static function onError(_code:Int, _message:String)
