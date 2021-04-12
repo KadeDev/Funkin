@@ -29,6 +29,7 @@ class HealthIcon extends FlxSprite
 		animation.add('senpai', [22, 28], 0, false, isPlayer);
 		animation.add('senpai-angry', [22, 28], 0, false, isPlayer);
 		animation.add('spirit', [23, 29], 0, false, isPlayer);
+		animation.add('spirit-flash', [23, 29], 0, false, isPlayer);
 		animation.add('bf-old', [14, 15], 0, false, isPlayer);
 		animation.add('bf-old-alt', [24, 25], 0, false, isPlayer);
 		animation.add('gf', [16, 26], 0, false, isPlayer);
@@ -40,7 +41,7 @@ class HealthIcon extends FlxSprite
 		scrollFactor.set();
 		switch(char)
 		{
-			case 'senpai' | 'senpai-angry' | 'spirit' | 'bf-pixel':
+			case 'senpai' | 'senpai-angry' | 'spirit' | 'bf-pixel' | 'spirit-flash':
 			{
 				antialiasing = false;
 			}

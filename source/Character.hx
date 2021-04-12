@@ -469,6 +469,27 @@ class Character extends FlxSprite
 				playAnim('idle');
 
 				antialiasing = false;
+			
+			case 'spirit-flash':
+				frames = Paths.getSparrowAtlas('weeb/Spirit_Flash');
+				animation.addByPrefix('idle', "spirit IDLE", 24, false);
+				animation.addByPrefix('singUP', "spirit UP", 24, false);
+				animation.addByPrefix('singRIGHT', "spirit RIGHT", 24, false);
+				animation.addByPrefix('singLEFT', "spirit LEFT", 24, false);
+				animation.addByPrefix('singDOWN', "spirit DOWN", 24, false);
+
+				addOffset('idle', -220, -280);
+				addOffset('singUP', -220, -240);
+				addOffset("singRIGHT", -220, -280);
+				addOffset("singLEFT", -200, -280);
+				addOffset("singDOWN", 170, 110);
+	
+				setGraphicSize(Std.int(width * 6));
+				updateHitbox();
+	
+				playAnim('idle');
+	
+				antialiasing = false;
 
 			case 'parents-christmas':
 				frames = Paths.getSparrowAtlas('christmas/mom_dad_christmas_assets');
