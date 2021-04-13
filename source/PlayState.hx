@@ -129,7 +129,6 @@ class PlayState extends MusicBeatState
 
 	var notesHitArray:Array<Date> = [];
 	var currentFrames:Int = 0;
-
 	var dialogue:Array<String> = ['blah blah blah', 'coolswag'];
 
 	var halloweenBG:FlxSprite;
@@ -194,6 +193,8 @@ class PlayState extends MusicBeatState
 
 		repPresses = 0;
 		repReleases = 0;
+
+		
 
 		#if desktop
 		// Making difficulty text for Discord Rich Presence.
@@ -394,13 +395,15 @@ class PlayState extends MusicBeatState
 
 					var overlayShit:FlxSprite = new FlxSprite(-500, -600).loadGraphic(Paths.image('limo/limoOverlay'));
 					overlayShit.alpha = 0.5;
-					// add(overlayShit);
+					if (FlxG.save.data.effects){
+						add(overlayShit);
 
-					// var shaderBullshit = new BlendModeEffect(new OverlayShader(), FlxColor.RED);
-
-					// FlxG.camera.setFilters([new ShaderFilter(cast shaderBullshit.shader)]);
-
-					// overlayShit.shader = shaderBullshit;
+						var shaderBullshit = new BlendModeEffect(new OverlayShader(), FlxColor.RED);
+	
+						FlxG.camera.setFilters([new ShaderFilter(cast shaderBullshit.shader)]);
+	
+						overlayShit.shader = shaderBullshit;
+					}
 
 					var limoTex = Paths.getSparrowAtlas('limo/limoDrive');
 
@@ -849,7 +852,32 @@ class PlayState extends MusicBeatState
 		healthBar = new FlxBar(healthBarBG.x + 4, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 8), Std.int(healthBarBG.height - 8), this,
 			'health', 0, 2);
 		healthBar.scrollFactor.set();
-		healthBar.createFilledBar(0xFFFF0000, 0xFF66FF33);
+		switch(player2){
+			case 'dad' | 'mom' | 'mom-car' | 'parents-christmas':{
+				healthBar.createFilledBar(FlxColor.fromRGB(138, 49, 173), FlxColor.fromRGB(255, 102, 255));
+			}
+			case 'pico':{
+				healthBar.createFilledBar(FlxColor.fromRGB(0, 191, 92), FlxColor.fromRGB(255, 102, 255));
+			}
+			case 'spooky':{
+				healthBar.createFilledBar(FlxColor.fromRGB(255, 145, 0), FlxColor.fromRGB(255, 102, 255));
+			}
+			case 'monster' | 'monster-christmas':{
+				healthBar.createFilledBar(FlxColor.fromRGB(255, 227, 115), FlxColor.fromRGB(255, 102, 255));
+			}
+			case 'senpai' | 'senpai-angry':{
+				healthBar.createFilledBar(FlxColor.fromRGB(255, 185, 64), FlxColor.fromRGB(255, 102, 255));
+			}
+			case 'tankman':{
+				healthBar.createFilledBar(FlxColor.fromRGB(28, 28, 28), FlxColor.fromRGB(255, 102, 255));
+			}
+			case 'face':{
+				healthBar.createFilledBar(FlxColor.fromRGB(122, 122, 122), FlxColor.fromRGB(255, 102, 255));
+			}
+			default:{
+				healthBar.createFilledBar(FlxColor.fromRGB(255, 0, 0), FlxColor.fromRGB(255, 102, 255));
+			}
+		}
 		// healthBar
 		add(healthBar);
 
