@@ -261,22 +261,13 @@ class PlayState extends MusicBeatState
 		switch (SONG.song.toLowerCase())
 		{
 			case 'tutorial':
-				dialogue = ["Hey, you're pretty cute.", 'Use the arrow keys to keep up \nwith my singing.'];
+				dialogue = CoolUtil.coolTextFile(Paths.txt('tutorial/tutorialDialogue'));
 			case 'bopeebo':
-				dialogue = [
-					'HEY!',
-					"You think you can just sing\nwith MY daughter like that?",
-					"If you want to date HER...",
-					"You're going to have to go \nthrough ME first!"
-				];
+				dialogue = CoolUtil.coolTextFile(Paths.txt('bopeebo/bopeeboDialogue'));
 			case 'fresh':
-				dialogue = ["Not too shabby, boy.", "But you won't win this one."];
+				dialogue = CoolUtil.coolTextFile(Paths.txt('fresh/freshDialogue'));
 			case 'dadbattle':
-				dialogue = [
-					"GAH, you think YOU'RE hot stuff?",
-					"If you can beat me here, at my magnum opus...",
-					"Only then I will even CONSIDER letting you\ndate my daughter!"
-				];
+				dialogue = CoolUtil.coolTextFile(Paths.txt('dadbattle/dadbattleDialogue'));
 			case 'senpai':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('senpai/senpaiDialogue'));
 			case 'roses':
@@ -944,7 +935,7 @@ class PlayState extends MusicBeatState
 			{
 				
 				case "winter-horrorland":
-					if (!FlxG.save.data.effects){
+					if (FlxG.save.data.effects){
 						var blackScreen:FlxSprite = new FlxSprite(0, 0).makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.BLACK);
 						add(blackScreen);
 						blackScreen.scrollFactor.set();
