@@ -18,11 +18,11 @@ class GameplayCustomizeState extends MusicBeatState
     var defaultX:Float = FlxG.width * 0.55 - 135;
     var defaultY:Float = FlxG.height / 2 - 50;
 
-    var background:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('stageback','shared'));
-    var curt:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtains','shared'));
-    var front:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('stagefront','shared'));
+    var background:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('testenvback','shared'));
+    var curt:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('testenvcurtains','shared'));
+    var front:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('testenvfront','shared'));
 
-    var sick:FlxSprite = new FlxSprite().loadGraphic(Paths.image('sick','shared'));
+    var sick:FlxSprite = new FlxSprite().loadGraphic(Paths.image('scoretextmodule','shared'));
 
     var bf:Boyfriend = new Boyfriend(770, 450, 'bf-test');
     var dad:Character;
