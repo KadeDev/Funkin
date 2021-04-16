@@ -35,6 +35,10 @@ import openfl.events.IOErrorEvent;
 import openfl.media.Sound;
 import openfl.net.FileReference;
 import openfl.utils.ByteArray;
+#if desktop
+import Discord.DiscordClient;
+import sys.thread.Thread;
+#end
 
 using StringTools;
 
@@ -90,7 +94,10 @@ class ChartingState extends MusicBeatState
 
 	override function create()
 	{
-
+		#if desktop
+		// Updating Discord Rich Presence
+		DiscordClient.changePresence("In the Charting Menu", null);
+		#end
 		gridBG = FlxGridOverlay.create(GRID_SIZE, GRID_SIZE, GRID_SIZE * 8, GRID_SIZE * 16);
 		add(gridBG);
 

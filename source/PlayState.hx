@@ -247,6 +247,8 @@ class PlayState extends MusicBeatState
 		FlxG.cameras.reset(camGame);
 		FlxG.cameras.add(camHUD);
 
+		public var charToAnimDebug:String = CoolUtil.coolTextFile(Paths.txt('variousdevthingies/chartoanimdebug'));
+
 		FlxCamera.defaultCameras = [camGame];
 
 		persistentUpdate = true;
@@ -278,12 +280,12 @@ class PlayState extends MusicBeatState
 
 		switch(SONG.song.toLowerCase())
 		{
-			case 'spookeez' | 'monster' | 'south': 
+			case 'spookeez' | 'south': 
 			{
 				curStage = 'spooky';
 				halloweenLevel = true;
 
-				var hallowTex = Paths.getSparrowAtlas('halloween_bg');
+				var hallowTex = Paths.getSparrowAtlas('halloween_bg_withmonster');
 
 				halloweenBG = new FlxSprite(-200, -100);
 				halloweenBG.frames = hallowTex;
@@ -296,6 +298,24 @@ class PlayState extends MusicBeatState
 
 				isHalloween = true;
 			}
+			case 'monster': 
+				{
+					curStage = 'spooky';
+					halloweenLevel = true;
+	
+					var hallowTex = Paths.getSparrowAtlas('halloween_bg');
+	
+					halloweenBG = new FlxSprite(-200, -100);
+					halloweenBG.frames = hallowTex;
+					halloweenBG.animation.addByPrefix('idle', 'halloweem bg0');
+					
+					halloweenBG.animation.addByPrefix('lightning', 'halloweem bg lightning strike', 24, false);
+					halloweenBG.animation.play('idle');
+					halloweenBG.antialiasing = true;
+					add(halloweenBG);
+	
+					isHalloween = true;
+				}
 			case 'pico' | 'blammed' | 'philly': 
 					{
 					curStage = 'philly';
@@ -844,6 +864,7 @@ class PlayState extends MusicBeatState
 			'health', 0, 2);
 		healthBar.scrollFactor.set();
 		switch(SONG.player2){
+			//please please dont complain about this code i hate myself for this
 			case 'dad' | 'mom' | 'mom-car' | 'parents-christmas':{
 				healthBar.createFilledBar(FlxColor.fromRGB(138, 49, 173), FlxColor.fromRGB(58, 162, 207));
 			}
@@ -1751,6 +1772,12 @@ class PlayState extends MusicBeatState
 		#if debug
 		if (FlxG.keys.justPressed.EIGHT)
 			FlxG.switchState(new AnimationDebug(SONG.player2));
+		if (FlxG.keys.justPressed.ONE)
+			FlxG.switchState(new AnimationDebug(SONG.player1));
+		if (FlxG.keys.justPressed.TWO)
+			FlxG.switchState(new AnimationDebug(gfVersion));
+		if (FlxG.keys.justPressed.THREE)
+			FlxG.switchState(new AnimationDebug(charToAnimDebug));
 		#end
 
 		if (startingSong)

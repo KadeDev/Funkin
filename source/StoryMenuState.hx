@@ -49,7 +49,7 @@ class StoryMenuState extends MusicBeatState
 	var weekNames:Array<String> = [
 		"How to Funk",
 		"Who should she call Daddy",
-		"Spooky Month",
+		"The End of Spooky Month",
 		"Pico's Musical School",
 		"MOMMY MUST MURDER",
 		"RED SNOW",
@@ -76,7 +76,7 @@ class StoryMenuState extends MusicBeatState
 	{
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
+		DiscordClient.changePresence("In the Story Mode Menu", null);
 		#end
 
 		transIn = FlxTransitionableState.defaultTransIn;

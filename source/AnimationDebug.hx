@@ -8,6 +8,10 @@ import flixel.addons.display.FlxGridOverlay;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
+#if desktop
+import Discord.DiscordClient;
+import sys.thread.Thread;
+#end
 
 /**
 	*DEBUG MODE
@@ -33,6 +37,10 @@ class AnimationDebug extends FlxState
 
 	override function create()
 	{
+		#if desktop
+		// Updating Discord Rich Presence
+		DiscordClient.changePresence("In the Animation Debug Menu (NOT CURRENTLY MEANT FOR PUBLIC USE DON'T ASK)", null);
+		#end
 		FlxG.sound.music.stop();
 
 		var gridBG:FlxSprite = FlxGridOverlay.create(10, 10);

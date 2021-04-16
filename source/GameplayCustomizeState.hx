@@ -35,7 +35,7 @@ class GameplayCustomizeState extends MusicBeatState
     public override function create() {
         #if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("Customizing Gameplay", null);
+		DiscordClient.changePresence("Customizing Gameplay Modules", null);
 		#end
 
 		Conductor.changeBPM(102);
