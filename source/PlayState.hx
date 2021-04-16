@@ -1768,8 +1768,26 @@ class PlayState extends MusicBeatState
 
 		/* if (FlxG.keys.justPressed.NINE)
 			FlxG.switchState(new Charting()); */
-
-		#if debug
+		//ANIMATION KEYS FOR TESTING AND GETTING READY FOR BATTLE SYSTEM
+		if (FlxG.keys.justPressed.C)
+			gf.playAnim('cheer');
+		if (FlxG.keys.justPressed.V)
+			boyfriend.playAnim('hey');
+		if (FlxG.keys.justPressed.F)
+			boyfriend.playAnim('scared');
+			gf.playAnim('scared');
+		if(FlxG.keys.justPressed.R)
+			boyfriend.playAnim('firstDeath');
+		if(FlxG.keys.justPressed.Q)
+			boyfriend.playAnim('attack');
+		if(FlxG.keys.justPressed.E)
+			boyfriend.playAnim('dodge');
+			gf.playAnim('duck');
+		if(FlxG.keys.justPressed.H)
+			boyfriend.playAnim('hit');
+		if(FlxG.keys.justPressed.P)
+			boyfriend.playAnim('preattack');
+		//ANIMATION DEBUG STATE SWITCHES
 		if (FlxG.keys.justPressed.EIGHT)
 			FlxG.switchState(new AnimationDebug(SONG.player2));
 		if (FlxG.keys.justPressed.ONE)
@@ -1778,7 +1796,6 @@ class PlayState extends MusicBeatState
 			FlxG.switchState(new AnimationDebug(gfVersion));
 		if (FlxG.keys.justPressed.THREE)
 			FlxG.switchState(new AnimationDebug(charToAnimDebug));
-		#end
 
 		if (startingSong)
 		{

@@ -35,6 +35,10 @@ class HealthIcon extends FlxSprite
 		animation.add('bf-old', [14, 15], 0, false, isPlayer);
 		animation.add('bf-old-alt', [24, 25], 0, false, isPlayer);
 		animation.add('gf', [16, 26], 0, false, isPlayer);
+		animation.add('gf-christmas', [16, 26], 0, false, isPlayer);
+		animation.add('gf-pixel', [16, 26], 0, false, isPlayer);
+		animation.add('gf-steps', [16, 26], 0, false, isPlayer);
+		animation.add('gf-car', [16, 26], 0, false, isPlayer);
 		animation.add('parents-christmas', [17, 18], 0, false, isPlayer);
 		animation.add('monster', [19, 20], 0, false, isPlayer);
 		animation.add('monster-christmas', [19, 20], 0, false, isPlayer);
