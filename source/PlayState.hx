@@ -129,7 +129,7 @@ class PlayState extends MusicBeatState
 
 	var notesHitArray:Array<Date> = [];
 	var currentFrames:Int = 0;
-	var dialogue:Array<String> = ['blah blah blah', 'coolswag'];
+	var dialogue:Array<String> = ['dad:swagshit', 'bf:money money'];
 
 	var halloweenBG:FlxSprite;
 	var isHalloween:Bool = false;
@@ -270,12 +270,42 @@ class PlayState extends MusicBeatState
 				dialogue = CoolUtil.coolTextFile(Paths.txt('fresh/freshDialogue'));
 			case 'dadbattle':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('dadbattle/dadbattleDialogue'));
+			case 'spookeez':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('spookeez/spookeezDialogue'));
+			case 'south':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('south/southDialogue'));
+			case 'monster':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('monster/monsterDialogue'));
+			case 'pico':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('pico/picoDialogue'));
+			case 'philly':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('philly/phillyDialogue'));
+			case 'blammed':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('blammed/blammedDialogue'));
+			case 'satin-panties':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('satin-panties/satin-pantiesDialogue'));
+			case 'high':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('high/highDialogue'));
+			case 'milf':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('milf/milfDialogue'));
+			case 'cocoa':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('cocoa/cocoaDialogue'));
+			case 'eggnog':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('eggnog/eggnogDialogue'));
+			case 'winter-horrorland':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('winter-horrorland/winter-horrorlandDialogue'));
 			case 'senpai':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('senpai/senpaiDialogue'));
 			case 'roses':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('roses/rosesDialogue'));
 			case 'thorns':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('thorns/thornsDialogue'));
+			//funie easter eggs
+			case 'smash':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('smash/smashDialogue'));
+			case 'ridge':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('ridge/ridgeDialogue'));
+
 		}
 
 		switch(SONG.song.toLowerCase())

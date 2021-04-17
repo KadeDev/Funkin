@@ -94,6 +94,11 @@ class DialogueBox extends FlxSpriteGroup
 				var face:FlxSprite = new FlxSprite(320, 170).loadGraphic(Paths.image('weeb/spiritFaceForward'));
 				face.setGraphicSize(Std.int(face.width * 6));
 				add(face);
+			default:
+				hasDialog = true;
+				box.frames = Paths.getSparrowAtlas('DialogueBox','shared');
+				box.animation.addByPrefix('normalOpen', 'Text Box Appear', 24, false);
+				box.animation.addByIndices('normal', 'Text Box Appear', [4], "", 24);
 		}
 
 		this.dialogueList = dialogueList;
@@ -109,14 +114,95 @@ class DialogueBox extends FlxSpriteGroup
 				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.9));
 				portraitLeft.updateHitbox();
 				portraitLeft.scrollFactor.set();
+				portraitLeft.antialiasing = false;
 				add(portraitLeft);
 				portraitLeft.visible = false;
-			default:
-				portraitLeft.frames = Paths.getSparrowAtlas('weeb/senpaiPortrait');
+			case 'gf':
+				portraitLeft.frames = Paths.getSparrowAtlas('portraits/GFPortrait','shared');
 				portraitLeft.animation.addByPrefix('enter', 'Senpai Portrait Enter', 24, false);
 				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.9));
 				portraitLeft.updateHitbox();
 				portraitLeft.scrollFactor.set();
+				portraitLeft.antialiasing = true;
+				add(portraitLeft);
+				portraitLeft.visible = false;
+			case 'gf-christmas':
+				portraitLeft.frames = Paths.getSparrowAtlas('portraits/GFChristmasPortrait','shared');
+				portraitLeft.animation.addByPrefix('enter', 'Senpai Portrait Enter', 24, false);
+				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.9));
+				portraitLeft.updateHitbox();
+				portraitLeft.scrollFactor.set();
+				portraitLeft.antialiasing = true;
+				add(portraitLeft);
+				portraitLeft.visible = false;
+			case 'spooky':
+				portraitLeft.frames = Paths.getSparrowAtlas('portraits/SpookyPortrait','shared');
+				portraitLeft.animation.addByPrefix('enter', 'Senpai Portrait Enter', 24, false);
+				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.9));
+				portraitLeft.updateHitbox();
+				portraitLeft.scrollFactor.set();
+				portraitLeft.antialiasing = true;
+				add(portraitLeft);
+				portraitLeft.visible = false;
+			case 'parents-christmas':
+				switch (PlayState.SONG.song.toLowerCase()){
+					case 'cocoa':
+						portraitLeft.frames = Paths.getSparrowAtlas('portraits/ParentsChristmasPortrait','shared');
+					case 'eggnog':
+						portraitLeft.frames = Paths.getSparrowAtlas('portraits/ParentsChristmasAltPortrait','shared');
+					default:
+						portraitLeft.frames = Paths.getSparrowAtlas('portraits/ParentsChristmasNeitherSpecificPortrait','shared');
+				}
+				portraitLeft.animation.addByPrefix('enter', 'Senpai Portrait Enter', 24, false);
+				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.9));
+				portraitLeft.updateHitbox();
+				portraitLeft.scrollFactor.set();
+				portraitLeft.antialiasing = true;
+				add(portraitLeft);
+				portraitLeft.visible = false;
+			case 'pico':
+				portraitLeft.frames = Paths.getSparrowAtlas('portraits/PicoPortrait','shared');
+				portraitLeft.animation.addByPrefix('enter', 'Senpai Portrait Enter', 24, false);
+				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.9));
+				portraitLeft.updateHitbox();
+				portraitLeft.scrollFactor.set();
+				portraitLeft.antialiasing = true;
+				add(portraitLeft);
+				portraitLeft.visible = false;
+			case 'monster-christmas':
+				portraitLeft.frames = Paths.getSparrowAtlas('portraits/MONSTERChristmasPortrait','shared');
+				portraitLeft.animation.addByPrefix('enter', 'Senpai Portrait Enter', 24, false);
+				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.9));
+				portraitLeft.updateHitbox();
+				portraitLeft.scrollFactor.set();
+				portraitLeft.antialiasing = true;
+				add(portraitLeft);
+				portraitLeft.visible = false;
+			case 'monster':
+				portraitLeft.frames = Paths.getSparrowAtlas('portraits/MonsterPortrait','shared');
+				portraitLeft.animation.addByPrefix('enter', 'Senpai Portrait Enter', 24, false);
+				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.9));
+				portraitLeft.updateHitbox();
+				portraitLeft.scrollFactor.set();
+				portraitLeft.antialiasing = true;
+				add(portraitLeft);
+				portraitLeft.visible = false;
+			case 'mom' | 'mom-car':
+				portraitLeft.frames = Paths.getSparrowAtlas('portraits/momportrait','shared');
+				portraitLeft.animation.addByPrefix('enter', 'Senpai Portrait Enter', 24, false);
+				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.9));
+				portraitLeft.updateHitbox();
+				portraitLeft.scrollFactor.set();
+				portraitLeft.antialiasing = true;
+				add(portraitLeft);
+				portraitLeft.visible = false;
+			default:
+				portraitLeft.frames = Paths.getSparrowAtlas('portraits/DadPortrait','shared');
+				portraitLeft.animation.addByPrefix('enter', 'Senpai Portrait Enter', 24, false);
+				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.9));
+				portraitLeft.updateHitbox();
+				portraitLeft.scrollFactor.set();
+				portraitLeft.antialiasing = true;
 				add(portraitLeft);
 				portraitLeft.visible = false;
 		}
@@ -131,8 +217,17 @@ class DialogueBox extends FlxSpriteGroup
 				portraitRight.antialiasing = false;
 				add(portraitRight);
 				portraitRight.visible = false;
+			case 'bf-christmas':
+				portraitRight.frames = Paths.getSparrowAtlas('portraits/BFChristmasPortrait','shared');
+				portraitRight.animation.addByPrefix('enter', 'Boyfriend portrait enter', 24, false);
+				portraitRight.setGraphicSize(Std.int(portraitRight.width * PlayState.daPixelZoom * 0.9));
+				portraitRight.updateHitbox();
+				portraitRight.scrollFactor.set();
+				portraitRight.antialiasing = true;
+				add(portraitRight);
+				portraitRight.visible = false;
 			default:
-				portraitRight.frames = Paths.getSparrowAtlas('weeb/bfPortrait');
+				portraitRight.frames = Paths.getSparrowAtlas('portraits/BFREGPORTRAIT','shared');
 				portraitRight.animation.addByPrefix('enter', 'Boyfriend portrait enter', 24, false);
 				portraitRight.setGraphicSize(Std.int(portraitRight.width * PlayState.daPixelZoom * 0.9));
 				portraitRight.updateHitbox();
