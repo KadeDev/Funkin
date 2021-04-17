@@ -247,7 +247,6 @@ class PlayState extends MusicBeatState
 		FlxG.cameras.reset(camGame);
 		FlxG.cameras.add(camHUD);
 
-		public var charToAnimDebug:String = CoolUtil.coolTextFile(Paths.txt('variousdevthingies/chartoanimdebug'));
 
 		FlxCamera.defaultCameras = [camGame];
 
@@ -433,7 +432,6 @@ class PlayState extends MusicBeatState
 								grpLimoDancers.add(dancer);
 						}
 					}
-
 					var overlayShit:FlxSprite = new FlxSprite(-500, -600).loadGraphic(Paths.image('limo/limoOverlay'));
 					overlayShit.alpha = 0.5;
 					//if (FlxG.save.data.effects){
@@ -1009,25 +1007,33 @@ class PlayState extends MusicBeatState
 									ease: FlxEase.quadInOut,
 									onComplete: function(twn:FlxTween)
 									{
-										startCountdown();
+										schoolIntro(doof);
+										//commented out cuz its part of school intro
+										//startCountdown();
 									}
 								});
 							});
 						});
 					}
 					else{
-						startCountdown();
+						schoolIntro(doof);
+						//commented out cuz its part of school intro
+						//startCountdown();
 					}
-
-				case 'senpai':
-					schoolIntro(doof);
+				//START DIALOGUE SHIT
+				//commented out cuz dupe of default
+				//case 'senpai':
+				//	schoolIntro(doof);
 				case 'roses':
 					FlxG.sound.play(Paths.sound('ANGRY'));
 					schoolIntro(doof);
-				case 'thorns':
-					schoolIntro(doof);
+				//commented out cuz dupe of default
+				//case 'thorns':
+				//	schoolIntro(doof);
 				default:
-					startCountdown();
+					schoolIntro(doof);
+					//commented out because its a part of schoolintro
+					//startCountdown();
 			}
 		}
 		else
@@ -1798,34 +1804,13 @@ class PlayState extends MusicBeatState
 
 		/* if (FlxG.keys.justPressed.NINE)
 			FlxG.switchState(new Charting()); */
-		//ANIMATION KEYS FOR TESTING AND GETTING READY FOR BATTLE SYSTEM
-		if (FlxG.keys.justPressed.C)
-			gf.playAnim('cheer');
-		if (FlxG.keys.justPressed.V)
-			boyfriend.playAnim('hey');
-		if (FlxG.keys.justPressed.F)
-			boyfriend.playAnim('scared');
-			gf.playAnim('scared');
-		if(FlxG.keys.justPressed.R)
-			boyfriend.playAnim('firstDeath');
-		if(FlxG.keys.justPressed.Q)
-			boyfriend.playAnim('attack');
-		if(FlxG.keys.justPressed.E)
-			boyfriend.playAnim('dodge');
-			gf.playAnim('duck');
-		if(FlxG.keys.justPressed.H)
-			boyfriend.playAnim('hit');
-		if(FlxG.keys.justPressed.P)
-			boyfriend.playAnim('preattack');
 		//ANIMATION DEBUG STATE SWITCHES
 		if (FlxG.keys.justPressed.EIGHT)
 			FlxG.switchState(new AnimationDebug(SONG.player2));
 		if (FlxG.keys.justPressed.ONE)
 			FlxG.switchState(new AnimationDebug(SONG.player1));
-		if (FlxG.keys.justPressed.TWO)
-			FlxG.switchState(new AnimationDebug(gfVersion));
-		if (FlxG.keys.justPressed.THREE)
-			FlxG.switchState(new AnimationDebug(charToAnimDebug));
+		//if (FlxG.keys.justPressed.TWO)
+			//FlxG.switchState(new AnimationDebug(gfVersion));
 
 		if (startingSong)
 		{
