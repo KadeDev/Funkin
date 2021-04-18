@@ -107,6 +107,7 @@ class DialogueBox extends FlxSpriteGroup
 			return;
 		
 		portraitLeft = new FlxSprite(-20, 40);
+		portraitLeft.antialiasing = true;
 		switch(PlayState.SONG.player2){
 			case 'senpai' | 'senpai-angry' | 'spirit':
 				portraitLeft.frames = Paths.getSparrowAtlas('weeb/senpaiPortrait');
@@ -114,8 +115,8 @@ class DialogueBox extends FlxSpriteGroup
 				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.9));
 				portraitLeft.updateHitbox();
 				portraitLeft.scrollFactor.set();
-				portraitLeft.antialiasing = false;
 				add(portraitLeft);
+				portraitLeft.antialiasing = false;
 				portraitLeft.visible = false;
 			case 'gf':
 				portraitLeft.frames = Paths.getSparrowAtlas('portraits/GFPortrait','shared');
@@ -123,7 +124,6 @@ class DialogueBox extends FlxSpriteGroup
 				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.9));
 				portraitLeft.updateHitbox();
 				portraitLeft.scrollFactor.set();
-				portraitLeft.antialiasing = true;
 				add(portraitLeft);
 				portraitLeft.visible = false;
 			case 'gf-christmas':
@@ -132,7 +132,6 @@ class DialogueBox extends FlxSpriteGroup
 				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.9));
 				portraitLeft.updateHitbox();
 				portraitLeft.scrollFactor.set();
-				portraitLeft.antialiasing = true;
 				add(portraitLeft);
 				portraitLeft.visible = false;
 			case 'spooky':
@@ -141,7 +140,6 @@ class DialogueBox extends FlxSpriteGroup
 				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.9));
 				portraitLeft.updateHitbox();
 				portraitLeft.scrollFactor.set();
-				portraitLeft.antialiasing = true;
 				add(portraitLeft);
 				portraitLeft.visible = false;
 			case 'parents-christmas':
@@ -157,7 +155,6 @@ class DialogueBox extends FlxSpriteGroup
 				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.9));
 				portraitLeft.updateHitbox();
 				portraitLeft.scrollFactor.set();
-				portraitLeft.antialiasing = true;
 				add(portraitLeft);
 				portraitLeft.visible = false;
 			case 'pico':
@@ -166,7 +163,6 @@ class DialogueBox extends FlxSpriteGroup
 				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.9));
 				portraitLeft.updateHitbox();
 				portraitLeft.scrollFactor.set();
-				portraitLeft.antialiasing = true;
 				add(portraitLeft);
 				portraitLeft.visible = false;
 			case 'monster-christmas':
@@ -175,7 +171,6 @@ class DialogueBox extends FlxSpriteGroup
 				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.9));
 				portraitLeft.updateHitbox();
 				portraitLeft.scrollFactor.set();
-				portraitLeft.antialiasing = true;
 				add(portraitLeft);
 				portraitLeft.visible = false;
 			case 'monster':
@@ -184,7 +179,6 @@ class DialogueBox extends FlxSpriteGroup
 				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.9));
 				portraitLeft.updateHitbox();
 				portraitLeft.scrollFactor.set();
-				portraitLeft.antialiasing = true;
 				add(portraitLeft);
 				portraitLeft.visible = false;
 			case 'mom' | 'mom-car':
@@ -193,7 +187,6 @@ class DialogueBox extends FlxSpriteGroup
 				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.9));
 				portraitLeft.updateHitbox();
 				portraitLeft.scrollFactor.set();
-				portraitLeft.antialiasing = true;
 				add(portraitLeft);
 				portraitLeft.visible = false;
 			default:
@@ -202,11 +195,11 @@ class DialogueBox extends FlxSpriteGroup
 				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.9));
 				portraitLeft.updateHitbox();
 				portraitLeft.scrollFactor.set();
-				portraitLeft.antialiasing = true;
 				add(portraitLeft);
 				portraitLeft.visible = false;
 		}
 		portraitRight = new FlxSprite(0, 40);
+		portraitRight.antialiasing = true;
 		switch(PlayState.SONG.player1){
 			case 'bf-pixel':
 				portraitRight.frames = Paths.getSparrowAtlas('weeb/bfPortrait');
@@ -214,7 +207,6 @@ class DialogueBox extends FlxSpriteGroup
 				portraitRight.setGraphicSize(Std.int(portraitRight.width * PlayState.daPixelZoom * 0.9));
 				portraitRight.updateHitbox();
 				portraitRight.scrollFactor.set();
-				portraitRight.antialiasing = false;
 				add(portraitRight);
 				portraitRight.visible = false;
 			case 'bf-christmas':
@@ -223,7 +215,6 @@ class DialogueBox extends FlxSpriteGroup
 				portraitRight.setGraphicSize(Std.int(portraitRight.width * PlayState.daPixelZoom * 0.9));
 				portraitRight.updateHitbox();
 				portraitRight.scrollFactor.set();
-				portraitRight.antialiasing = true;
 				add(portraitRight);
 				portraitRight.visible = false;
 			default:
@@ -232,17 +223,20 @@ class DialogueBox extends FlxSpriteGroup
 				portraitRight.setGraphicSize(Std.int(portraitRight.width * PlayState.daPixelZoom * 0.9));
 				portraitRight.updateHitbox();
 				portraitRight.scrollFactor.set();
-				portraitRight.antialiasing = true;
 				add(portraitRight);
 				portraitRight.visible = false;
 		}
-		
 		box.animation.play('normalOpen');
 		box.setGraphicSize(Std.int(box.width * PlayState.daPixelZoom * 0.9));
 		box.updateHitbox();
 		add(box);
 
 		box.screenCenter(X);
+		box.antialiasing = true;
+		switch(PlayState.SONG.song.toLowerCase()){
+			case 'senpai' | 'roses' | 'thorns':
+				box.antialiasing = false;
+		}
 		portraitLeft.screenCenter(X);
 
 		handSelect = new FlxSprite(FlxG.width * 0.9, FlxG.height * 0.9).loadGraphic(Paths.image('weeb/pixelUI/hand_textbox'));
@@ -255,14 +249,27 @@ class DialogueBox extends FlxSpriteGroup
 		}
 
 		dropText = new FlxText(242, 502, Std.int(FlxG.width * 0.6), "", 32);
-		dropText.font = 'Pixel Arial 11 Bold';
-		dropText.color = 0xFFD89494;
+		switch(PlayState.SONG.song.toLowerCase()){
+			case 'senpai' | 'roses' | 'thorns':
+				dropText.font = 'Pixel Arial 11 Bold';
+				dropText.color = 0xFFD89494;
+			default: 
+				dropText.font = Paths.font("vcr.ttf");
+				dropText.color = FlxColor.GRAY;
+		}
 		add(dropText);
 
 		swagDialogue = new FlxTypeText(240, 500, Std.int(FlxG.width * 0.6), "", 32);
-		swagDialogue.font = 'Pixel Arial 11 Bold';
-		swagDialogue.color = 0xFF3F2021;
-		swagDialogue.sounds = [FlxG.sound.load(Paths.sound('pixelText'), 0.6)];
+		switch(PlayState.SONG.song.toLowerCase()){
+			case 'senpai' | 'roses' | 'thorns':
+				swagDialogue.font = 'Pixel Arial 11 Bold';
+				swagDialogue.color = 0xFF3F2021;
+				swagDialogue.sounds = [FlxG.sound.load(Paths.sound('pixelText'), 0.6)];
+			default: 
+				swagDialogue.font = Paths.font("vcr.ttf");
+				swagDialogue.color = FlxColor.BLACK;
+				swagDialogue.sounds = [FlxG.sound.load(Paths.sound('FunkinText'), 0.6)];
+		}
 		add(swagDialogue);
 
 		dialogue = new Alphabet(0, 80, "", false, true);

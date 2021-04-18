@@ -3244,6 +3244,64 @@ class PlayState extends MusicBeatState
 			gf.playAnim('cheer', true);
 		}
 
+		switch(curSong)
+		{
+			case 'Philly':
+				{
+					if(curBeat < 250)
+					{
+						if(curBeat != 184 && curBeat != 216)
+						{
+							if(curBeat % 16 == 8)
+							{
+								gf.playAnim('cheer', true);
+								boyfriend.playAnim('hey', true);
+							}
+						}
+					}
+				}
+			case 'Blammed':
+				{
+					if(curBeat > 30 && curBeat < 190)
+					{
+						if(curBeat < 90 || curBeat > 128)
+						{
+							if(curBeat % 4 == 2)
+							{
+								gf.playAnim('cheer', true);
+								boyfriend.playAnim('hey', true);
+							}
+						}
+					}
+				}
+			case 'Cocoa':
+				{
+					if(curBeat < 170)
+					{
+						if(curBeat < 65 || curBeat > 130 && curBeat < 145)
+						{
+							if(curBeat % 16 == 15)
+							{
+								gf.playAnim('cheer', true);
+								boyfriend.playAnim('hey', true);
+							}
+						}
+					}
+				}
+			case 'Eggnog':
+				{
+					if(curBeat > 10 && curBeat != 111 && curBeat < 220)
+					{
+						if(curBeat % 8 == 7)
+						{
+							gf.playAnim('cheer', true);
+							boyfriend.playAnim('hey', true);
+						
+						}
+					}
+				}
+		}
+
 		if (curBeat % 16 == 15 && SONG.song == 'Tutorial' && dad.curCharacter == 'gf' && curBeat > 16 && curBeat < 48)
 			{
 				boyfriend.playAnim('hey', true);
