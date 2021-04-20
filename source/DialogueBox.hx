@@ -239,8 +239,11 @@ class DialogueBox extends FlxSpriteGroup
 		}
 		portraitLeft.screenCenter(X);
 
-		handSelect = new FlxSprite(FlxG.width * 0.9, FlxG.height * 0.9).loadGraphic(Paths.image('weeb/pixelUI/hand_textbox'));
+		handSelect = new FlxSprite(FlxG.width * 0.9, FlxG.height * 0.9);
+		handSelect.frames = Paths.getSparrowAtlas('weeb/pixelUI/textbox_hand_animated');
+		handSelect.animation.addByPrefix('idle', 'textbox hand animated', 24, true);
 		add(handSelect);
+		handSelect.animation.play('idle');
 
 
 		if (!talkingRight)
