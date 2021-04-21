@@ -1,0 +1,10 @@
+Alright so lets say you compiled the game but the folders you added are missing, well.
+
+1. Open the project.xml file in the main root assets
+2. Look for something like "<library name="week6"    preload="true" />"
+3. For that, copy it and then just replace "week6" with the folder name you added.
+4. Folders inside other folders have to be edited in this way also, so for example:
+
+<library name="week69/folder"    preload="true" />
+
+5. do this for other instances of folders in the .xml file.
