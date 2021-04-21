@@ -1,0 +1,4 @@
+the .bat files for compiling and rebuilding the game have been removed, if you wanna build the game, run git in the main folder (not here) and use
+lime test windows/linux/etc whatever you wanna compile for.
+
+this will build the game (BUT ITS GONNA TAKE SOME TIME!!)
