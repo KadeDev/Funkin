@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="DialogueBox.png">
+	<!-- Created with Adobe Animate version 21.0.1.37179 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Text Box Appear0000" x="0" y="0" width="248" height="144" pivotX="257.15" pivotY="178.5"/>
+	<SubTexture name="Text Box Appear0001" x="248" y="0" width="248" height="144"/>
+	<SubTexture name="Text Box Appear0002" x="0" y="144" width="248" height="144"/>
+	<SubTexture name="Text Box Appear0003" x="248" y="144" width="248" height="144"/>
+	<SubTexture name="Text Box Appear0004" x="0" y="288" width="248" height="144"/>
+</TextureAtlas>

@@ -48,7 +48,8 @@ class DialogueBox extends FlxSpriteGroup
 			case 'thorns':
 				FlxG.sound.playMusic(Paths.music('LunchboxScary'), 0);
 				FlxG.sound.music.fadeIn(1, 0, 0.8);
-			case 'thorns':
+			case 'roses':
+				//sex is real this is official
 			default:
 				FlxG.sound.playMusic(Paths.music('breakfast'), 0);
 				FlxG.sound.music.fadeIn(1, 0, 0.8);
@@ -96,7 +97,7 @@ class DialogueBox extends FlxSpriteGroup
 				add(face);
 			default:
 				hasDialog = true;
-				box.frames = Paths.getSparrowAtlas('DialogueBox','shared');
+				box.frames = Paths.getSparrowAtlas('ui/DialogueBox','shared');
 				box.animation.addByPrefix('normalOpen', 'Text Box Appear', 24, false);
 				box.animation.addByIndices('normal', 'Text Box Appear', [4], "", 24);
 		}
@@ -107,7 +108,6 @@ class DialogueBox extends FlxSpriteGroup
 			return;
 		
 		portraitLeft = new FlxSprite(-20, 40);
-		portraitLeft.antialiasing = true;
 		switch(PlayState.SONG.player2){
 			case 'senpai' | 'senpai-angry' | 'spirit':
 				portraitLeft.frames = Paths.getSparrowAtlas('weeb/senpaiPortrait');
@@ -116,6 +116,7 @@ class DialogueBox extends FlxSpriteGroup
 				portraitLeft.updateHitbox();
 				portraitLeft.scrollFactor.set();
 				add(portraitLeft);
+				portraitLeft.antialiasing = true;
 				portraitLeft.antialiasing = false;
 				portraitLeft.visible = false;
 			case 'gf':
@@ -125,6 +126,7 @@ class DialogueBox extends FlxSpriteGroup
 				portraitLeft.updateHitbox();
 				portraitLeft.scrollFactor.set();
 				add(portraitLeft);
+				portraitLeft.antialiasing = true;
 				portraitLeft.visible = false;
 			case 'gf-christmas':
 				portraitLeft.frames = Paths.getSparrowAtlas('portraits/GFChristmasPortrait','shared');
@@ -133,6 +135,7 @@ class DialogueBox extends FlxSpriteGroup
 				portraitLeft.updateHitbox();
 				portraitLeft.scrollFactor.set();
 				add(portraitLeft);
+				portraitLeft.antialiasing = true;
 				portraitLeft.visible = false;
 			case 'spooky':
 				portraitLeft.frames = Paths.getSparrowAtlas('portraits/SpookyPortrait','shared');
@@ -141,6 +144,7 @@ class DialogueBox extends FlxSpriteGroup
 				portraitLeft.updateHitbox();
 				portraitLeft.scrollFactor.set();
 				add(portraitLeft);
+				portraitLeft.antialiasing = true;
 				portraitLeft.visible = false;
 			case 'parents-christmas':
 				switch (PlayState.SONG.song.toLowerCase()){
@@ -156,6 +160,7 @@ class DialogueBox extends FlxSpriteGroup
 				portraitLeft.updateHitbox();
 				portraitLeft.scrollFactor.set();
 				add(portraitLeft);
+				portraitLeft.antialiasing = true;
 				portraitLeft.visible = false;
 			case 'pico':
 				portraitLeft.frames = Paths.getSparrowAtlas('portraits/PicoPortrait','shared');
@@ -164,6 +169,7 @@ class DialogueBox extends FlxSpriteGroup
 				portraitLeft.updateHitbox();
 				portraitLeft.scrollFactor.set();
 				add(portraitLeft);
+				portraitLeft.antialiasing = true;
 				portraitLeft.visible = false;
 			case 'monster-christmas':
 				portraitLeft.frames = Paths.getSparrowAtlas('portraits/MONSTERChristmasPortrait','shared');
@@ -172,6 +178,7 @@ class DialogueBox extends FlxSpriteGroup
 				portraitLeft.updateHitbox();
 				portraitLeft.scrollFactor.set();
 				add(portraitLeft);
+				portraitLeft.antialiasing = true;
 				portraitLeft.visible = false;
 			case 'monster':
 				portraitLeft.frames = Paths.getSparrowAtlas('portraits/MonsterPortrait','shared');
@@ -180,6 +187,7 @@ class DialogueBox extends FlxSpriteGroup
 				portraitLeft.updateHitbox();
 				portraitLeft.scrollFactor.set();
 				add(portraitLeft);
+				portraitLeft.antialiasing = true;
 				portraitLeft.visible = false;
 			case 'mom' | 'mom-car':
 				portraitLeft.frames = Paths.getSparrowAtlas('portraits/momportrait','shared');
@@ -188,6 +196,7 @@ class DialogueBox extends FlxSpriteGroup
 				portraitLeft.updateHitbox();
 				portraitLeft.scrollFactor.set();
 				add(portraitLeft);
+				portraitLeft.antialiasing = true;
 				portraitLeft.visible = false;
 			default:
 				portraitLeft.frames = Paths.getSparrowAtlas('portraits/DadPortrait','shared');
@@ -196,10 +205,10 @@ class DialogueBox extends FlxSpriteGroup
 				portraitLeft.updateHitbox();
 				portraitLeft.scrollFactor.set();
 				add(portraitLeft);
+				portraitLeft.antialiasing = true;
 				portraitLeft.visible = false;
 		}
 		portraitRight = new FlxSprite(0, 40);
-		portraitRight.antialiasing = true;
 		switch(PlayState.SONG.player1){
 			case 'bf-pixel':
 				portraitRight.frames = Paths.getSparrowAtlas('weeb/bfPortrait');
@@ -208,6 +217,8 @@ class DialogueBox extends FlxSpriteGroup
 				portraitRight.updateHitbox();
 				portraitRight.scrollFactor.set();
 				add(portraitRight);
+				portraitRight.antialiasing = true;
+				portraitRight.antialiasing = false;
 				portraitRight.visible = false;
 			case 'bf-christmas':
 				portraitRight.frames = Paths.getSparrowAtlas('portraits/BFChristmasPortrait','shared');
@@ -216,6 +227,7 @@ class DialogueBox extends FlxSpriteGroup
 				portraitRight.updateHitbox();
 				portraitRight.scrollFactor.set();
 				add(portraitRight);
+				portraitRight.antialiasing = true;
 				portraitRight.visible = false;
 			default:
 				portraitRight.frames = Paths.getSparrowAtlas('portraits/BFREGPORTRAIT','shared');
@@ -224,6 +236,7 @@ class DialogueBox extends FlxSpriteGroup
 				portraitRight.updateHitbox();
 				portraitRight.scrollFactor.set();
 				add(portraitRight);
+				portraitRight.antialiasing = true;
 				portraitRight.visible = false;
 		}
 		box.animation.play('normalOpen');
@@ -240,7 +253,12 @@ class DialogueBox extends FlxSpriteGroup
 		portraitLeft.screenCenter(X);
 
 		handSelect = new FlxSprite(FlxG.width * 0.9, FlxG.height * 0.9);
-		handSelect.frames = Paths.getSparrowAtlas('weeb/pixelUI/textbox_hand_animated');
+		switch(PlayState.SONG.song.toLowerCase()){
+			case 'senpai' | 'roses' | 'thorns':
+				handSelect.frames = Paths.getSparrowAtlas('weeb/pixelUI/textbox_hand_animated');
+			default:
+				handSelect.frames = Paths.getSparrowAtlas('ui/textboxhandanimatedgf','shared');
+		}
 		handSelect.animation.addByPrefix('idle', 'textbox hand animated', 24, true);
 		add(handSelect);
 		handSelect.animation.play('idle');

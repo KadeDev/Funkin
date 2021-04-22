@@ -84,9 +84,9 @@ class PlayState extends MusicBeatState
 
 	private var vocals:FlxSound;
 
-	private var dad:Character;
-	private var gf:Character;
-	private var boyfriend:Boyfriend;
+	var dad:Character;
+	var gf:Character;
+	var boyfriend:Boyfriend;
 
 	private var notes:FlxTypedGroup<Note>;
 	private var unspawnNotes:Array<Note> = [];
@@ -308,6 +308,7 @@ class PlayState extends MusicBeatState
 				dialogue = CoolUtil.coolTextFile(Paths.txt('ridge/ridgeDialogue'));
 
 		}
+		
 
 		switch(SONG.stage)
 		{
@@ -938,8 +939,22 @@ class PlayState extends MusicBeatState
 				add(songName);
 				songName.cameras = [camHUD];
 			}
-
-		healthBarBG = new FlxSprite(0, FlxG.height * 0.9).loadGraphic(Paths.image('healthBar'));
+		
+		if(dad.hasEvilTrail = true){
+			var evilTrail = new FlxTrail(dad, null, 4, 24, 0.3, 0.069);
+			// evilTrail.changeValuesEnabled(false, false, false, false);
+			// evilTrail.changeGraphic()
+			add(evilTrail);
+			// evilTrail.scrollFactor.set(1.1, 1.1);
+		}
+		if(boyfriend.hasEvilTrail = true){
+			var evilTrail = new FlxTrail(boyfriend, null, 4, 24, 0.3, 0.069);
+			// evilTrail.changeValuesEnabled(false, false, false, false);
+			// evilTrail.changeGraphic()
+			add(evilTrail);
+			// evilTrail.scrollFactor.set(1.1, 1.1);
+		}
+		healthBarBG = new FlxSprite(0, FlxG.height * 0.9).loadGraphic(Paths.image('ui/healthBar'));
 		if (FlxG.save.data.downscroll)
 			healthBarBG.y = 50;
 		healthBarBG.screenCenter(X);
@@ -1335,7 +1350,7 @@ class PlayState extends MusicBeatState
 				remove(songPosBar);
 				remove(songName);
 
-				songPosBG = new FlxSprite(0, 10).loadGraphic(Paths.image('healthBar'));
+				songPosBG = new FlxSprite(0, 10).loadGraphic(Paths.image('ui/healthBar'));
 				if (FlxG.save.data.downscroll)
 					songPosBG.y = FlxG.height * 0.9 + 45; 
 				songPosBG.screenCenter(X);
