@@ -89,6 +89,9 @@ class ChartingState extends MusicBeatState
 	var leftIcon:HealthIcon;
 	var rightIcon:HealthIcon;
 
+	var player1Icon:String;
+	var player2Icon:String;
+
 	private var lastNote:Note;
 
 
@@ -96,24 +99,11 @@ class ChartingState extends MusicBeatState
 	{
 		gridBG = FlxGridOverlay.create(GRID_SIZE, GRID_SIZE, GRID_SIZE * 8, GRID_SIZE * 16);
 		add(gridBG);
-
-		if (PlayState.SONG != null)
-			_song = PlayState.SONG;
-		else
-		{
-			_song = {
-				song: 'Test',
-				notes: [],
-				bpm: 150,
-				needsVoices: true,
-				player1: 'bf-test',
-				player2: 'dad-test',
-				speed: 1,
-				validScore: false
-			};
-
-		leftIcon = new HealthIcon(_song.player1);
-		rightIcon = new HealthIcon(_song.player2);
+		player1Icon = PlayState.SONG.player1;
+		player2Icon = PlayState.SONG.player2;
+		//it's a workaround but its a neccessary workaround
+		leftIcon = new HealthIcon(player1Icon);
+		rightIcon = new HealthIcon(player2Icon);
 		leftIcon.scrollFactor.set(1, 1);
 		rightIcon.scrollFactor.set(1, 1);
 
@@ -132,6 +122,23 @@ class ChartingState extends MusicBeatState
 
 		curRenderedNotes = new FlxTypedGroup<Note>();
 		curRenderedSustains = new FlxTypedGroup<FlxSprite>();
+
+		if (PlayState.SONG != null)
+			_song = PlayState.SONG;
+		else
+		{
+			_song = {
+				song: 'Test',
+				notes: [],
+				bpm: 150,
+				needsVoices: true,
+				player1: 'bf-test',
+				player2: 'dad-test',
+				stage: 'test',
+				gfVersion: 'gf',
+				speed: 1,
+				validScore: false
+			};
 		}
 
 		FlxG.mouse.visible = true;
@@ -193,7 +200,7 @@ class ChartingState extends MusicBeatState
 		check_voices.callback = function()
 		{
 			_song.needsVoices = check_voices.checked;
-			trace('CHECKED!');
+			trace('CHECKED IF VOICES NEEDED!');
 		};
 
 		var check_mute_inst = new FlxUICheckBox(10, 200, null, null, "Mute Instrumental (in editor)", 100);
@@ -206,6 +213,18 @@ class ChartingState extends MusicBeatState
 				vol = 0;
 
 			FlxG.sound.music.volume = vol;
+		};
+
+		var check_mute_vocals = new FlxUICheckBox(10, 250, null, null, "Mute Vocals (in editor)", 100);
+		check_mute_vocals.checked = false;
+		check_mute_vocals.callback = function()
+		{
+			var volV:Float = 1;
+
+			if (check_mute_vocals.checked)
+				volV = 0;
+
+			vocals.volume = volV;
 		};
 
 		var saveButton:FlxButton = new FlxButton(110, 8, "Save", function()
@@ -247,6 +266,8 @@ class ChartingState extends MusicBeatState
 		stepperBPM.name = 'song_bpm';
 
 		var characters:Array<String> = CoolUtil.coolTextFile(Paths.txt('characterList'));
+		var gfVersions:Array<String> = CoolUtil.coolTextFile(Paths.txt('gfVersionList'));
+		var stages:Array<String> = CoolUtil.coolTextFile(Paths.txt('stageList'));
 
 		var player1DropDown = new FlxUIDropDownMenu(10, 100, FlxUIDropDownMenu.makeStrIdLabelArray(characters, true), function(character:String)
 		{
@@ -258,8 +279,19 @@ class ChartingState extends MusicBeatState
 		{
 			_song.player2 = characters[Std.parseInt(character)];
 		});
-
 		player2DropDown.selectedLabel = _song.player2;
+
+		var gfVersionDropDown = new FlxUIDropDownMenu(10, 200, FlxUIDropDownMenu.makeStrIdLabelArray(gfVersions, true), function(gfVersion:String)
+			{
+				_song.gfVersion = gfVersions[Std.parseInt(gfVersion)];
+			});
+			gfVersionDropDown.selectedLabel = _song.gfVersion;
+	
+			var stageDropDown = new FlxUIDropDownMenu(140, 200, FlxUIDropDownMenu.makeStrIdLabelArray(stages, true), function(stage:String)
+			{
+				_song.stage = stages[Std.parseInt(stage)];
+			});
+			stageDropDown.selectedLabel = _song.stage;
 
 		var tab_group_song = new FlxUI(null, UI_box);
 		tab_group_song.name = "Song";
@@ -275,6 +307,8 @@ class ChartingState extends MusicBeatState
 		tab_group_song.add(stepperSpeed);
 		tab_group_song.add(player1DropDown);
 		tab_group_song.add(player2DropDown);
+		tab_group_song.add(gfVersionDropDown);
+		tab_group_song.add(stageDropDown);
 
 		UI_box.addGroup(tab_group_song);
 		UI_box.scrollFactor.set();
