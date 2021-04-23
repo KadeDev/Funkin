@@ -101,6 +101,8 @@ class PlayState extends MusicBeatState
 	private var strumLineNotes:FlxTypedGroup<FlxSprite>;
 	private var playerStrums:FlxTypedGroup<FlxSprite>;
 
+	private var player2Strums:FlxTypedGroup<FlxSprite>;
+
 	private var camZooming:Bool = false;
 	private var curSong:String = "";
 
@@ -918,7 +920,7 @@ class PlayState extends MusicBeatState
 
 		if (FlxG.save.data.songPosition) // I dont wanna talk about this code :(
 			{
-				songPosBG = new FlxSprite(0, 10).loadGraphic(Paths.image('healthBar'));
+				songPosBG = new FlxSprite(0, 10).loadGraphic(Paths.image('ui/healthBar'));
 				if (FlxG.save.data.downscroll)
 					songPosBG.y = FlxG.height * 0.9 + 45; 
 				songPosBG.screenCenter(X);
@@ -960,35 +962,48 @@ class PlayState extends MusicBeatState
 		healthBarBG.screenCenter(X);
 		healthBarBG.scrollFactor.set();
 		add(healthBarBG);
-
+		//bar color vars
+		var picoBarColor = FlxColor.fromRGB(0, 191, 92);
+		var bfBarColor = FlxColor.fromRGB(58, 162, 207);
+		var parentsBarColor = FlxColor.fromRGB(138, 49, 173);
+		var spookyBarColor = FlxColor.fromRGB(255, 145, 0);
+		var senpaiBarColor = FlxColor.fromRGB(255, 185, 64);
+		var spiritAndGfAndShitBarColor = FlxColor.fromRGB(255, 0, 0);
+		var tankmanBarColor = FlxColor.fromRGB(28, 28, 28);
+		var testBarColor = FlxColor.fromRGB(122, 122, 122);
+		var monsterBarColor = FlxColor.fromRGB(255, 227, 115);
+		var realPlayerBarColor:FlxColor;
+		//the thing above is for playable characters which im too lazy to add rn
+		//so imma just make it set to bfBarColor by default cuz futureproofing
+		realPlayerBarColor = bfBarColor;
 		healthBar = new FlxBar(healthBarBG.x + 4, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 8), Std.int(healthBarBG.height - 8), this,
 			'health', 0, 2);
 		healthBar.scrollFactor.set();
 		switch(SONG.player2){
 			//please please dont complain about this code i hate myself for this
 			case 'dad' | 'mom' | 'mom-car' | 'parents-christmas':{
-				healthBar.createFilledBar(FlxColor.fromRGB(138, 49, 173), FlxColor.fromRGB(58, 162, 207));
+				healthBar.createFilledBar(parentsBarColor, realPlayerBarColor);
 			}
 			case 'pico':{
-				healthBar.createFilledBar(FlxColor.fromRGB(0, 191, 92), FlxColor.fromRGB(58, 162, 207));
+				healthBar.createFilledBar(picoBarColor, realPlayerBarColor);
 			}
 			case 'spooky':{
-				healthBar.createFilledBar(FlxColor.fromRGB(255, 145, 0), FlxColor.fromRGB(58, 162, 207));
+				healthBar.createFilledBar(spookyBarColor, realPlayerBarColor);
 			}
 			case 'monster' | 'monster-christmas':{
-				healthBar.createFilledBar(FlxColor.fromRGB(255, 227, 115), FlxColor.fromRGB(58, 162, 207));
+				healthBar.createFilledBar(monsterBarColor, realPlayerBarColor);
 			}
 			case 'senpai' | 'senpai-angry':{
-				healthBar.createFilledBar(FlxColor.fromRGB(255, 185, 64), FlxColor.fromRGB(58, 162, 207));
+				healthBar.createFilledBar(senpaiBarColor, realPlayerBarColor);
 			}
 			case 'tankman':{
-				healthBar.createFilledBar(FlxColor.fromRGB(28, 28, 28), FlxColor.fromRGB(58, 162, 207));
+				healthBar.createFilledBar(tankmanBarColor, realPlayerBarColor);
 			}
 			case 'face':{
-				healthBar.createFilledBar(FlxColor.fromRGB(122, 122, 122), FlxColor.fromRGB(58, 162, 207));
+				healthBar.createFilledBar(testBarColor, realPlayerBarColor);
 			}
 			default:{
-				healthBar.createFilledBar(FlxColor.fromRGB(255, 0, 0), FlxColor.fromRGB(58, 162, 207));
+				healthBar.createFilledBar(spiritAndGfAndShitBarColor, realPlayerBarColor);
 			}
 		}
 		// healthBar
@@ -1494,9 +1509,9 @@ class PlayState extends MusicBeatState
 			// FlxG.log.add(i);
 			var babyArrow:FlxSprite = new FlxSprite(0, strumLine.y);
 
-			switch (curStage)
+			switch (SONG.noteStyle)
 			{
-				case 'school' | 'schoolEvil':
+				case 'pixel':
 					babyArrow.loadGraphic(Paths.image('weeb/pixelUI/arrows-pixels'), true, 17, 17);
 					babyArrow.animation.add('green', [6]);
 					babyArrow.animation.add('red', [7]);
@@ -1581,6 +1596,10 @@ class PlayState extends MusicBeatState
 			if (player == 1)
 			{
 				playerStrums.add(babyArrow);
+			}
+			else if (player == 2)
+			{
+				player2Strums.add(babyArrow);
 			}
 
 			babyArrow.animation.play('static');
@@ -2802,6 +2821,116 @@ class PlayState extends MusicBeatState
 					boyfriend.playAnim('idle');
 				}
 			}
+			player2Strums.forEach(function(spr:FlxSprite)
+				{
+					switch (spr.ID)
+					{
+						case 2:
+							if (loadRep)
+							{
+								/*if (upP)
+								{
+									spr.animation.play('pressed');
+									new FlxTimer().start(Math.abs(rep.replay.keyPresses[repReleases].time - Conductor.songPosition) + 10, function(tmr:FlxTimer)
+										{
+											spr.animation.play('static');
+											repReleases++;
+										});
+								}*/
+							}
+							else
+							{
+								if (upP && spr.animation.curAnim.name != 'confirm' && !loadRep)
+								{
+									spr.animation.play('pressed');
+									trace('play');
+								}
+								if (upR)
+								{
+									spr.animation.play('static');
+									repReleases++;
+								}
+							}
+						case 3:
+							if (loadRep)
+								{
+								/*if (upP)
+								{
+									spr.animation.play('pressed');
+									new FlxTimer().start(Math.abs(rep.replay.keyPresses[repReleases].time - Conductor.songPosition) + 10, function(tmr:FlxTimer)
+										{
+											spr.animation.play('static');
+											repReleases++;
+										});
+								}*/
+								}
+							else
+							{
+								if (rightP && spr.animation.curAnim.name != 'confirm' && !loadRep)
+									spr.animation.play('pressed');
+								if (rightR)
+								{
+									spr.animation.play('static');
+									repReleases++;
+								}
+							}	
+						case 1:
+							if (loadRep)
+								{
+								/*if (upP)
+								{
+									spr.animation.play('pressed');
+									new FlxTimer().start(Math.abs(rep.replay.keyPresses[repReleases].time - Conductor.songPosition) + 10, function(tmr:FlxTimer)
+										{
+											spr.animation.play('static');
+											repReleases++;
+										});
+								}*/
+								}
+							else
+							{
+								if (downP && spr.animation.curAnim.name != 'confirm' && !loadRep)
+									spr.animation.play('pressed');
+								if (downR)
+								{
+									spr.animation.play('static');
+									repReleases++;
+								}
+							}
+						case 0:
+							if (loadRep)
+								{
+								/*if (upP)
+								{
+									spr.animation.play('pressed');
+									new FlxTimer().start(Math.abs(rep.replay.keyPresses[repReleases].time - Conductor.songPosition) + 10, function(tmr:FlxTimer)
+										{
+											spr.animation.play('static');
+											repReleases++;
+										});
+								}*/
+								}
+							else
+							{
+								if (leftP && spr.animation.curAnim.name != 'confirm' && !loadRep)
+									spr.animation.play('pressed');
+								if (leftR)
+								{
+									spr.animation.play('static');
+									repReleases++;
+								}
+							}
+					}
+					
+					if (spr.animation.curAnim.name == 'confirm' && SONG.noteStyle = 'normal')
+					{
+						spr.centerOffsets();
+						spr.offset.x -= 13;
+						spr.offset.y -= 13;
+					}
+					else
+						spr.centerOffsets();
+				});
 	
 				playerStrums.forEach(function(spr:FlxSprite)
 				{
@@ -2904,7 +3033,7 @@ class PlayState extends MusicBeatState
 							}
 					}
 					
-					if (spr.animation.curAnim.name == 'confirm' && !curStage.startsWith('school'))
+					if (spr.animation.curAnim.name == 'confirm' && SONG.noteStyle = 'normal')
 					{
 						spr.centerOffsets();
 						spr.offset.x -= 13;
@@ -3116,6 +3245,13 @@ class PlayState extends MusicBeatState
 								spr.animation.play('confirm', true);
 							}
 						});
+						player2Strums.forEach(function(spr:FlxSprite)
+							{
+								if (Math.abs(note.noteData) == spr.ID)
+								{
+									spr.animation.play('confirm', true);
+								}
+							});
 		
 					note.wasGoodHit = true;
 					vocals.volume = 1;

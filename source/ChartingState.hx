@@ -297,7 +297,7 @@ class ChartingState extends MusicBeatState
 			stageDropDown.selectedLabel = _song.stage;
 		var noteStyleDropDown = new FlxUIDropDownMenu(140, 200, FlxUIDropDownMenu.makeStrIdLabelArray(noteStyles, true), function(noteStyle:String)
 			{
-				_song.noteStyle = stages[Std.parseInt(noteStyle)];
+				_song.noteStyle = noteStyles[Std.parseInt(noteStyle)];
 			});
 			noteStyleDropDown.selectedLabel = _song.noteStyle;
 
