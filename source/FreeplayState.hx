@@ -55,7 +55,7 @@ class FreeplayState extends MusicBeatState
 
 		 #if desktop
 		 // Updating Discord Rich Presence
-		 DiscordClient.changePresence("In the Menus", null);
+		 DiscordClient.changePresence("In the Freeplay Menu", null);
 		 #end
 
 		var isDebug:Bool = false;
@@ -175,7 +175,7 @@ class FreeplayState extends MusicBeatState
 		if (Math.abs(lerpScore - intendedScore) <= 10)
 			lerpScore = intendedScore;
 
-		scoreText.text = "PERSONAL BEST:" + lerpScore;
+		scoreText.text = "PERSONAL BEST SCORE:" + lerpScore;
 
 		var upP = controls.UP_P;
 		var downP = controls.DOWN_P;
@@ -241,11 +241,6 @@ class FreeplayState extends MusicBeatState
 
 	function changeSelection(change:Int = 0)
 	{
-		#if !switch
-		// NGio.logEvent('Fresh');
-		#end
-
-		// NGio.logEvent('Fresh');
 		FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 
 		curSelected += change;

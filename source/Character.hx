@@ -345,6 +345,8 @@ class Character extends FlxSprite
 				var tex = Paths.getSparrowAtlas('BOYFRIEND','shared');
 				frames = tex;
 				animation.addByPrefix('idle', 'BF idle dance', 24, false);
+				//animation.addByPrefix('cock-whip', 'BF Whip Out Cock', 24, false);
+				//because boyfriend has SEX with girlfriend ON SCREEN in fnf 2.0
 				animation.addByPrefix('singUP', 'BF NOTE UP0', 24, false);
 				animation.addByPrefix('singLEFT', 'BF NOTE LEFT0', 24, false);
 				animation.addByPrefix('singRIGHT', 'BF NOTE RIGHT0', 24, false);

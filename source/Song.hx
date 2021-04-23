@@ -34,6 +34,9 @@ class Song
 	public var player2:String = 'dad';
 	public var gfVersion:String = 'gf';
 	public var stage:String = 'stage';
+	public var noteStyle:String = 'normal';
+
+	//sex
 
 	public function new(song, notes, bpm)
 	{
