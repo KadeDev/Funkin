@@ -25,13 +25,13 @@ class StoryMenuState extends MusicBeatState
 	var scoreText:FlxText;
 
 	var weekData:Array<Dynamic> = [
-		['Tutorial'],
-		['Bopeebo', 'Fresh', 'Dadbattle'],
-		['Spookeez', 'South', "Monster"],
-		['Pico', 'Philly', "Blammed"],
-		['Satin-Panties', "High", "Milf"],
-		['Cocoa', 'Eggnog', 'Winter-Horrorland'],
-		['Senpai', 'Roses', 'Thorns']
+		[CoolUtil.coolTextFile(Paths.txt('week0'))],
+		[CoolUtil.coolTextFile(Paths.txt('week1'))],
+		[CoolUtil.coolTextFile(Paths.txt('week2'))],
+		[CoolUtil.coolTextFile(Paths.txt('week3'))],
+		[CoolUtil.coolTextFile(Paths.txt('week4'))],
+		[CoolUtil.coolTextFile(Paths.txt('week5'))],
+		[CoolUtil.coolTextFile(Paths.txt('week6'))]
 	];
 	var curDifficulty:Int = 1;
 
