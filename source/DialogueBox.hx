@@ -91,10 +91,6 @@ class DialogueBox extends FlxSpriteGroup
 				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-evil');
 				box.animation.addByPrefix('normalOpen', 'Spirit Textbox spawn', 24, false);
 				box.animation.addByIndices('normal', 'Spirit Textbox spawn', [11], "", 24);
-
-				var face:FlxSprite = new FlxSprite(320, 170).loadGraphic(Paths.image('weeb/spiritFaceForward'));
-				face.setGraphicSize(Std.int(face.width * 6));
-				add(face);
 			default:
 				hasDialog = true;
 				box.frames = Paths.getSparrowAtlas('ui/DialogueBox','shared');
@@ -109,7 +105,7 @@ class DialogueBox extends FlxSpriteGroup
 		
 		portraitLeft = new FlxSprite(-20, 40);
 		switch(PlayState.SONG.player2){
-			case 'senpai' | 'senpai-angry' | 'spirit':
+			case 'senpai' | 'senpai-angry' | 'spirit' | 'spirit-flash':
 				portraitLeft.frames = Paths.getSparrowAtlas('weeb/senpaiPortrait');
 				portraitLeft.animation.addByPrefix('enter', 'Senpai Portrait Enter', 24, false);
 				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.9));
@@ -119,6 +115,12 @@ class DialogueBox extends FlxSpriteGroup
 				portraitLeft.antialiasing = true;
 				portraitLeft.antialiasing = false;
 				portraitLeft.visible = false;
+				switch(PlayState.SONG.player2){
+					case 'spirit' | 'spirit-flash':
+						var face:FlxSprite = new FlxSprite(320, 170).loadGraphic(Paths.image('weeb/spiritFaceForward'));
+						face.setGraphicSize(Std.int(face.width * 6));
+						add(face);
+				}
 			case 'gf':
 				portraitLeft.frames = Paths.getSparrowAtlas('portraits/GFPortrait','shared');
 				portraitLeft.animation.addByPrefix('enter', 'Senpai Portrait Enter', 24, false);
