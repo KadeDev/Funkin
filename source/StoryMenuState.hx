@@ -24,27 +24,44 @@ class StoryMenuState extends MusicBeatState
 {
 	var scoreText:FlxText;
 
+	//i dont want to talk about the sheer amount of string arrays i made for this
+	var week0Songs:Array<String> = CoolUtil.coolTextFile(Paths.txt('week0'));
+	var week1Songs:Array<String> = CoolUtil.coolTextFile(Paths.txt('week1'));
+	var week2Songs:Array<String> = CoolUtil.coolTextFile(Paths.txt('week2'));
+	var week3Songs:Array<String> = CoolUtil.coolTextFile(Paths.txt('week3'));
+	var week4Songs:Array<String> = CoolUtil.coolTextFile(Paths.txt('week4'));
+	var week5Songs:Array<String> = CoolUtil.coolTextFile(Paths.txt('week5'));
+	var week6Songs:Array<String> = CoolUtil.coolTextFile(Paths.txt('week6'));
 	var weekData:Array<Dynamic> = [
-		[CoolUtil.coolTextFile(Paths.txt('week0'))],
-		[CoolUtil.coolTextFile(Paths.txt('week1'))],
-		[CoolUtil.coolTextFile(Paths.txt('week2'))],
-		[CoolUtil.coolTextFile(Paths.txt('week3'))],
-		[CoolUtil.coolTextFile(Paths.txt('week4'))],
-		[CoolUtil.coolTextFile(Paths.txt('week5'))],
-		[CoolUtil.coolTextFile(Paths.txt('week6'))]
+		[week0Songs],
+		[week1Songs],
+		[week2Songs],
+		[week3Songs],
+		[week4Songs],
+		[week5Songs],
+		[week6Songs]
 	];
+	
 	var curDifficulty:Int = 1;
 
 	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true, true];
 
+	//same for the amount of string arrays here
+	var week0Chars:Array<String> = CoolUtil.coolTextFile(Paths.txt('week0Chars'));
+	var week1Chars:Array<String> = CoolUtil.coolTextFile(Paths.txt('week1Chars'));
+	var week2Chars:Array<String> = CoolUtil.coolTextFile(Paths.txt('week2Chars'));
+	var week3Chars:Array<String> = CoolUtil.coolTextFile(Paths.txt('week3Chars'));
+	var week4Chars:Array<String> = CoolUtil.coolTextFile(Paths.txt('week4Chars'));
+	var week5Chars:Array<String> = CoolUtil.coolTextFile(Paths.txt('week5Chars'));
+	var week6Chars:Array<String> = CoolUtil.coolTextFile(Paths.txt('week6Chars'));
 	var weekCharacters:Array<Dynamic> = [
-		[CoolUtil.coolTextFile(Paths.txt('week0Chars'))],
-		[CoolUtil.coolTextFile(Paths.txt('week1Chars'))],
-		[CoolUtil.coolTextFile(Paths.txt('week2Chars'))],
-		[CoolUtil.coolTextFile(Paths.txt('week3Chars'))],
-		[CoolUtil.coolTextFile(Paths.txt('week4Chars'))],
-		[CoolUtil.coolTextFile(Paths.txt('week5Chars'))],
-		[CoolUtil.coolTextFile(Paths.txt('week6Chars'))]
+		[week0Chars],
+		[week1Chars],
+		[week2Chars],
+		[week3Chars],
+		[week4Chars],
+		[week5Chars],
+		[week6Chars]
 	];
 
 	var weekNames:Array<String> = CoolUtil.coolTextFile(Paths.txt('weekNames'));
