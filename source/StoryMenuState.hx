@@ -12,6 +12,7 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import lime.net.curl.CURLCode;
+import CoolUtil;
 
 #if desktop
 import Discord.DiscordClient;
@@ -46,15 +47,7 @@ class StoryMenuState extends MusicBeatState
 		['senpai', 'bf', 'gf']
 	];
 
-	var weekNames:Array<String> = [
-		"How to Funk",
-		"Who should she call Daddy",
-		"The End of Spooky Month",
-		"Pico's Musical School",
-		"MOMMY MUST MURDER",
-		"RED SNOW",
-		"Hating Simulator"
-	];
+	var weekNames:Array<String> = CoolUtil.coolTextFile(Paths.txt('weekNames'));
 
 	var txtWeekTitle:FlxText;
 
