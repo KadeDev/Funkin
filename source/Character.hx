@@ -33,6 +33,8 @@ class Character extends FlxSprite
 		var tex:FlxAtlasFrames;
 		antialiasing = true;
 
+		hasEvilTrail = false;
+
 		switch (curCharacter)
 		{
 			case 'gf':
@@ -605,6 +607,8 @@ class Character extends FlxSprite
 				playAnim('idle');
 
 				antialiasing = false;
+
+				hasEvilTrail = true;
 			
 			case 'spirit-flash':
 				frames = Paths.getSparrowAtlas('weeb/Spirit_Flash');

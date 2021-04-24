@@ -101,8 +101,6 @@ class PlayState extends MusicBeatState
 	private var strumLineNotes:FlxTypedGroup<FlxSprite>;
 	private var playerStrums:FlxTypedGroup<FlxSprite>;
 
-	private var player2Strums:FlxTypedGroup<FlxSprite>;
-
 	private var camZooming:Bool = false;
 	private var curSong:String = "";
 
@@ -942,7 +940,7 @@ class PlayState extends MusicBeatState
 				songName.cameras = [camHUD];
 			}
 		
-		if(dad.hasEvilTrail = true){
+		/*if(dad.hasEvilTrail = true){
 			var evilTrail = new FlxTrail(dad, null, 4, 24, 0.3, 0.069);
 			// evilTrail.changeValuesEnabled(false, false, false, false);
 			// evilTrail.changeGraphic()
@@ -955,6 +953,22 @@ class PlayState extends MusicBeatState
 			// evilTrail.changeGraphic()
 			add(evilTrail);
 			// evilTrail.scrollFactor.set(1.1, 1.1);
+		if(gf.hasEvilTrail = true){
+			var evilTrail = new FlxTrail(gf, null, 4, 24, 0.3, 0.069);
+			// evilTrail.changeValuesEnabled(false, false, false, false);
+			// evilTrail.changeGraphic()
+			add(evilTrail);
+			// evilTrail.scrollFactor.set(1.1, 1.1);
+		}*/
+		//commenting the above out because its causing issues oops
+		//replacing it with the below temporarily
+		switch(SONG.player2){
+			case 'spirit' | 'spirit-flash':
+				var evilTrail = new FlxTrail(dad, null, 4, 24, 0.3, 0.069);
+				// evilTrail.changeValuesEnabled(false, false, false, false);
+				// evilTrail.changeGraphic()
+				add(evilTrail);
+				// evilTrail.scrollFactor.set(1.1, 1.1);
 		}
 		healthBarBG = new FlxSprite(0, FlxG.height * 0.9).loadGraphic(Paths.image('ui/healthBar'));
 		if (FlxG.save.data.downscroll)
@@ -1512,7 +1526,7 @@ class PlayState extends MusicBeatState
 			switch (SONG.noteStyle)
 			{
 				case 'pixel':
-					babyArrow.loadGraphic(Paths.image('weeb/pixelUI/arrows-pixels'), true, 17, 17);
+					babyArrow.loadGraphic(Paths.image('noteStyles/pixel'), true, 17, 17);
 					babyArrow.animation.add('green', [6]);
 					babyArrow.animation.add('red', [7]);
 					babyArrow.animation.add('blue', [5]);
@@ -1547,7 +1561,7 @@ class PlayState extends MusicBeatState
 					}
 
 				default:
-					babyArrow.frames = Paths.getSparrowAtlas('NOTE_assets');
+					babyArrow.frames = Paths.getSparrowAtlas('noteStyles/normal');
 					babyArrow.animation.addByPrefix('green', 'arrowUP');
 					babyArrow.animation.addByPrefix('blue', 'arrowDOWN');
 					babyArrow.animation.addByPrefix('purple', 'arrowLEFT');
@@ -1596,10 +1610,6 @@ class PlayState extends MusicBeatState
 			if (player == 1)
 			{
 				playerStrums.add(babyArrow);
-			}
-			else if (player == 2)
-			{
-				player2Strums.add(babyArrow);
 			}
 
 			babyArrow.animation.play('static');
@@ -2821,117 +2831,6 @@ class PlayState extends MusicBeatState
 					boyfriend.playAnim('idle');
 				}
 			}
-			player2Strums.forEach(function(spr:FlxSprite)
-				{
-					switch (spr.ID)
-					{
-						case 2:
-							if (loadRep)
-							{
-								/*if (upP)
-								{
-									spr.animation.play('pressed');
-									new FlxTimer().start(Math.abs(rep.replay.keyPresses[repReleases].time - Conductor.songPosition) + 10, function(tmr:FlxTimer)
-										{
-											spr.animation.play('static');
-											repReleases++;
-										});
-								}*/
-							}
-							else
-							{
-								if (upP && spr.animation.curAnim.name != 'confirm' && !loadRep)
-								{
-									spr.animation.play('pressed');
-									trace('play');
-								}
-								if (upR)
-								{
-									spr.animation.play('static');
-									repReleases++;
-								}
-							}
-						case 3:
-							if (loadRep)
-								{
-								/*if (upP)
-								{
-									spr.animation.play('pressed');
-									new FlxTimer().start(Math.abs(rep.replay.keyPresses[repReleases].time - Conductor.songPosition) + 10, function(tmr:FlxTimer)
-										{
-											spr.animation.play('static');
-											repReleases++;
-										});
-								}*/
-								}
-							else
-							{
-								if (rightP && spr.animation.curAnim.name != 'confirm' && !loadRep)
-									spr.animation.play('pressed');
-								if (rightR)
-								{
-									spr.animation.play('static');
-									repReleases++;
-								}
-							}	
-						case 1:
-							if (loadRep)
-								{
-								/*if (upP)
-								{
-									spr.animation.play('pressed');
-									new FlxTimer().start(Math.abs(rep.replay.keyPresses[repReleases].time - Conductor.songPosition) + 10, function(tmr:FlxTimer)
-										{
-											spr.animation.play('static');
-											repReleases++;
-										});
-								}*/
-								}
-							else
-							{
-								if (downP && spr.animation.curAnim.name != 'confirm' && !loadRep)
-									spr.animation.play('pressed');
-								if (downR)
-								{
-									spr.animation.play('static');
-									repReleases++;
-								}
-							}
-						case 0:
-							if (loadRep)
-								{
-								/*if (upP)
-								{
-									spr.animation.play('pressed');
-									new FlxTimer().start(Math.abs(rep.replay.keyPresses[repReleases].time - Conductor.songPosition) + 10, function(tmr:FlxTimer)
-										{
-											spr.animation.play('static');
-											repReleases++;
-										});
-								}*/
-								}
-							else
-							{
-								if (leftP && spr.animation.curAnim.name != 'confirm' && !loadRep)
-									spr.animation.play('pressed');
-								if (leftR)
-								{
-									spr.animation.play('static');
-									repReleases++;
-								}
-							}
-					}
-					
-					if (spr.animation.curAnim.name == 'confirm' && SONG.noteStyle = 'normal')
-					{
-						spr.centerOffsets();
-						spr.offset.x -= 13;
-						spr.offset.y -= 13;
-					}
-					else
-						spr.centerOffsets();
-				});
-	
 				playerStrums.forEach(function(spr:FlxSprite)
 				{
 					switch (spr.ID)
@@ -3033,7 +2932,7 @@ class PlayState extends MusicBeatState
 							}
 					}
 					
-					if (spr.animation.curAnim.name == 'confirm' && SONG.noteStyle = 'normal')
+					if (spr.animation.curAnim.name == 'confirm' && SONG.noteStyle == 'normal')
 					{
 						spr.centerOffsets();
 						spr.offset.x -= 13;
@@ -3245,13 +3144,6 @@ class PlayState extends MusicBeatState
 								spr.animation.play('confirm', true);
 							}
 						});
-						player2Strums.forEach(function(spr:FlxSprite)
-							{
-								if (Math.abs(note.noteData) == spr.ID)
-								{
-									spr.animation.play('confirm', true);
-								}
-							});
 		
 					note.wasGoodHit = true;
 					vocals.volume = 1;
