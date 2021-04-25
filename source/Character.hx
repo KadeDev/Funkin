@@ -343,7 +343,56 @@ class Character extends FlxSprite
 
 				flipX = true;
 
-			case 'bf':
+			case 'bf-holding-gf':
+				var tex = Paths.getSparrowAtlas('characters/bfAndGF','shared');
+				frames = tex;
+				animation.addByPrefix('idle', 'BF idle dance w gf', 24, false);
+				animation.addByPrefix('catch-gf', 'BF catches GF', 24, false);
+				//animation.addByPrefix('sex', 'BF fuck GF', 24, false);
+				//because boyfriend has SEX with girlfriend ON SCREEN in fnf 2.0
+				animation.addByPrefix('singUP', 'BF NOTE UP0', 24, false);
+				animation.addByPrefix('singLEFT', 'BF NOTE LEFT0', 24, false);
+				animation.addByPrefix('singRIGHT', 'BF NOTE RIGHT0', 24, false);
+				animation.addByPrefix('singDOWN', 'BF NOTE DOWN0', 24, false);
+				animation.addByPrefix('singUPmiss', 'BF NOTE UP MISS', 24, false);
+				animation.addByPrefix('singLEFTmiss', 'BF NOTE LEFT MISS', 24, false);
+				animation.addByPrefix('singRIGHTmiss', 'BF NOTE RIGHT MISS', 24, false);
+				animation.addByPrefix('singDOWNmiss', 'BF NOTE DOWN MISS', 24, false);
+
+				addOffset('idle', -5);
+				addOffset('catch-gf', -5);
+				addOffset("singUP", -29, 27);
+				addOffset("singRIGHT", -38, -7);
+				addOffset("singLEFT", 12, -6);
+				addOffset("singDOWN", -10, -50);
+				addOffset("singUPmiss", -29, 27);
+				addOffset("singRIGHTmiss", -30, 21);
+				addOffset("singLEFTmiss", 12, 24);
+				addOffset("singDOWNmiss", -11, -19);
+
+				playAnim('idle');
+
+				flipX = true;
+			case 'bf-holding-gf-dead':
+				var tex = Paths.getSparrowAtlas('characters/bfHoldingGF-DEAD','shared');
+				frames = tex;
+				animation.addByPrefix('idle', 'BF Dies with GF', 24, false);
+				animation.addByPrefix('singUP', 'BF Dies with GF', 24, false);
+				animation.addByPrefix('firstDeath', "BF Dies with GF", 24, false);
+				animation.addByPrefix('deathLoop', "BF Dead with GF Loop", 24, true);
+				animation.addByPrefix('deathConfirm', "RETRY confirm holding gf", 24, false);
+
+				addOffset('idle', -5);
+				addOffset("singUP", -29, 27);
+				addOffset('firstDeath', 37, 11);
+				addOffset('deathLoop', 37, 5);
+				addOffset('deathConfirm', 37, 69);
+
+				playAnim('firstDeath');
+
+				flipX = true;
+				
+				case 'bf':
 				var tex = Paths.getSparrowAtlas('characters/BOYFRIEND','shared');
 				frames = tex;
 				animation.addByPrefix('idle', 'BF idle dance', 24, false);
