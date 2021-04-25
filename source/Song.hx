@@ -20,6 +20,7 @@ typedef SwagSong =
 	var gfVersion:String;
 	var stage:String;
 	var noteStyle:String;
+	var introStyle:String;
 	var validScore:Bool;
 }
 
@@ -36,6 +37,7 @@ class Song
 	public var gfVersion:String = 'gf';
 	public var stage:String = 'stage';
 	public var noteStyle:String = 'normal';
+	public var introStyle:String = 'normal';
 
 	//sex
 

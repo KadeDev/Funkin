@@ -261,6 +261,12 @@ class PlayState extends MusicBeatState
 		Conductor.mapBPMChanges(SONG);
 		Conductor.changeBPM(SONG.bpm);
 
+		trace('player1 is ' + SONG.player1.toLowerCase());
+		trace('player2 is ' + SONG.player2.toLowerCase());
+		trace('notestyle is ' + SONG.noteStyle.toLowerCase());
+		//COMMENTED OUT CUZ ITS NOT IMPLEMENTED YET
+		//trace('introstyle is ' + SONG.introStyle.toLowerCase());
+
 		switch (SONG.song.toLowerCase())
 		{
 			case 'tutorial':
@@ -310,6 +316,7 @@ class PlayState extends MusicBeatState
 				dialogue = CoolUtil.coolTextFile(Paths.txt('ridge/ridgeDialogue'));
 
 		}
+		trace('dialogue set');
 		
 
 		switch(SONG.stage)
@@ -750,6 +757,7 @@ class PlayState extends MusicBeatState
 							add(stageCurtains);
 					}
 		}
+		trace('stage is ' + SONG.stage.toLowerCase());
 		var gfVersion:String = 'gf';
 	// the virgin hard coding
 	//	switch (curStage)
@@ -776,6 +784,7 @@ class PlayState extends MusicBeatState
 		case 'gf-pixel':
 			gfVersion = 'gf-pixel';
 	}
+	trace('gfversion is ' + SONG.gfVersion.toLowerCase());
 
 		gf = new Character(400, 130, gfVersion);
 		gf.scrollFactor.set(0.95, 0.95);
@@ -835,6 +844,7 @@ class PlayState extends MusicBeatState
 
 				resetFastCar();
 				add(fastCar);
+				trace('stage specific repositioning for limo is done');
 
 			case 'mall':
 				boyfriend.x += 200;
@@ -1024,6 +1034,7 @@ class PlayState extends MusicBeatState
 		}
 		// healthBar
 		add(healthBar);
+		
 
 		// Add Kade Engine watermark
 		var kadeEngineWatermark = new FlxText(4,healthBarBG.y + 50,0,SONG.song + " " + (storyDifficulty == 2 ? "Hard" : storyDifficulty == 1 ? "Normal" : "Easy") + " - KE " + MainMenuState.kadeEngineVer + " - " + (FlxG.save.data.etternaMode ? "E.Mode" : "FNF"), 16);
