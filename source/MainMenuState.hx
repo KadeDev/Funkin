@@ -46,17 +46,18 @@ class MainMenuState extends MusicBeatState
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
 		#end
-
+		//commented out cuz no assets rn 
+		/*
 		if(Date.now < "2021-05-01"){
 			optionShit = ['story mode', 'freeplay', 'kickstarter', 'options'];
 		}
+		*/
 
 		if (!FlxG.sound.music.playing)
 		{
 			FlxG.sound.playMusic(Paths.music('freakyMenu'));
 			trace('music');
 		}
-
 		persistentUpdate = persistentDraw = true;
 
 		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
