@@ -155,7 +155,7 @@ class MainMenuState extends MusicBeatState
 
 			if (controls.ACCEPT)
 			{
-				if (optionShit[curSelected] == 'donate' | optionShit[curSelected] == 'kickstarter')
+				if (optionShit[curSelected] == 'donate' || optionShit[curSelected] == 'kickstarter')
 				{
 					if(optionShit[curSelected] == 'donate'){
 						#if linux
