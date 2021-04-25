@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="bf.png">
+	<!-- Created with Adobe Animate version 20.5.1.31044 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="bf-christmas Lose0000" x="0" y="0" width="137" height="90"/>
+	<SubTexture name="bf-christmas Win0000" x="0" y="90" width="137" height="83"/>
+</TextureAtlas>

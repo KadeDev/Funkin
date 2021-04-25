@@ -192,6 +192,21 @@ class ChartingState extends MusicBeatState
 		super.create();
 	}
 
+	function changeIcon():Void
+		{
+			if(_song.player1 != player1Icon){
+				
+				player1Icon = _song.player1;
+				leftIcon.animation.play(player1Icon);
+			}
+	
+			if(_song.player2 != player2Icon){
+	
+				player2Icon = _song.player2;
+				rightIcon.animation.play(player2Icon);
+			}
+		}
+
 	function addSongUI():Void
 	{
 		var UI_songTitle = new FlxUIInputText(10, 10, 70, _song.song, 8);
@@ -561,6 +576,9 @@ class ChartingState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
+
+		changeIcon();
+
 		curStep = recalculateSteps();
 
 		if (FlxG.keys.justPressed.ALT && UI_box.selected_tab == 0)

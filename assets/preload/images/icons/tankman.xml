@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="tankman.png">
+	<!-- Created with Adobe Animate version 20.5.1.31044 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="tankman Lose0000" x="0" y="0" width="97" height="81"/>
+	<SubTexture name="tankman Win0000" x="97" y="0" width="97" height="81"/>
+</TextureAtlas>

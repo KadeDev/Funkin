@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="bf-old.png">
+	<!-- Created with Adobe Animate version 20.5.1.31044 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="bf-old Lose0000" x="0" y="0" width="107" height="89"/>
+	<SubTexture name="bf-old Win0000" x="107" y="0" width="97" height="84"/>
+</TextureAtlas>

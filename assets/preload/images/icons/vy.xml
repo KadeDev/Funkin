@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="vy.png">
+	<!-- Created with Adobe Animate version 20.5.1.31044 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="vy Lose0000" x="0" y="0" width="97" height="80"/>
+	<SubTexture name="vy Lose0001" x="0" y="0" width="97" height="80"/>
+	<SubTexture name="vy Lose0002" x="97" y="0" width="97" height="80"/>
+	<SubTexture name="vy Lose0003" x="97" y="0" width="97" height="80"/>
+	<SubTexture name="vy Win0000" x="0" y="80" width="83" height="80"/>
+</TextureAtlas>

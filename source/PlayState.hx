@@ -1899,8 +1899,8 @@ class PlayState extends MusicBeatState
 		// FlxG.watch.addQuick('VOL', vocals.amplitudeLeft);
 		// FlxG.watch.addQuick('VOLRight', vocals.amplitudeRight);
 
-		iconP1.setGraphicSize(Std.int(FlxMath.lerp(150, iconP1.width, 0.50)));
-		iconP2.setGraphicSize(Std.int(FlxMath.lerp(150, iconP2.width, 0.50)));
+		iconP1.setGraphicSize(Std.int(FlxMath.lerp(100, iconP1.width, 0.50)));
+		iconP2.setGraphicSize(Std.int(FlxMath.lerp(100, iconP2.width, 0.50)));
 
 		iconP1.updateHitbox();
 		iconP2.updateHitbox();
@@ -1913,15 +1913,17 @@ class PlayState extends MusicBeatState
 		if (health > 2)
 			health = 2;
 
+		/// My system is so cool ~ Vy
+
 		if (healthBar.percent < 20)
-			iconP1.animation.curAnim.curFrame = 1;
+			iconP1.animation.play('lose');
 		else
-			iconP1.animation.curAnim.curFrame = 0;
+			iconP1.animation.play('win');
 
 		if (healthBar.percent > 80)
-			iconP2.animation.curAnim.curFrame = 1;
+			iconP2.animation.play('lose');
 		else
-			iconP2.animation.curAnim.curFrame = 0;
+			iconP2.animation.play('win');
 
 		/* if (FlxG.keys.justPressed.NINE)
 			FlxG.switchState(new Charting()); */

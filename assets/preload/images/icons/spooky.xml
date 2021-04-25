@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="spooky.png">
+	<!-- Created with Adobe Animate version 20.5.1.31044 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="spooky Lose0000" x="0" y="0" width="109" height="83"/>
+	<SubTexture name="spooky Win0000" x="109" y="0" width="109" height="83"/>
+</TextureAtlas>
