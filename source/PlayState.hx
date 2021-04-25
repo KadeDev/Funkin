@@ -106,6 +106,7 @@ class PlayState extends MusicBeatState
 	public static var bads:Int = 0;
 	public static var goods:Int = 0;
 	public static var sicks:Int = 0;
+	public static var curFont:String = '';
 
 	public static var songPosBG:FlxSprite;
 	public static var songPosBar:FlxBar;
@@ -892,6 +893,15 @@ class PlayState extends MusicBeatState
 					add(stageCurtains);
 			}
 		}
+
+		switch(SONG.song.toLowerCase())
+		{
+			case 'thorns' | 'roses' | 'senpai':
+				curFont = 'pixel.otf';
+			default:
+				curFont = 'vcr.ttf';
+		}
+
 		var gfVersion:String = 'gf';
 
 		switch (curStage)
@@ -1069,7 +1079,7 @@ class PlayState extends MusicBeatState
 			var songName = new FlxText(songPosBG.x + (songPosBG.width / 2) - 20,songPosBG.y,0,SONG.song, 16);
 			if (FlxG.save.data.downscroll)
 				songName.y -= 3;
-			songName.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
+			songName.setFormat(Paths.font(curFont), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 			songName.scrollFactor.set();
 			add(songName);
 			songName.cameras = [camHUD];
@@ -1097,7 +1107,7 @@ class PlayState extends MusicBeatState
 
 		// Add Kade Engine watermark
 		kadeEngineWatermark = new FlxText(4,healthBarBG.y + 50,0,SONG.song + " " + (storyDifficulty == 2 ? "Hard" : storyDifficulty == 1 ? "Normal" : "Easy") + (Main.watermarks ? " - KE " + MainMenuState.kadeEngineVer : ""), 16);
-		kadeEngineWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
+		kadeEngineWatermark.setFormat(Paths.font(curFont), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 		kadeEngineWatermark.scrollFactor.set();
 		add(kadeEngineWatermark);
 
@@ -1107,14 +1117,14 @@ class PlayState extends MusicBeatState
 		scoreTxt = new FlxText(FlxG.width / 2 - 235, healthBarBG.y + 50, 0, "", 20);
 		if (!FlxG.save.data.accuracyDisplay)
 			scoreTxt.x = healthBarBG.x + healthBarBG.width / 2;
-		scoreTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
+		scoreTxt.setFormat(Paths.font(curFont), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 		scoreTxt.scrollFactor.set();
 		if (offsetTesting)
 			scoreTxt.x += 300;
 		add(scoreTxt);
 
 		replayTxt = new FlxText(healthBarBG.x + healthBarBG.width / 2 - 75, healthBarBG.y + (FlxG.save.data.downscroll ? 100 : -100), 0, "REPLAY", 20);
-		replayTxt.setFormat(Paths.font("vcr.ttf"), 42, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
+		replayTxt.setFormat(Paths.font(curFont), 42, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 		replayTxt.scrollFactor.set();
 		if (loadRep)
 			{
@@ -1821,7 +1831,7 @@ class PlayState extends MusicBeatState
 			var songName = new FlxText(songPosBG.x + (songPosBG.width / 2) - 20,songPosBG.y,0,SONG.song, 16);
 			if (FlxG.save.data.downscroll)
 				songName.y -= 3;
-			songName.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
+			songName.setFormat(Paths.font(curFont), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 			songName.scrollFactor.set();
 			add(songName);
 
@@ -3039,6 +3049,7 @@ class PlayState extends MusicBeatState
 			currentTimingShown.borderColor = FlxColor.BLACK;
 			currentTimingShown.text = msTiming + "ms";
 			currentTimingShown.size = 20;
+			currentTimingShown.font = Paths.font(curFont);
 
 			if (msTiming >= 0.03 && offsetTesting)
 			{
