@@ -848,15 +848,17 @@ class PlayState extends MusicBeatState
 
 			case 'mall':
 				boyfriend.x += 200;
-
+				trace('stage specific repositioning for mall is done');
 			case 'mallEvil':
 				boyfriend.x += 320;
 				dad.y -= 80;
+				trace('stage specific repositioning for mallEvil is done');
 			case 'school':
 				boyfriend.x += 200;
 				boyfriend.y += 220;
 				gf.x += 180;
 				gf.y += 300;
+				trace('stage specific repositioning for school is done');
 			case 'schoolEvil':
 				// trailArea.scrollFactor.set();
 
@@ -870,6 +872,7 @@ class PlayState extends MusicBeatState
 				boyfriend.y += 220;
 				gf.x += 180;
 				gf.y += 300;
+				trace('stage specific repositioning for schoolEvil is done');
 		}
 
 		add(gf);
@@ -981,6 +984,7 @@ class PlayState extends MusicBeatState
 				// evilTrail.changeGraphic()
 				add(evilTrail);
 				// evilTrail.scrollFactor.set(1.1, 1.1);
+				//ew hard coded. we'll make this unhardcoded i promise
 		}
 		healthBarBG = new FlxSprite(0, FlxG.height * 0.9).loadGraphic(Paths.image('ui/healthBar'));
 		if (FlxG.save.data.downscroll)
@@ -1034,6 +1038,7 @@ class PlayState extends MusicBeatState
 		}
 		// healthBar
 		add(healthBar);
+		trace('bar color specific to ' + SONG.player2.toLowerCase() + ' has been set');
 		
 
 		// Add Kade Engine watermark
