@@ -13,6 +13,7 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import io.newgrounds.NG;
 import lime.app.Application;
+import Sys;
 
 #if desktop
 import Discord.DiscordClient;
@@ -25,20 +26,15 @@ class MainMenuState extends MusicBeatState
 	var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
-
-	#if !switch
 	var optionShit:Array<String> = ['story mode', 'freeplay', 'donate', 'options'];
-	#else
-	var optionShit:Array<String> = ['story mode', 'freeplay'];
-	#end
 
 	var newGaming:FlxText;
 	var newGaming2:FlxText;
 	var newInput:Bool = true;
 
-	public static var nightly:String = "";
+	public static var nightly:String = "Custom Build";
 
-	public static var kadeEngineVer:String = "1.4" + nightly;
+	public static var kadeEngineVer:String = "" + nightly;
 	public static var gameVer:String = "0.2.7.1";
 
 	var magenta:FlxSprite;
@@ -51,9 +47,14 @@ class MainMenuState extends MusicBeatState
 		DiscordClient.changePresence("In the Menus", null);
 		#end
 
+		if(Date.now < "2021-05-01"){
+			optionShit = ['story mode', 'freeplay', 'kickstarter', 'options'];
+		}
+
 		if (!FlxG.sound.music.playing)
 		{
 			FlxG.sound.playMusic(Paths.music('freakyMenu'));
+			trace('music');
 		}
 
 		persistentUpdate = persistentDraw = true;
@@ -107,6 +108,7 @@ class MainMenuState extends MusicBeatState
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
+		trace('version shit');
 
 		// NG.core.calls.event.logEvent('swag').send();
 
@@ -151,13 +153,22 @@ class MainMenuState extends MusicBeatState
 
 			if (controls.ACCEPT)
 			{
-				if (optionShit[curSelected] == 'donate')
+				if (optionShit[curSelected] == 'donate' | optionShit[curSelected] == 'kickstarter')
 				{
-					#if linux
-					Sys.command('/usr/bin/xdg-open', ["https://ninja-muffin24.itch.io/funkin", "&"]);
-					#else
-					FlxG.openURL('https://ninja-muffin24.itch.io/funkin');
-					#end
+					if(optionShit[curSelected] == 'donate'){
+						#if linux
+						Sys.command('/usr/bin/xdg-open', ["https://ninja-muffin24.itch.io/funkin", "&"]);
+						#else
+						FlxG.openURL('https://ninja-muffin24.itch.io/funkin');
+						#end
+					}
+					else if(optionShit[curSelected] == 'kickstarter'){
+						#if linux
+						Sys.command('/usr/bin/xdg-open', [https://www.kickstarter.com/projects/funkin/friday-night-funkin-the-full-ass-game", "&"]);
+						#else
+						FlxG.openURL('https://www.kickstarter.com/projects/funkin/friday-night-funkin-the-full-ass-game');
+						#end
+					}
 				}
 				else
 				{

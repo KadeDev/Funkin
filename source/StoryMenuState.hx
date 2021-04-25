@@ -88,10 +88,12 @@ class StoryMenuState extends MusicBeatState
 		#if desktop
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Story Mode Menu", null);
+		trace('rich presence updated');
 		#end
 		//dumb fucking
 		weekData = [week0Songs, week1Songs, week2Songs, week3Songs, week4Songs, week5Songs, week6Songs];
 		weekCharacters = [week0Chars, week1Chars, week2Chars, week3Chars, week4Chars, week5Chars, week6Chars];
+		trace('week stuff changed');
 		transIn = FlxTransitionableState.defaultTransIn;
 		transOut = FlxTransitionableState.defaultTransOut;
 
@@ -99,11 +101,12 @@ class StoryMenuState extends MusicBeatState
 		{
 			if (!FlxG.sound.music.playing)
 				FlxG.sound.playMusic(Paths.music('freakyMenu'));
+				trace('music now exists');
 		}
 
 		persistentUpdate = persistentDraw = true;
 
-		scoreText = new FlxText(10, 10, 0, "SCORE: 49324858", 36);
+		scoreText = new FlxText(10, 10, 0, "SCORE: 6942021", 36);
 		scoreText.setFormat("VCR OSD Mono", 32);
 
 		txtWeekTitle = new FlxText(FlxG.width * 0.7, 10, 0, "", 32);
@@ -130,8 +133,6 @@ class StoryMenuState extends MusicBeatState
 		grpLocks = new FlxTypedGroup<FlxSprite>();
 		add(grpLocks);
 
-		trace("Line 70");
-
 		for (i in 0...weekData.length)
 		{
 			var weekThing:MenuItem = new MenuItem(0, yellowBG.y + yellowBG.height + 10, i);
@@ -153,19 +154,20 @@ class StoryMenuState extends MusicBeatState
 				lock.ID = i;
 				lock.antialiasing = true;
 				grpLocks.add(lock);
+				trace('week locked');
 			}
 		}
 
-		trace("Line 96");
-
 		grpWeekCharacters.add(new MenuCharacter(0, 100, 0.5, false));
+		trace('menu character left');
 		grpWeekCharacters.add(new MenuCharacter(450, 25, 0.9, true));
+		trace('menu character center');
 		grpWeekCharacters.add(new MenuCharacter(850, 100, 0.5, true));
+		trace('menu character right');
 
 		difficultySelectors = new FlxGroup();
 		add(difficultySelectors);
-
-		trace("Line 124");
+		trace('difficulty selectors added');
 
 		leftArrow = new FlxSprite(grpWeekText.members[0].x + grpWeekText.members[0].width + 10, grpWeekText.members[0].y + 10);
 		leftArrow.frames = ui_tex;
@@ -173,6 +175,7 @@ class StoryMenuState extends MusicBeatState
 		leftArrow.animation.addByPrefix('press', "arrow push left");
 		leftArrow.animation.play('idle');
 		difficultySelectors.add(leftArrow);
+		trace('left arrow added');
 
 		sprDifficulty = new FlxSprite(leftArrow.x + 130, leftArrow.y);
 		sprDifficulty.frames = ui_tex;
@@ -181,6 +184,7 @@ class StoryMenuState extends MusicBeatState
 		sprDifficulty.animation.addByPrefix('hard', 'HARD');
 		sprDifficulty.animation.play('easy');
 		changeDifficulty();
+		trace('funie difficulty');
 
 		difficultySelectors.add(sprDifficulty);
 
@@ -190,11 +194,11 @@ class StoryMenuState extends MusicBeatState
 		rightArrow.animation.addByPrefix('press', "arrow push right", 24, false);
 		rightArrow.animation.play('idle');
 		difficultySelectors.add(rightArrow);
-
-		trace("Line 150");
+		trace('right arrow added');
 
 		add(yellowBG);
 		add(grpWeekCharacters);
+		trace('yellow bg and group characters now exist');
 
 		txtTracklist = new FlxText(FlxG.width * 0.05, yellowBG.x + yellowBG.height + 100, 0, "Tracks", 32);
 		txtTracklist.alignment = CENTER;
@@ -204,10 +208,9 @@ class StoryMenuState extends MusicBeatState
 		// add(rankText);
 		add(scoreText);
 		add(txtWeekTitle);
+		trace('text n shit');
 
 		updateText();
-
-		trace("Line 165");
 
 		super.create();
 	}
@@ -218,6 +221,7 @@ class StoryMenuState extends MusicBeatState
 		lerpScore = Math.floor(FlxMath.lerp(lerpScore, intendedScore, 0.5));
 
 		scoreText.text = "HIGHEST WEEK SCORE:" + lerpScore;
+		trace('week score updated');
 
 		txtWeekTitle.text = weekNames[curWeek].toUpperCase();
 		txtWeekTitle.x = FlxG.width - (txtWeekTitle.width + 10);
@@ -271,6 +275,7 @@ class StoryMenuState extends MusicBeatState
 		{
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			movedBack = true;
+			trace('bye bye story menu');
 			FlxG.switchState(new MainMenuState());
 		}
 
@@ -292,6 +297,7 @@ class StoryMenuState extends MusicBeatState
 				grpWeekText.members[curWeek].startFlashing();
 				grpWeekCharacters.members[1].animation.play('bfConfirm');
 				stopspamming = true;
+				trace('confirmation confirmed');
 			}
 
 			PlayState.storyPlaylist = weekData[curWeek];
@@ -336,12 +342,15 @@ class StoryMenuState extends MusicBeatState
 			case 0:
 				sprDifficulty.animation.play('easy');
 				sprDifficulty.offset.x = 20;
+				trace('easy');
 			case 1:
 				sprDifficulty.animation.play('normal');
 				sprDifficulty.offset.x = 70;
+				trace('normal');
 			case 2:
 				sprDifficulty.animation.play('hard');
 				sprDifficulty.offset.x = 20;
+				trace('hard');
 		}
 
 		sprDifficulty.alpha = 0;

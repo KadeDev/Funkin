@@ -79,6 +79,7 @@ class Song
 	{
 		var swagShit:SwagSong = cast Json.parse(rawJson).song;
 		swagShit.validScore = true;
+		trace('json shit parsed');
 		return swagShit;
 	}
 }
