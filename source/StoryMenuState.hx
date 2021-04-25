@@ -32,15 +32,14 @@ class StoryMenuState extends MusicBeatState
 	var week4Songs:Array<String> = CoolUtil.coolTextFile(Paths.txt('week4'));
 	var week5Songs:Array<String> = CoolUtil.coolTextFile(Paths.txt('week5'));
 	var week6Songs:Array<String> = CoolUtil.coolTextFile(Paths.txt('week6'));
-	//GET FRESH'D
 	var weekData:Array<Dynamic> = [
-		['Fresh'],
-		['Fresh', 'Fresh', 'Fresh'],
-		['Fresh', 'Fresh', 'Fresh'],
-		['Fresh', 'Fresh', 'Fresh'],
-		['Fresh', 'Fresh', 'Fresh'],
-		['Fresh', 'Fresh', 'Fresh'],
-		['Fresh', 'Fresh', 'Fresh']
+		['Tutorial'],
+		['Bopeebo', 'Fresh', 'Dadbattle'],
+		['Spookeez', 'South', 'Monster'],
+		['Pico', 'Philly', 'Blammed'],
+		['Satin-Panties', 'High', 'Milf'],
+		['Cocoa', 'Eggnog', 'Winter-Horrorland'],
+		['Senpai', 'Roses', 'Thorns']
 	];
 
 	var curDifficulty:Int = 1;
@@ -56,16 +55,25 @@ class StoryMenuState extends MusicBeatState
 	var week5Chars:Array<String> = CoolUtil.coolTextFile(Paths.txt('week5Chars'));
 	var week6Chars:Array<String> = CoolUtil.coolTextFile(Paths.txt('week6Chars'));
 	var weekCharacters:Array<Dynamic> = [
+		['', 'bf', 'gf'],
 		['dad', 'bf', 'gf'],
-		['dad', 'bf', 'gf'],
-		['dad', 'bf', 'gf'],
-		['dad', 'bf', 'gf'],
-		['dad', 'bf', 'gf'],
-		['dad', 'bf', 'gf'],
-		['dad', 'bf', 'gf']
+		['spooky', 'bf', 'gf'],
+		['pico', 'bf', 'gf'],
+		['mom', 'bf', 'gf'],
+		['parents-christmas', 'bf', 'gf'],
+		['senpai', 'bf', 'gf']
 	];
-
-	var weekNames:Array<String> = CoolUtil.coolTextFile(Paths.txt('weekNames'));
+	//too based for haxe to handle so i had to comment it out :(
+	//var weekNames:Array<String> = CoolUtil.coolTextFile(Paths.txt('weekNames'));
+	var weekNames:Array<String> = [
+		'How to Funk',
+		'Who should she call Daddy',
+		'The End of Spooky Month',
+		"Pico's Muscial School",
+		'Mommy Must Murder',
+		'Red Snow',
+		'Hating Simulator'
+	];
 
 	var txtWeekTitle:FlxText;
 
@@ -90,10 +98,10 @@ class StoryMenuState extends MusicBeatState
 		DiscordClient.changePresence("In the Story Mode Menu", null);
 		trace('rich presence updated');
 		#end
-		//dumb fucking
-		weekData = [week0Songs, week1Songs, week2Songs, week3Songs, week4Songs, week5Songs, week6Songs];
-		weekCharacters = [week0Chars, week1Chars, week2Chars, week3Chars, week4Chars, week5Chars, week6Chars];
-		trace('week stuff changed');
+		//too based for haxe to handle so i had to comment it out :(
+		//weekData = [week0Songs, week1Songs, week2Songs, week3Songs, week4Songs, week5Songs, week6Songs];
+		//weekCharacters = [week0Chars, week1Chars, week2Chars, week3Chars, week4Chars, week5Chars, week6Chars];
+		//trace('week stuff changed');
 		transIn = FlxTransitionableState.defaultTransIn;
 		transOut = FlxTransitionableState.defaultTransOut;
 
