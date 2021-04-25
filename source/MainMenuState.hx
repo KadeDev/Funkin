@@ -46,11 +46,13 @@ class MainMenuState extends MusicBeatState
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
 		#end
-
+		//gotta comment out again cuz fuck
+		/*
 		if(Date.now < "2021-05-01"){
 			optionShit = ['story mode', 'freeplay', 'kickstarter', 'options', 'creator'];
 			trace('kickstarter aint over adding kickstarter to list');
 		}
+		*/
 
 		if (!FlxG.sound.music.playing)
 		{
