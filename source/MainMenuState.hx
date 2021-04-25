@@ -26,7 +26,7 @@ class MainMenuState extends MusicBeatState
 	var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
-	var optionShit:Array<String> = ['story mode', 'freeplay', 'donate', 'options', 'creator'];
+	var optionShit:Array<String> = ['story mode', 'freeplay', 'options', 'creator'];
 
 	var newGaming:FlxText;
 	var newGaming2:FlxText;
@@ -49,7 +49,7 @@ class MainMenuState extends MusicBeatState
 		//gotta comment out again cuz fuck
 		/*
 		if(Date.now < "2021-05-01"){
-			optionShit = ['story mode', 'freeplay', 'kickstarter', 'options', 'creator'];
+			optionShit = ['story mode', 'freeplay', 'kickstarter', 'options'];
 			trace('kickstarter aint over adding kickstarter to list');
 		}
 		*/
