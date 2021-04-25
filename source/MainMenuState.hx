@@ -32,10 +32,10 @@ class MainMenuState extends MusicBeatState
 	var newGaming2:FlxText;
 	var newInput:Bool = true;
 
-	public static var nightly:String = "Custom Build";
+	public static var nightly:String = "Custom Build of";
 
-	public static var kadeEngineVer:String = "" + nightly;
-	public static var gameVer:String = "0.2.7.1";
+	public static var kadeEngineVer:String = "FNF as it was always meant to be " + nightly;
+	public static var gameVer:String = "Modded";
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
