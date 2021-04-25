@@ -32,16 +32,17 @@ class StoryMenuState extends MusicBeatState
 	var week4Songs:Array<String> = CoolUtil.coolTextFile(Paths.txt('week4'));
 	var week5Songs:Array<String> = CoolUtil.coolTextFile(Paths.txt('week5'));
 	var week6Songs:Array<String> = CoolUtil.coolTextFile(Paths.txt('week6'));
+	//GET FRESH'D
 	var weekData:Array<Dynamic> = [
-		[week0Songs],
-		[week1Songs],
-		[week2Songs],
-		[week3Songs],
-		[week4Songs],
-		[week5Songs],
-		[week6Songs]
+		['Fresh'],
+		['Fresh', 'Fresh', 'Fresh'],
+		['Fresh', 'Fresh', 'Fresh'],
+		['Fresh', 'Fresh', 'Fresh'],
+		['Fresh', 'Fresh', 'Fresh'],
+		['Fresh', 'Fresh', 'Fresh'],
+		['Fresh', 'Fresh', 'Fresh']
 	];
-	
+
 	var curDifficulty:Int = 1;
 
 	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true, true];
@@ -55,13 +56,13 @@ class StoryMenuState extends MusicBeatState
 	var week5Chars:Array<String> = CoolUtil.coolTextFile(Paths.txt('week5Chars'));
 	var week6Chars:Array<String> = CoolUtil.coolTextFile(Paths.txt('week6Chars'));
 	var weekCharacters:Array<Dynamic> = [
-		[week0Chars],
-		[week1Chars],
-		[week2Chars],
-		[week3Chars],
-		[week4Chars],
-		[week5Chars],
-		[week6Chars]
+		['dad', 'bf', 'gf'],
+		['dad', 'bf', 'gf'],
+		['dad', 'bf', 'gf'],
+		['dad', 'bf', 'gf'],
+		['dad', 'bf', 'gf'],
+		['dad', 'bf', 'gf'],
+		['dad', 'bf', 'gf']
 	];
 
 	var weekNames:Array<String> = CoolUtil.coolTextFile(Paths.txt('weekNames'));
@@ -88,7 +89,9 @@ class StoryMenuState extends MusicBeatState
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Story Mode Menu", null);
 		#end
-
+		//dumb fucking
+		weekData = [week0Songs, week1Songs, week2Songs, week3Songs, week4Songs, week5Songs, week6Songs];
+		weekCharacters = [week0Chars, week1Chars, week2Chars, week3Chars, week4Chars, week5Chars, week6Chars];
 		transIn = FlxTransitionableState.defaultTransIn;
 		transOut = FlxTransitionableState.defaultTransOut;
 
