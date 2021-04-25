@@ -108,6 +108,7 @@ class PlayState extends MusicBeatState
 	public static var sicks:Int = 0;
 	public static var curFont:String = '';
 	public static var fontSize:Int = 16;
+	public static var wrappingEnabled:Bool = true;
 
 	public static var songPosBG:FlxSprite;
 	public static var songPosBar:FlxBar;
@@ -1071,6 +1072,7 @@ class PlayState extends MusicBeatState
 				songPosBG.y = FlxG.height * 0.9 + 45; 
 			songPosBG.screenCenter(X);
 			songPosBG.scrollFactor.set();
+			songPosBG.updateHitbox();
 			add(songPosBG);
 			
 			songPosBar = new FlxBar(songPosBG.x + 4, songPosBG.y + 4, LEFT_TO_RIGHT, Std.int(songPosBG.width - 8), Std.int(songPosBG.height - 8), this,
@@ -1078,11 +1080,10 @@ class PlayState extends MusicBeatState
 			songPosBar.scrollFactor.set();
 			songPosBar.createFilledBar(FlxColor.GRAY, FlxColor.LIME);
 			add(songPosBar);
-
-			var songName = new FlxText(songPosBG.x + (songPosBG.width / 2) - 20,songPosBG.y,0,SONG.song, 16);
+			var songName = new FlxText(songPosBG.getGraphicMidpoint().x - 15,songPosBG.getGraphicMidpoint().y - 9,0,SONG.song, 16);
 			if (FlxG.save.data.downscroll)
 				songName.y -= 3;
-			songName.setFormat(Paths.font(curFont), fontSize, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
+			songName.setFormat(Paths.font(curFont), fontSize, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 			songName.scrollFactor.set();
 			add(songName);
 			songName.cameras = [camHUD];
@@ -1117,10 +1118,10 @@ class PlayState extends MusicBeatState
 		if (FlxG.save.data.downscroll)
 			kadeEngineWatermark.y = FlxG.height * 0.9 + 45;
 
-		scoreTxt = new FlxText(healthBarBG.x, healthBarBG.y + 50, healthBarBG.width, "", 20);
 		if (!FlxG.save.data.accuracyDisplay)
 			scoreTxt.x = healthBarBG.x + healthBarBG.width / 2;
 		
+		scoreTxt = new FlxText(healthBarBG.x, healthBarBG.y + 50, 0, "", 20);
 		scoreTxt.setFormat(Paths.font(curFont), fontSize, FlxColor.WHITE, FlxTextAlign.CENTER , FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 		scoreTxt.scrollFactor.set();
 		if (offsetTesting)
@@ -1812,6 +1813,7 @@ class PlayState extends MusicBeatState
 		// Song duration in a float, useful for the time left feature
 		songLength = FlxG.sound.music.length;
 
+		/*
 		if (FlxG.save.data.songPosition)
 		{
 			remove(songPosBG);
@@ -1832,7 +1834,7 @@ class PlayState extends MusicBeatState
 			songPosBar.createFilledBar(FlxColor.GRAY, FlxColor.LIME);
 			add(songPosBar);
 
-			var songName = new FlxText(songPosBG.x + (songPosBG.width / 2) - 20,songPosBG.y,0,SONG.song, 16);
+			var songName = new FlxText(songPosBG.x,songPosBG.y,songPosBG.width,SONG.song, 16);
 			if (FlxG.save.data.downscroll)
 				songName.y -= 3;
 			songName.setFormat(Paths.font(curFont), fontSize, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
@@ -1842,7 +1844,7 @@ class PlayState extends MusicBeatState
 			songPosBG.cameras = [camHUD];
 			songPosBar.cameras = [camHUD];
 			songName.cameras = [camHUD];
-		}
+		} */
 		
 		// Song check real quick
 		switch(curSong)
