@@ -137,6 +137,7 @@ class ChartingState extends MusicBeatState
 				stage: 'test',
 				gfVersion: 'gf',
 				noteStyle: 'normal',
+				introStyle: 'normal',
 				speed: 1,
 				validScore: false
 			};
