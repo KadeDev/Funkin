@@ -26,7 +26,7 @@ class MainMenuState extends MusicBeatState
 	var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
-	var optionShit:Array<String> = ['story mode', 'freeplay', 'donate', 'options'];
+	var optionShit:Array<String> = ['story mode', 'freeplay', 'donate', 'options', 'creator'];
 
 	var newGaming:FlxText;
 	var newGaming2:FlxText;
@@ -46,12 +46,10 @@ class MainMenuState extends MusicBeatState
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
 		#end
-		//commented out cuz no assets rn 
-		/*
+
 		if(Date.now < "2021-05-01"){
-			optionShit = ['story mode', 'freeplay', 'kickstarter', 'options'];
+			optionShit = ['story mode', 'freeplay', 'kickstarter', 'options', 'creator'];
 		}
-		*/
 
 		if (!FlxG.sound.music.playing)
 		{
