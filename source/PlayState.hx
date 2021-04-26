@@ -2933,6 +2933,7 @@ class PlayState extends MusicBeatState
 					bruhSplash.setupNoteSplash(daNote.noteData, daNote.x, strumLine.y);
 					grpNoteSplashes.add(bruhSplash);
 					sicks++;
+				}
 			}
 
 			// trace('Wife accuracy loss: ' + wife + ' | Rating: ' + daRating + ' | Score: ' + score + ' | Weight: ' + (1 - wife));
