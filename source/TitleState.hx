@@ -205,7 +205,7 @@ class TitleState extends MusicBeatState
 		blackScreen = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
 		credGroup.add(blackScreen);
 
-		credTextShit = new Alphabet(0, 0, "ninjamuffin99\nPhantomArcade\nkawaisprite\nevilsk8er", true);
+		credTextShit = new Alphabet(0, 0, "ninjamuffin99\nPhantomArcade\nkawaisprite\nevilsk8er\nkorewaChino\nAikoyori", true);
 		credTextShit.screenCenter();
 
 		// credTextShit.alignment = CENTER;
@@ -308,7 +308,7 @@ class TitleState extends MusicBeatState
 
 				// Get current version of Kade Engine
 
-				var http = new haxe.Http("https://raw.githubusercontent.com/KadeDev/Kade-Engine/master/version.downloadMe");
+				var http = new haxe.Http("https://github.com/FNF-Cappy-Mix/FNF-Cappy-Mix/master/version.downloadMe");
 
 				http.onData = function (data:String) {
 				  
@@ -391,22 +391,25 @@ class TitleState extends MusicBeatState
 		{
 			case 1:
 				createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er']);
-			// credTextShit.visible = true;
 			case 3:
+				deleteCoolText();
+				createCoolText(['Cappy Ishihara','Aikoyori']);
+			// credTextShit.visible = true;
+			case 5:
 				addMoreText('present');
 			// credTextShit.text += '\npresent...';
 			// credTextShit.addText();
-			case 4:
+			case 6:
 				deleteCoolText();
 			// credTextShit.visible = false;
 			// credTextShit.text = 'In association \nwith';
 			// credTextShit.screenCenter();
-			case 5:
+			case 7:
 				if (Main.watermarks)
 					createCoolText(['Kade Engine', 'by']);
 				else
 					createCoolText(['In Partnership', 'with']);
-			case 7:
+			case 8:
 				if (Main.watermarks)
 					addMoreText('KadeDeveloper');
 				else
@@ -415,34 +418,40 @@ class TitleState extends MusicBeatState
 					ngSpr.visible = true;
 				}
 			// credTextShit.text += '\nNewgrounds';
-			case 8:
+			case 9:
 				deleteCoolText();
 				ngSpr.visible = false;
 			// credTextShit.visible = false;
 
 			// credTextShit.text = 'Shoutouts Tom Fulp';
 			// credTextShit.screenCenter();
-			case 9:
+			case 10:
 				createCoolText([curWacky[0]]);
 			// credTextShit.visible = true;
-			case 11:
+			case 12:
 				addMoreText(curWacky[1]);
 			// credTextShit.text += '\nlmao';
-			case 12:
+			case 14:
 				deleteCoolText();
 			// credTextShit.visible = false;
 			// credTextShit.text = "Friday";
 			// credTextShit.screenCenter();
-			case 13:
+			case 15:
 				addMoreText('Friday');
 			// credTextShit.visible = true;
-			case 14:
+			case 16:
 				addMoreText('Night');
 			// credTextShit.text += '\nNight';
-			case 15:
-				addMoreText('Funkin'); // credTextShit.text += '\nFunkin';
+			case 17:
+				addMoreText('Funkin'); 
 
-			case 16:
+			case 18:
+				addMoreText('Cappys'); // credTextShit.text += '\nFunkin';
+
+			case 19:
+				addMoreText('Mix'); // credTextShit.text += '\nFunkin';
+
+			case 20:
 				skipIntro();
 		}
 	}
