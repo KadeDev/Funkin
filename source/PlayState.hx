@@ -207,10 +207,8 @@ class PlayState extends MusicBeatState
 	
 	// Will decide if she's even allowed to headbang at all depending on the song
 	private var allowedToHeadbang:Bool = false;
- 
 	// Per song additive offset
 	public static var songOffset:Float = 0;
- 
 	// Note splash shit
 	var grpNoteSplashes = new FlxTypedGroup<NoteSplash>();
 
@@ -497,7 +495,6 @@ class PlayState extends MusicBeatState
 
 		FlxG.cameras.reset(camGame);
 		FlxG.cameras.add(camHUD);
-  
 		var tempNoteSplash = new NoteSplash(0, 0, 0);
 		grpNoteSplashes.add(tempNoteSplash);
 		tempNoteSplash.alpha = 0.1;
@@ -2123,100 +2120,6 @@ class PlayState extends MusicBeatState
 	var startedCountdown:Bool = false;
 	var canPause:Bool = true;
 
-																  
-				   
-									  
-													
-			 
-   
-
-
-								  
-  
-							 
-
-																						  
-					 
-																											   
-					 
-									 
-					
-													
-					  
-	  
-					   
-
-									 
-
-									
-								
-							   
-							   
-							  
-							 
-							 
-							
-						 
-							
-						
-						
-						
-					   
-					   
-					   
-					 
-	
-
-									 
-   
-							 
-		 
-	
-			 
-	 
-			
-						  
-			
-						  
-			
-						  
-			
-						 
-			
-						 
-			
-						 
-			
-						
-			
-						
-			
-						
-			
-					   
-			 
-					   
-			 
-					   
-			 
-					  
-			 
-					  
-			 
-					  
-			 
-					  
-	 
-		  
-	
-   
-
-					
-				   
-
-				 
-  
-
 	public static var songRate = 1.5;
 
 	override public function update(elapsed:Float)
@@ -2322,22 +2225,7 @@ class PlayState extends MusicBeatState
 
 		super.update(elapsed);
 
-					 
-   
-									  
-	
 		scoreTxt.text = Ratings.CalculateRanking(songScore,songScoreDef,nps,accuracy);
-	
-	   
-	
-																									
-	
-   
-	  
-   
-													 
-
-   
 		if (FlxG.keys.justPressed.ENTER && startedCountdown && canPause)
 		{
 			persistentUpdate = false;
@@ -2758,7 +2646,6 @@ class PlayState extends MusicBeatState
 							}
 						}
 					}
-	  
 					if (!daNote.mustPress && daNote.wasGoodHit)
 					{
 						if (SONG.song != 'Tutorial')
@@ -3046,7 +2933,6 @@ class PlayState extends MusicBeatState
 					bruhSplash.setupNoteSplash(daNote.noteData, daNote.x, strumLine.y);
 					grpNoteSplashes.add(bruhSplash);
 					sicks++;
-				}
 			}
 
 			// trace('Wife accuracy loss: ' + wife + ' | Rating: ' + daRating + ' | Score: ' + score + ' | Weight: ' + (1 - wife));
@@ -3777,13 +3663,6 @@ class PlayState extends MusicBeatState
 			var noteDiff:Float = Math.abs(note.strumTime - Conductor.songPosition);
 
 			note.rating = Ratings.CalculateRating(noteDiff);
-						 
-																									  
-						
-																									  
-						 
-																									  
-						 
 
 			if (loadRep)
 			{
@@ -3799,12 +3678,6 @@ class PlayState extends MusicBeatState
 			}
 			else if (controlArray[note.noteData])
 				{
-							  
-			
-				 
-	  
-
-								   
 
 					if (mashing > getKeyPresses(note) && mashViolations <= 2)
 					{
@@ -3827,8 +3700,6 @@ class PlayState extends MusicBeatState
 					else
 						goodNoteHit(note, false);
 
-					  
-				  
 				}
 		}
 
