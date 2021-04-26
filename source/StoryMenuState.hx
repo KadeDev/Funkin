@@ -28,11 +28,11 @@ class StoryMenuState extends MusicBeatState
 		['Bopeebo', 'Fresh', 'Dadbattle'],
 		['Spookeez', 'South', "Monster"],
 		['Pico', 'Philly', "Blammed"],
-		['Satin-Panties', "High", "Milf"],
+		['Satin-Panties', "High", "Mega Milf"],
 		['Cocoa', 'Eggnog', 'Winter-Horrorland'],
 		['Senpai', 'Roses', 'Thorns']
 	];
-	var curDifficulty:Int = 1;
+	var curDifficulty:Int = 2;
 
 	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true, true];
 
@@ -309,6 +309,7 @@ class StoryMenuState extends MusicBeatState
 
 	function changeDifficulty(change:Int = 0):Void
 	{
+		/*
 		curDifficulty += change;
 
 		if (curDifficulty < 0)
@@ -317,7 +318,8 @@ class StoryMenuState extends MusicBeatState
 			curDifficulty = 0;
 
 		sprDifficulty.offset.x = 0;
-
+		*/
+		curDifficulty = 2;
 		switch (curDifficulty)
 		{
 			case 0:
