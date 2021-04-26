@@ -119,6 +119,9 @@
 	<haxelib name="discord_rpc" if="windows"/>
 	<haxelib name="linc_luajit" if="windows"/>
 
+	<!-- Week 7 shit -->
+	<haxelib name="random"/>
+	
 	<!-- <haxelib name="hxcpp-debug-server" if="desktop"/> -->
 
 	<!-- <haxelib name="markdown" /> -->
