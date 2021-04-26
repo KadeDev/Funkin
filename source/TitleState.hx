@@ -312,9 +312,9 @@ class TitleState extends MusicBeatState
 
 				http.onData = function (data:String) {
 				  
-				  	if (!MainMenuState.kadeEngineVer.contains(data.trim()) && !OutdatedSubState.leftState && MainMenuState.nightly == "")
+				  	if (!MainMenuState.cappyMixVer.contains(data.trim()) && !OutdatedSubState.leftState && MainMenuState.nightly == "")
 					{
-						trace('outdated lmao! ' + data.trim() + ' != ' + MainMenuState.kadeEngineVer);
+						trace('outdated lmao! ' + data.trim() + ' != ' + MainMenuState.cappyMixVer);
 						OutdatedSubState.needVer = data;
 						FlxG.switchState(new OutdatedSubState());
 					}
