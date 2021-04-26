@@ -392,8 +392,8 @@ class TitleState extends MusicBeatState
 			case 1:
 				createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er']);
 			case 3:
-				deleteCoolText();
-				createCoolText(['Cappy Ishihara','Aikoyori']);
+				addMoreText('Cappy Ishihara');
+				addMoreText('Aikoyori');
 			// credTextShit.visible = true;
 			case 5:
 				addMoreText('present');
