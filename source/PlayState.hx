@@ -451,7 +451,7 @@ class PlayState extends MusicBeatState
 			case 1:
 				storyDifficultyText = "Normal";
 			case 2:
-				storyDifficultyText = "Hard";
+				storyDifficultyText = "Another";
 		}
 
 		iconRPC = SONG.player2;
@@ -1065,7 +1065,7 @@ class PlayState extends MusicBeatState
 		add(healthBar);
 
 		// Add Kade Engine watermark
-		kadeEngineWatermark = new FlxText(4,healthBarBG.y + 50,0,SONG.song + " " + (storyDifficulty == 2 ? "Hard" : storyDifficulty == 1 ? "Normal" : "Easy") + (Main.watermarks ? " - KE " + MainMenuState.kadeEngineVer : "") + " " + (Main.watermarks ? " - CM " + MainMenuState.cappyMixVer : "") , 16);
+		kadeEngineWatermark = new FlxText(4,healthBarBG.y + 50,0,SONG.song + " " + (storyDifficulty == 2 ? "Another" : storyDifficulty == 1 ? "Normal" : "Easy") + (Main.watermarks ? " - KE " + MainMenuState.kadeEngineVer : "") + " " + (Main.watermarks ? " - CM " + MainMenuState.cappyMixVer : "") , 16);
 		kadeEngineWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 		kadeEngineWatermark.scrollFactor.set();
 		add(kadeEngineWatermark);
