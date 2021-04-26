@@ -594,7 +594,7 @@ class PlayState extends MusicBeatState
 					var street:FlxSprite = new FlxSprite(-40, streetBehind.y).loadGraphic(Paths.image('philly/street'));
 						add(street);
 			}
-			case 'milf' | 'satin-panties' | 'high':
+			case 'mega-milf' | 'satin-panties' | 'high':
 			{
 					curStage = 'limo';
 					defaultCamZoom = 0.90;
@@ -3896,7 +3896,7 @@ class PlayState extends MusicBeatState
 		wiggleShit.update(Conductor.crochet);
 
 		// HARDCODING FOR MILF ZOOMS!
-		if (curSong.toLowerCase() == 'milf' && curBeat >= 168 && curBeat < 200 && camZooming && FlxG.camera.zoom < 1.35)
+		if (curSong.toLowerCase() == 'mega-milf' && curBeat >= 168 && curBeat < 200 && camZooming && FlxG.camera.zoom < 1.35)
 		{
 			FlxG.camera.zoom += 0.015;
 			camHUD.zoom += 0.03;
