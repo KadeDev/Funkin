@@ -389,14 +389,11 @@ class TitleState extends MusicBeatState
 
 		switch (curBeat)
 		{
-			case 1:
-				createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er']);
 			case 3:
-				deleteCoolText();
-				createCoolText(['Cappy Ishihara','Aikoyori']);
+				createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er']);
+			case 4:
 			// credTextShit.visible = true;
 			case 5:
-				addMoreText('present');
 			// credTextShit.text += '\npresent...';
 			// credTextShit.addText();
 			case 6:
@@ -405,11 +402,17 @@ class TitleState extends MusicBeatState
 			// credTextShit.text = 'In association \nwith';
 			// credTextShit.screenCenter();
 			case 7:
+				addMoreText('Cappy Ishihara');
+				addMoreText('Aikoyori');
+				addMoreText('present');
+			case 9:
+				deleteCoolText();
+			case 10:
 				if (Main.watermarks)
 					createCoolText(['Kade Engine', 'by']);
 				else
 					createCoolText(['In Partnership', 'with']);
-			case 8:
+			case 11:
 				if (Main.watermarks)
 					addMoreText('KadeDeveloper');
 				else
@@ -418,40 +421,40 @@ class TitleState extends MusicBeatState
 					ngSpr.visible = true;
 				}
 			// credTextShit.text += '\nNewgrounds';
-			case 9:
+			case 12:
 				deleteCoolText();
 				ngSpr.visible = false;
 			// credTextShit.visible = false;
 
 			// credTextShit.text = 'Shoutouts Tom Fulp';
 			// credTextShit.screenCenter();
-			case 10:
+			case 13:
 				createCoolText([curWacky[0]]);
 			// credTextShit.visible = true;
-			case 12:
+			case 15:
 				addMoreText(curWacky[1]);
 			// credTextShit.text += '\nlmao';
-			case 14:
+			case 17:
 				deleteCoolText();
 			// credTextShit.visible = false;
 			// credTextShit.text = "Friday";
 			// credTextShit.screenCenter();
-			case 15:
+			case 18:
 				addMoreText('Friday');
 			// credTextShit.visible = true;
-			case 16:
+			case 19:
 				addMoreText('Night');
 			// credTextShit.text += '\nNight';
-			case 17:
+			case 20:
 				addMoreText('Funkin'); 
 
-			case 18:
+			case 21:
 				addMoreText('Cappys'); // credTextShit.text += '\nFunkin';
 
-			case 19:
+			case 22:
 				addMoreText('Mix'); // credTextShit.text += '\nFunkin';
 
-			case 20:
+			case 23:
 				skipIntro();
 		}
 	}
