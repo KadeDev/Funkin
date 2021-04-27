@@ -308,7 +308,7 @@ class TitleState extends MusicBeatState
 
 				// Get current version of Kade Engine
 
-				var http = new haxe.Http("https://github.com/FNF-Cappy-Mix/FNF-Cappy-Mix/master/version.downloadMe");
+				var http = new haxe.Http("https://github.com/FNF-Cappy-Mix/FNF-Cappy-Mix/master/newVersioning.download");
 
 				http.onData = function (data:String) {
 				  
