@@ -163,8 +163,6 @@ class StoryMenuState extends MusicBeatState
 
 		sprDifficulty = new FlxSprite(leftArrow.x + 130, leftArrow.y);
 		sprDifficulty.frames = ui_tex;
-		sprDifficulty.animation.addByPrefix('easy', 'EASY');
-		sprDifficulty.animation.addByPrefix('normal', 'NORMAL');
 		sprDifficulty.animation.addByPrefix('hard', 'HARD');
 		sprDifficulty.animation.play('easy');
 		changeDifficulty();
@@ -321,7 +319,7 @@ class StoryMenuState extends MusicBeatState
 		*/
 		curDifficulty = 2;
 		sprDifficulty.animation.play('hard');
-		sprDifficulty.offset.x = 20;
+		sprDifficulty.offset.x = 60;
 		
 
 		sprDifficulty.alpha = 0;
