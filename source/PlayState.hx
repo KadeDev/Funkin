@@ -517,7 +517,7 @@ class PlayState extends MusicBeatState
 					"If you want to date her...",
 					"You're going to have to go \nthrough ME first!"
 				];
-			case 'fresh':
+			case 'freshman':
 				dialogue = ["Not too shabby boy.", ""];
 			case 'dadbattle':
 				dialogue = [
@@ -2515,7 +2515,7 @@ class PlayState extends MusicBeatState
 				// FlxG.watch.addQuick('Queued',inputsQueued);
 			}
 
-		if (curSong == 'Fresh')
+		if (curSong == 'Freshman')
 		{
 			switch (curBeat)
 			{
