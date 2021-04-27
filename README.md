@@ -4,7 +4,7 @@
 
 ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/FNF-Cappy-Mix/FNF-Cappy-Mix/latest) ![GitHub repo size](https://img.shields.io/github/repo-size/FNF-Cappy-Mix/FNF-Cappy-Mix) ![Lines of code](https://img.shields.io/tokei/lines/github/FNF-Cappy-Mix/FNF-Cappy-Mix) ![Supported platforms](https://img.shields.io/badge/supported%20platforms-windows%2C%20linux%2C%20html5-blue) ![GitHub all releases](https://img.shields.io/github/downloads/FNF-Cappy-Mix/FNF-Cappy-Mix/total) ![GitHub](https://img.shields.io/github/license/FNF-Cappy-Mix/FNF-Cappy-Mix) ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/FNF-Cappy-Mix/FNF-Cappy-Mix?include_prereleases&label=latest%20version)
 
-[![Discord](https://img.shields.io/discord/808039740464300104?label=discord)](https://discord.gg/puGhxmvNHS)
+[![Discord](https://img.shields.io/discord/836686473637789757?label=discord)](https://discord.gg/puGhxmvNHS)
 
 # Friday Night Funkin': Cappy's Mix
 
