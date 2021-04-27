@@ -44,7 +44,7 @@ This game was made with love to Newgrounds and its community. Extra love to Tom 
 
 ### Cappy's Mix
 
-* [Aikoyori](https://aikoyori.xyz) \- Programmer, Chart Editor
+* [Aikoyori](https://aikoyori.xyz) \- Programmer, Chart Editor, Art
 * [Cappy Ishihara/Cup o' Chino](https://twitter.com/korewaChino) \- Remixed Music
 
 # Other pages
