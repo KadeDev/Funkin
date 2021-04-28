@@ -12,7 +12,7 @@ jobs:
         uses: HaxeFlixel/setup-flixel@master
         with:          
           haxe-version: 4.1.5
-          flixel-version: 4.9.0
+          flixel-versions: 4.9.0
           target: html5
       - name: Install Libraries
         run: 
