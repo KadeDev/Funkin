@@ -1,8 +1,11 @@
 name: Build the Game and Deploy as GitHub Pages
-on: [push]
+on:
+  push:
+    branches:
+      - master
 jobs:
-  build-and-deploy:
-    name: Build HTML5 & Deploy to Pages
+  build:
+    name: Build HTML5
     runs-on: windows-latest
     steps:
       - name: Checkout 🛒
@@ -12,7 +15,7 @@ jobs:
         uses: krdlab/setup-haxe@v1
         with:
           haxe-version: 4.1.5
-          
+
       - run: |
           mkdir "%HAXELIB_ROOT%"
           haxelib setup "%HAXELIB_ROOT%"
@@ -38,8 +41,26 @@ jobs:
         run: |
           haxelib run lime build html5
 
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: gh-pages
+          path: export/release/html5/bin
+  deploy:
+    name: Deploy to Pages
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.1
+
+      - name: Download Artifacts 
+        uses: actions/download-artifact@v1
+        with:
+          name: gh-pages
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: export/release/html5/bin # The folder the action should deploy.
+          branch: gh-pages
+          folder: 'gh-pages'      
