@@ -9,7 +9,7 @@ jobs:
         uses: actions/checkout@v2.3.1
 
       - name: Import HaxeFlixel
-        uses: HaxeFlixel/setup-flixele@master
+        uses: HaxeFlixel/setup-flixel@master
         with:          
           haxe-version: 4.1.5
           flixel-version: 4.9.0
