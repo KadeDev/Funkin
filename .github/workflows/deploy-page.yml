@@ -12,8 +12,8 @@ jobs:
         uses: krdlab/setup-haxe@v1
         with:          
           haxe-version: 4.1.5
-      - name: Build HTML5 version
-        run: |
+      - name: Install Libraries
+        run: 
           haxelib install lime 7.9.0
           haxelib install openfl
           haxelib install flixel
@@ -29,6 +29,9 @@ jobs:
           haxelib git faxe https://github.com/uhrobots/faxe
           haxelib git polymod https://github.com/larsiusprime/polymod.git
           haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
+          haxelib run lime setup
+      - name: Build HTML5 version
+        run: |
           lime build html5
 
       - name: Deploy 🚀
