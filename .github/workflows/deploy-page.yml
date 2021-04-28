@@ -8,6 +8,7 @@ jobs:
       - name: Checkout 🛒
         uses: actions/checkout@v2.3.1
 
+      - uses: lix-pm/setup-lix@master
       - name: Import HaxeFlixel
         uses: HaxeFlixel/setup-flixel@master
         with:          
