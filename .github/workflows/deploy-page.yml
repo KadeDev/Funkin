@@ -9,9 +9,11 @@ jobs:
         uses: actions/checkout@v2.3.1
 
       - name: Import HaxeFlixel
-        uses: krdlab/setup-haxe@v1
+        uses: HaxeFlixel/setup-flixele@master
         with:          
           haxe-version: 4.1.5
+          flixel-version: 4.9.0
+          target: html5
       - name: Install Libraries
         run: 
           haxelib install lime 7.9.0
