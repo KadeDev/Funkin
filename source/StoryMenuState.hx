@@ -25,10 +25,10 @@ class StoryMenuState extends MusicBeatState
 
 	var weekData:Array<Dynamic> = [
 		['Tutorial'],
-		['Bopeebo', 'Fresh', 'Dadbattle'],
+		['Bopeebo', 'Freshman', 'Dadbattle'],
 		['Spookeez', 'South', "Monster"],
 		['Pico', 'Philly', "Blammed"],
-		['Satin-Panties', "High", "Mega Milf"],
+		['Satin-Panties', "High", "Mega-Milf"],
 		['Cocoa', 'Eggnog', 'Winter-Horrorland'],
 		['Senpai', 'Roses', 'Thorns']
 	];
@@ -163,8 +163,6 @@ class StoryMenuState extends MusicBeatState
 
 		sprDifficulty = new FlxSprite(leftArrow.x + 130, leftArrow.y);
 		sprDifficulty.frames = ui_tex;
-		sprDifficulty.animation.addByPrefix('easy', 'EASY');
-		sprDifficulty.animation.addByPrefix('normal', 'NORMAL');
 		sprDifficulty.animation.addByPrefix('hard', 'HARD');
 		sprDifficulty.animation.play('easy');
 		changeDifficulty();
@@ -320,18 +318,9 @@ class StoryMenuState extends MusicBeatState
 		sprDifficulty.offset.x = 0;
 		*/
 		curDifficulty = 2;
-		switch (curDifficulty)
-		{
-			case 0:
-				sprDifficulty.animation.play('easy');
-				sprDifficulty.offset.x = 20;
-			case 1:
-				sprDifficulty.animation.play('normal');
-				sprDifficulty.offset.x = 70;
-			case 2:
-				sprDifficulty.animation.play('hard');
-				sprDifficulty.offset.x = 20;
-		}
+		sprDifficulty.animation.play('hard');
+		sprDifficulty.offset.x = 60;
+		
 
 		sprDifficulty.alpha = 0;
 
@@ -381,12 +370,12 @@ class StoryMenuState extends MusicBeatState
 		grpWeekCharacters.members[1].setCharacter(weekCharacters[curWeek][1]);
 		grpWeekCharacters.members[2].setCharacter(weekCharacters[curWeek][2]);
 
-		txtTracklist.text = "Tracks\n";
+		txtTracklist.text = "Tracks\n\n";
 		var stringThing:Array<String> = weekData[curWeek];
 
 		for (i in stringThing)
 		{
-			txtTracklist.text += "\n" + i;
+			txtTracklist.text += i + "\n";
 		}
 
 		txtTracklist.text = txtTracklist.text.toUpperCase();

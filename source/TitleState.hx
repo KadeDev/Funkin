@@ -154,7 +154,7 @@ class TitleState extends MusicBeatState
 			FlxG.sound.music.fadeIn(4, 0, 0.7);
 		}
 
-		Conductor.changeBPM(102);
+		Conductor.changeBPM(140);
 		persistentUpdate = true;
 
 		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
@@ -308,7 +308,7 @@ class TitleState extends MusicBeatState
 
 				// Get current version of Kade Engine
 
-				var http = new haxe.Http("https://github.com/FNF-Cappy-Mix/FNF-Cappy-Mix/master/version.downloadMe");
+				var http = new haxe.Http("https://github.com/FNF-Cappy-Mix/FNF-Cappy-Mix/master/newVersioning.download");
 
 				http.onData = function (data:String) {
 				  
@@ -335,7 +335,7 @@ class TitleState extends MusicBeatState
 			// FlxG.sound.play(Paths.music('titleShoot'), 0.7);
 		}
 
-		if (pressedEnter && !skippedIntro)
+		if (pressedEnter && !skippedIntro && initialized)
 		{
 			skipIntro();
 		}

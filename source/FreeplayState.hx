@@ -230,15 +230,8 @@ class FreeplayState extends MusicBeatState
 		#end
 		*/
 		curDifficulty = 2;
-		switch (curDifficulty)
-		{
-			case 0:
-				diffText.text = "EASY";
-			case 1:
-				diffText.text = 'NORMAL';
-			case 2:
-				diffText.text = "ANOTHER";
-		}
+		diffText.text = "ANOTHER";
+		
 	}
 
 	function changeSelection(change:Int = 0)
