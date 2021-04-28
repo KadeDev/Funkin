@@ -29,7 +29,7 @@ jobs:
           haxelib git faxe https://github.com/uhrobots/faxe
           haxelib git polymod https://github.com/larsiusprime/polymod.git
           haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
-          haxelib run lime setup
+          haxelib run lime setup windows
       - name: Build HTML5 version
         run: |
           lime build html5
