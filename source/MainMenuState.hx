@@ -38,7 +38,7 @@ class MainMenuState extends MusicBeatState
 
 	public static var nightly:String = "";
 
-	public static var cappyMixVer:String = "0.2.5";
+	public static var cappyMixVer:String = "0.2.6";
 	public static var kadeEngineVer:String = "1.4.2" + nightly;
 	public static var gameVer:String = "0.2.7.1";
 
