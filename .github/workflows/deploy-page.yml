@@ -8,19 +8,24 @@ jobs:
       - name: Checkout 🛒
         uses: actions/checkout@v2.3.1
 
-      - uses: lix-pm/setup-lix@master
-      - name: Import HaxeFlixel
-        uses: krdlab/setup-haxe@v1
-        with:          
-          haxe-version: 4.1.5
+      - name: Chocolatey the funny
+        uses: crazy-max/ghaction-chocolatey@v1
+        with:
+          args: install neko --version 2.3.0 -y
+      - name: Chocolatey the funny
+        uses: crazy-max/ghaction-chocolatey@v1
+        with:
+          args: haxe --version 4.1.5 -y
+      - run: RefreshEnv
+
+          
       - name: Install Libraries
         run: 
           haxelib install lime 7.9.0
           haxelib install openfl
           haxelib install flixel
-          haxelib run lime setup
           haxelib run lime setup flixel
-          haxelib run lime setup windows
+          haxelib run lime setup
           haxelib install flixel-tools
           haxelib install flixel-addons
           haxelib install flixel-ui
