@@ -17,6 +17,7 @@ jobs:
           haxelib install lime 7.9.0
           haxelib install openfl
           haxelib install flixel
+          haxelib run lime setup
           haxelib run lime setup windows
           haxelib run lime setup flixel
           haxelib install flixel-tools
@@ -31,7 +32,7 @@ jobs:
           haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
       - name: Build HTML5 version
         run: |
-          lime build html5
+          haxelib run lime build html5
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.1
