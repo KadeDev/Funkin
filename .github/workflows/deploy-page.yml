@@ -2,6 +2,7 @@ name: Build the Game and Deploy as GitHub Pages
 on: [push]
 jobs:
   build-and-deploy:
+    name: Build HTML5 & Deploy to Pages
     runs-on: windows-latest
     steps:
       - name: Checkout 🛒
@@ -9,13 +10,14 @@ jobs:
 
       - name: Import HaxeFlixel
         uses: lix-pm/setup-lix@master
+      - uses: krdlab/setup-haxe@v1
       - uses: HaxeFlixel/setup-flixel@master
         with:
           haxe-version: 4.1.5
           flixel-versions: dev
           target: html5
       - name: Build HTML5 version
-        run: 
+        run: |
           haxelib install lime 7.9.0
           haxelib install openfl
           haxelib install flixel
