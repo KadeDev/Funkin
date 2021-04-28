@@ -10,11 +10,9 @@ jobs:
 
       - uses: lix-pm/setup-lix@master
       - name: Import HaxeFlixel
-        uses: HaxeFlixel/setup-flixel@master
+        uses: krdlab/setup-haxe@v1
         with:          
           haxe-version: 4.1.5
-          flixel-versions: dev
-          target: html5
       - name: Install Libraries
         run: 
           haxelib install lime 7.9.0
