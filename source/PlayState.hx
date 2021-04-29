@@ -2852,8 +2852,6 @@ class PlayState extends MusicBeatState
 
 					if (storyDifficulty == 0)
 						difficulty = '-basic';
-					if (storyDifficulty == 1)
-						difficulty = '-medium';
 					if (storyDifficulty == 2)
 						difficulty = '-advance';
 					if (storyDifficulty == 3)

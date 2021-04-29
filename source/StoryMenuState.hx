@@ -293,7 +293,7 @@ class StoryMenuState extends MusicBeatState
 				case 0:
 					diffic = '-basic';
 				case 1:
-					diffic = '-medium';
+					diffic = '';
 				case 2:
 					diffic = '-advance';
 				case 3:
