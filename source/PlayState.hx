@@ -1087,9 +1087,21 @@ class PlayState extends MusicBeatState
 		healthBar.createFilledBar(0xFFFF0000, 0xFF66FF33);
 		// healthBar
 		add(healthBar);
-
+		var diffString = "";
 		// Add Kade Engine watermark
-		kadeEngineWatermark = new FlxText(4,healthBarBG.y + 50,0,SONG.song + " " + (storyDifficulty == 2 ? "Another" : storyDifficulty == 1 ? "Normal" : "Easy") + (Main.watermarks ? " - KE " + MainMenuState.kadeEngineVer : "") + " " + (Main.watermarks ? " - CM " + MainMenuState.cappyMixVer : "") , 16);
+		switch(storyDifficulty)
+		{
+			case 0:
+				diffString="BASIC";
+			case 1:
+				diffString="MEDIUM";
+			case 2:
+				diffString="ADVANCED";
+			case 3:
+				diffString="ANOTHER";
+
+		}
+		kadeEngineWatermark = new FlxText(4,healthBarBG.y + 50,0,SONG.song + " " + diffString + (Main.watermarks ? " - KE " + MainMenuState.kadeEngineVer : "") + " " + (Main.watermarks ? " - CM " + MainMenuState.cappyMixVer : "") , 16);
 		kadeEngineWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 		kadeEngineWatermark.scrollFactor.set();
 		add(kadeEngineWatermark);
