@@ -62,7 +62,7 @@ class LoadReplayState extends MusicBeatState
 				case 1:
 					diffString="MEDIUM";
 				case 2:
-					diffString="ADVANCE";
+					diffString="ADVANCED";
 				case 3:
 					diffString="ANOTHER";
 

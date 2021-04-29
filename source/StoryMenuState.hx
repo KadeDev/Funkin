@@ -165,7 +165,7 @@ class StoryMenuState extends MusicBeatState
 		sprDifficulty.frames = ui_tex;
 		sprDifficulty.animation.addByPrefix('basic', 'BASIC');
 		sprDifficulty.animation.addByPrefix('medium', 'MEDIUM');
-		sprDifficulty.animation.addByPrefix('advance', 'ADVANCE');
+		sprDifficulty.animation.addByPrefix('advanced', 'ADVANCED');
 		sprDifficulty.animation.addByPrefix('another', 'ANOTHER');
 		sprDifficulty.animation.play('easy');
 		changeDifficulty();
@@ -295,7 +295,7 @@ class StoryMenuState extends MusicBeatState
 				case 1:
 					diffic = '';
 				case 2:
-					diffic = '-advance';
+					diffic = '-advanced';
 				case 3:
 					diffic = '-another';
 			}
@@ -332,7 +332,7 @@ class StoryMenuState extends MusicBeatState
 				sprDifficulty.animation.play('medium');
 				sprDifficulty.offset.x = 60;
 			case 2:
-				sprDifficulty.animation.play('advance');
+				sprDifficulty.animation.play('advanced');
 				sprDifficulty.offset.x = 60;
 			case 3:
 				sprDifficulty.animation.play('another');

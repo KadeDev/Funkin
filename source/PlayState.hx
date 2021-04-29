@@ -453,7 +453,7 @@ class PlayState extends MusicBeatState
 			case 1:
 				storyDifficultyText = "Medium";
 			case 2:
-				storyDifficultyText = "Advance";
+				storyDifficultyText = "Advanced";
 			case 3:
 				storyDifficultyText = "Another";
 		}
@@ -2853,7 +2853,7 @@ class PlayState extends MusicBeatState
 					if (storyDifficulty == 0)
 						difficulty = '-basic';
 					if (storyDifficulty == 2)
-						difficulty = '-advance';
+						difficulty = '-advanced';
 					if (storyDifficulty == 3)
 						difficulty = '-another';
 

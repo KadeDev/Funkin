@@ -67,7 +67,7 @@ class Highscore
 		if (diff == 0)
 			daSong += '-basic';
 		else if (diff == 2)
-			daSong += '-advance';
+			daSong += '-advanced';
 		else if (diff == 3)
 			daSong += '-another';
 
