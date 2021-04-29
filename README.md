@@ -20,7 +20,7 @@ Links: <b>[itch.io page](https://ninja-muffin24.itch.io/funkin) ⋅ [Newgrounds]
 
 Cappy's Mix is a mod for Friday Night Funkin' based on the Kade Engine code.
 
-Links: **[play in browser](https://fnf-cappy-mix.github.io/FNF-Cappy-Mix/) (More coming soon)
+Links: **[play in browser](https://fnf-cappy-mix.github.io/FNF-Cappy-Mix/)** (More coming soon)
 
 **REMEMBER**: This is a **mod**. This is not the vanilla game and should be treated as a **modification**. This is not and probably will never be official, so don't get confused.
 
