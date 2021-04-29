@@ -65,9 +65,13 @@ class Highscore
 		var daSong:String = song;
 
 		if (diff == 0)
-			daSong += '-easy';
+			daSong += '-basic';
+		else if (diff == 1)
+			daSong += '-medium';
 		else if (diff == 2)
-			daSong += '-hard';
+			daSong += '-advance';
+		else if (diff == 3)
+			daSong += '-another';
 
 		return daSong;
 	}

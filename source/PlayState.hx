@@ -449,10 +449,12 @@ class PlayState extends MusicBeatState
 		switch (storyDifficulty)
 		{
 			case 0:
-				storyDifficultyText = "Easy";
+				storyDifficultyText = "Basic";
 			case 1:
-				storyDifficultyText = "Normal";
+				storyDifficultyText = "Medium";
 			case 2:
+				storyDifficultyText = "Advance";
+			case 3:
 				storyDifficultyText = "Another";
 		}
 
@@ -2849,10 +2851,13 @@ class PlayState extends MusicBeatState
 					var difficulty:String = "";
 
 					if (storyDifficulty == 0)
-						difficulty = '-easy';
-
+						difficulty = '-basic';
+					if (storyDifficulty == 1)
+						difficulty = '-medium';
 					if (storyDifficulty == 2)
-						difficulty = '-hard';
+						difficulty = '-advance';
+					if (storyDifficulty == 3)
+						difficulty = '-another';
 
 					trace('LOADING NEXT SONG');
 					trace(PlayState.storyPlaylist[0].toLowerCase() + difficulty);

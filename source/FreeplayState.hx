@@ -23,7 +23,7 @@ class FreeplayState extends MusicBeatState
 
 	var selector:FlxText;
 	var curSelected:Int = 0;
-	var curDifficulty:Int = 2;
+	var curDifficulty:Int = 1;
 
 	var scoreText:FlxText;
 	var diffText:FlxText;
@@ -217,20 +217,29 @@ class FreeplayState extends MusicBeatState
 
 	function changeDiff(change:Int = 0)
 	{
-		/*
+		
 		curDifficulty += change;
 
 		if (curDifficulty < 0)
-			curDifficulty = 2;
-		if (curDifficulty > 2)
+			curDifficulty = 3;
+		if (curDifficulty > 3)
 			curDifficulty = 0;
+		switch(curDifficulty)
+		{
+			case 0:
+				diffText.text = "BASIC";
+			case 1:
+				diffText.text = "MEDIUM";
+			case 2:
+				diffText.text = "ADVANCE";
+			case 3:
+				diffText.text = "ANOTHER";
 
+		}
 		#if !switch
 		intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
 		#end
-		*/
-		curDifficulty = 2;
-		diffText.text = "ANOTHER";
+		
 		
 	}
 

@@ -163,16 +163,19 @@ class StoryMenuState extends MusicBeatState
 
 		sprDifficulty = new FlxSprite(leftArrow.x + 130, leftArrow.y);
 		sprDifficulty.frames = ui_tex;
-		sprDifficulty.animation.addByPrefix('hard', 'HARD');
+		sprDifficulty.animation.addByPrefix('basic', 'BASIC');
+		sprDifficulty.animation.addByPrefix('medium', 'MEDIUM');
+		sprDifficulty.animation.addByPrefix('advance', 'ADVANCE');
+		sprDifficulty.animation.addByPrefix('another', 'ANOTHER');
 		sprDifficulty.animation.play('easy');
 		changeDifficulty();
 
 		difficultySelectors.add(sprDifficulty);
 
-		rightArrow = new FlxSprite(sprDifficulty.x + sprDifficulty.width + 50, leftArrow.y);
+		rightArrow = new FlxSprite(sprDifficulty.x + sprDifficulty.width - 50, leftArrow.y);
 		rightArrow.frames = ui_tex;
 		rightArrow.animation.addByPrefix('idle', 'arrow right');
-		rightArrow.animation.addByPrefix('press', "arrow push right", 24, false);
+		rightArrow.animation.addByPrefix('press', "arrow push right");
 		rightArrow.animation.play('idle');
 		difficultySelectors.add(rightArrow);
 
@@ -288,9 +291,13 @@ class StoryMenuState extends MusicBeatState
 			switch (curDifficulty)
 			{
 				case 0:
-					diffic = '-easy';
+					diffic = '-basic';
+				case 1:
+					diffic = '-medium';
 				case 2:
-					diffic = '-hard';
+					diffic = '-advance';
+				case 3:
+					diffic = '-another';
 			}
 
 			PlayState.storyDifficulty = curDifficulty;
@@ -307,19 +314,31 @@ class StoryMenuState extends MusicBeatState
 
 	function changeDifficulty(change:Int = 0):Void
 	{
-		/*
+		
 		curDifficulty += change;
 
 		if (curDifficulty < 0)
-			curDifficulty = 2;
-		if (curDifficulty > 2)
+			curDifficulty = 3;
+		if (curDifficulty > 3)
 			curDifficulty = 0;
 
-		sprDifficulty.offset.x = 0;
-		*/
-		curDifficulty = 2;
-		sprDifficulty.animation.play('hard');
-		sprDifficulty.offset.x = 60;
+		
+		switch(curDifficulty)
+		{
+			case 0:
+				sprDifficulty.animation.play('basic');
+				sprDifficulty.offset.x = 40;
+			case 1:
+				sprDifficulty.animation.play('medium');
+				sprDifficulty.offset.x = 60;
+			case 2:
+				sprDifficulty.animation.play('advance');
+				sprDifficulty.offset.x = 60;
+			case 3:
+				sprDifficulty.animation.play('another');
+				sprDifficulty.offset.x = 60;
+
+		}
 		
 
 		sprDifficulty.alpha = 0;
