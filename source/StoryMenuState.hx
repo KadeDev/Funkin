@@ -167,12 +167,12 @@ class StoryMenuState extends MusicBeatState
 		sprDifficulty.animation.addByPrefix('medium', 'MEDIUM');
 		sprDifficulty.animation.addByPrefix('advanced', 'ADVANCED');
 		sprDifficulty.animation.addByPrefix('another', 'ANOTHER');
-		sprDifficulty.animation.play('easy');
+		sprDifficulty.animation.play('medium');
 		changeDifficulty();
 
 		difficultySelectors.add(sprDifficulty);
 
-		rightArrow = new FlxSprite(sprDifficulty.x + sprDifficulty.width - 50, leftArrow.y);
+		rightArrow = new FlxSprite(sprDifficulty.x + sprDifficulty.width - 10, leftArrow.y);
 		rightArrow.frames = ui_tex;
 		rightArrow.animation.addByPrefix('idle', 'arrow right');
 		rightArrow.animation.addByPrefix('press', "arrow push right");
@@ -330,10 +330,10 @@ class StoryMenuState extends MusicBeatState
 				sprDifficulty.offset.x = 40;
 			case 1:
 				sprDifficulty.animation.play('medium');
-				sprDifficulty.offset.x = 60;
+				sprDifficulty.offset.x = 50;
 			case 2:
 				sprDifficulty.animation.play('advanced');
-				sprDifficulty.offset.x = 60;
+				sprDifficulty.offset.x = 40;
 			case 3:
 				sprDifficulty.animation.play('another');
 				sprDifficulty.offset.x = 60;
