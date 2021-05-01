@@ -58,6 +58,8 @@ class ChartingState extends MusicBeatState
 	var curSong:String = 'Dadbattle';
 	var amountSteps:Int = 0;
 	var bullshitUI:FlxGroup;
+	var curDifficulty:String = 'normal';
+	var diffSuffix:String = '';
 	var writingNotesText:FlxText;
 	var highlight:FlxSprite;
 
@@ -121,6 +123,17 @@ class ChartingState extends MusicBeatState
 
 		curRenderedNotes = new FlxTypedGroup<Note>();
 		curRenderedSustains = new FlxTypedGroup<FlxSprite>();
+
+		// make difficulty use the one thats currently selected
+		switch (PlayState.storyDifficulty)
+		{
+			case 0:
+				curDifficulty = 'easy';
+			case 1:
+				curDifficulty = 'normal';
+			case 2:
+				curDifficulty = 'hard';
+		}
 
 		FlxG.mouse.visible = true;
 		FlxG.save.bind('funkin', 'ninjamuffin99');
@@ -223,7 +236,7 @@ class ChartingState extends MusicBeatState
 
 		var reloadSongJson:FlxButton = new FlxButton(reloadSong.x, saveButton.y + 30, "Reload JSON", function()
 		{
-			loadJson(_song.song.toLowerCase());
+			loadJson(_song.song.toLowerCase() + diffSuffix);
 		});
 
 		
@@ -253,6 +266,7 @@ class ChartingState extends MusicBeatState
 		var gfVersions:Array<String> = CoolUtil.coolTextFile(Paths.txt('gfVersionList'));
 		var stages:Array<String> = CoolUtil.coolTextFile(Paths.txt('stageList'));
 		var noteStyles:Array<String> = CoolUtil.coolTextFile(Paths.txt('noteStyleList'));
+		var difficulties:Array<String> = ['easy', 'normal', 'hard'];
 
 		var player1DropDown = new FlxUIDropDownMenu(10, 100, FlxUIDropDownMenu.makeStrIdLabelArray(characters, true), function(character:String)
 		{
@@ -268,22 +282,32 @@ class ChartingState extends MusicBeatState
 		player2DropDown.selectedLabel = _song.player2;
 
 		var gfVersionDropDown = new FlxUIDropDownMenu(10, 200, FlxUIDropDownMenu.makeStrIdLabelArray(gfVersions, true), function(gfVersion:String)
-			{
-				_song.gfVersion = gfVersions[Std.parseInt(gfVersion)];
-			});
-			gfVersionDropDown.selectedLabel = _song.gfVersion;
+		{
+			_song.gfVersion = gfVersions[Std.parseInt(gfVersion)];
+		});
+
+		gfVersionDropDown.selectedLabel = _song.gfVersion;
 
 		var stageDropDown = new FlxUIDropDownMenu(140, 200, FlxUIDropDownMenu.makeStrIdLabelArray(stages, true), function(stage:String)
-			{
-				_song.stage = stages[Std.parseInt(stage)];
-			});
-			stageDropDown.selectedLabel = _song.stage;
+		{
+			_song.stage = stages[Std.parseInt(stage)];
+		});
+
+		stageDropDown.selectedLabel = _song.stage;
 
 		var noteStyleDropDown = new FlxUIDropDownMenu(10, 300, FlxUIDropDownMenu.makeStrIdLabelArray(noteStyles, true), function(noteStyle:String)
-			{
-				_song.noteStyle = noteStyles[Std.parseInt(noteStyle)];
-			});
-			noteStyleDropDown.selectedLabel = _song.noteStyle;
+		{
+			_song.noteStyle = noteStyles[Std.parseInt(noteStyle)];
+		});
+
+		noteStyleDropDown.selectedLabel = _song.noteStyle;
+
+		var difficultyDropDown = new FlxUIDropDownMenu(10, 100, FlxUIDropDownMenu.makeStrIdLabelArray(difficulties, true), function(difficulty:String)
+		{
+			curDifficulty = difficulties[Std.parseInt(difficulty)];
+		});
+		
+		difficultyDropDown.selectedLabel = curDifficulty;
 
 		var tab_group_song = new FlxUI(null, UI_box);
 		tab_group_song.name = "Song";
@@ -297,7 +321,8 @@ class ChartingState extends MusicBeatState
 		tab_group_song.add(loadAutosaveBtn);
 		tab_group_song.add(stepperBPM);
 		tab_group_song.add(stepperSpeed);
-		
+		tab_group_song.add(difficultyDropDown);
+
 		var tab_group_assets = new FlxUI(null, UI_box);
 		tab_group_assets.name = "Assets";
 		tab_group_assets.add(noteStyleDropDown);
@@ -1254,7 +1279,23 @@ class ChartingState extends MusicBeatState
 
 	function loadJson(song:String):Void
 	{
-		PlayState.SONG = Song.loadFromJson(song.toLowerCase(), song.toLowerCase());
+		if (curDifficulty == 'normal')
+			diffSuffix = '';
+		else
+			diffSuffix = "-" + curDifficulty;
+
+		switch (curDifficulty)
+		{
+			case 'easy':
+				PlayState.storyDifficulty = 0;
+			case 'normal':
+				PlayState.storyDifficulty = 1;
+			case 'hard':
+				PlayState.storyDifficulty = 2;
+		}
+
+		trace(song.toLowerCase() + diffSuffix);
+		PlayState.SONG = Song.loadFromJson(song.toLowerCase() + diffSuffix, song.toLowerCase());
 		LoadingState.loadAndSwitchState(new ChartingState());
 	}
 
@@ -1278,6 +1319,12 @@ class ChartingState extends MusicBeatState
 			"song": _song
 		};
 
+		// putting this in update will cause reload json to not work lol
+		if (curDifficulty == 'normal')
+			diffSuffix = '';
+		else
+			diffSuffix = "-" + curDifficulty;
+
 		var data:String = Json.stringify(json);
 
 		if ((data != null) && (data.length > 0))
@@ -1286,7 +1333,7 @@ class ChartingState extends MusicBeatState
 			_file.addEventListener(Event.COMPLETE, onSaveComplete);
 			_file.addEventListener(Event.CANCEL, onSaveCancel);
 			_file.addEventListener(IOErrorEvent.IO_ERROR, onSaveError);
-			_file.save(data.trim(), _song.song.toLowerCase() + ".json");
+			_file.save(data.trim(), _song.song.toLowerCase() + diffSuffix + ".json");
 		}
 	}
 
