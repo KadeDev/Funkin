@@ -438,13 +438,29 @@ class TitleState extends MusicBeatState
 			// credTextShit.text = "Friday";
 			// credTextShit.screenCenter();
 			case 13:
-				addMoreText('Friday');
+				if (Main.watermarks){
+					addMoreText('FNF');
+				}
+				else{
+					addMoreText('Friday');
+				}
 			// credTextShit.visible = true;
 			case 14:
-				addMoreText('Night');
+				if (Main.watermarks){
+					addMoreText('Kade');
+				}
+				else{
+					addMoreText('Night');
+				}
 			// credTextShit.text += '\nNight';
 			case 15:
-				addMoreText('Funkin'); // credTextShit.text += '\nFunkin';
+				if (Main.watermarks){
+					addMoreText('Engine');
+				}
+				else{
+					addMoreText('Funkin');
+				}
+				// credTextShit.text += '\nFunkin';
 
 			case 16:
 				skipIntro();
