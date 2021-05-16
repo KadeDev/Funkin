@@ -40,6 +40,10 @@
 
 	<classpath name="source" />
 
+	<!-- include license and source code -->
+	<assets path="LICENSE" embed="false" rename="LICENSE.txt"/>
+	<assets path="source" embed="false" unless="html5"/>
+
 	<assets path="assets/preload" rename="assets" exclude="*.ogg" if="web"/>
 	<assets path="assets/preload" rename="assets" exclude="*.mp3" unless="web"/>
 	
@@ -94,7 +98,7 @@
 	<assets path='art/readme.txt' rename='do NOT readme.txt' />
 	<!-- <template path='mods' /> -->
 	
-	<!-- <assets path="CHANGELOG.md" rename='changelog.txt'/> -->
+	<!-- <assets path="CHANGELOG.md" embed='false' rename='changelog.txt'/> -->
 
 	<!-- NOTE FOR FUTURE SELF SINCE FONTS ARE ALWAYS FUCKY 
 		TO FIX ONE OF THEM, I CONVERTED IT TO OTF. DUNNO IF YOU NEED TO
