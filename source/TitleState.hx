@@ -439,7 +439,7 @@ class TitleState extends MusicBeatState
 			// credTextShit.screenCenter();
 			case 13:
 				if (Main.watermarks){
-					addMoreText('FNF');
+					addMoreText('Friday Night Funkin');
 				}
 				else{
 					addMoreText('Friday');
