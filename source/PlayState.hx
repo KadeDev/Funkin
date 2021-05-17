@@ -119,6 +119,9 @@ class PlayState extends MusicBeatState
 
 	public static var strumLineNotes:FlxTypedGroup<FlxSprite> = null;
 	public static var playerStrums:FlxTypedGroup<FlxSprite> = null;
+	private var player2Strums:FlxTypedGroup<FlxSprite>;
+
+	private var opponentKeyStatus:Array<Bool> = [false, false, false, false];
 
 	private var camZooming:Bool = false;
 	private var curSong:String = "";
@@ -133,7 +136,6 @@ class PlayState extends MusicBeatState
 	private var totalNotesHitDefault:Float = 0;
 	private var totalPlayed:Int = 0;
 	private var ss:Bool = false;
-
 
 	private var healthBarBG:FlxSprite;
 	private var healthBar:FlxBar;
@@ -854,7 +856,8 @@ class PlayState extends MusicBeatState
 		add(strumLineNotes);
 
 		playerStrums = new FlxTypedGroup<FlxSprite>();
-
+		player2Strums = new FlxTypedGroup<FlxSprite>();
+		
 		// startCountdown();
 
 		generateSong(SONG.song);
@@ -1579,6 +1582,9 @@ class PlayState extends MusicBeatState
 			if (player == 1)
 			{
 				playerStrums.add(babyArrow);
+			}else
+			{
+				player2Strums.add(babyArrow);
 			}
 
 			babyArrow.animation.play('static');
@@ -2277,6 +2283,15 @@ class PlayState extends MusicBeatState
 							case 0:
 								dad.playAnim('singLEFT' + altAnim, true);
 						}
+						
+						player2Strums.forEach(function(spr:FlxSprite)
+						{
+							if (Math.abs(daNote.noteData) == spr.ID)
+							{
+								spr.animation.play('confirm');
+								sustainplayer2(spr.ID, spr, daNote);
+							}
+						});
 	
 						#if windows
 						if (luaModchart != null)
@@ -2294,6 +2309,23 @@ class PlayState extends MusicBeatState
 						notes.remove(daNote, true);
 						daNote.destroy();
 					}
+					
+					player2Strums.forEach(function(spr:FlxSprite)
+					{
+						if (opponentKeyStatus[spr.ID])
+						{
+							spr.animation.play("confirm");
+						}
+
+						if (spr.animation.curAnim.name == 'confirm' && !curStage.startsWith('school'))
+						{
+							spr.centerOffsets();
+							spr.offset.x -= 13;
+							spr.offset.y -= 13;
+						}
+						else
+							spr.centerOffsets();
+					});
 
 					if (daNote.mustPress && !daNote.modifiedByLua)
 					{
@@ -2357,6 +2389,30 @@ class PlayState extends MusicBeatState
 		if (FlxG.keys.justPressed.ONE)
 			endSong();
 		#end
+	}
+				
+	function sustainplayer2(strum:Int, spr:FlxSprite, note:Note):Void
+	{
+		var length:Float = note.sustainLength;
+		var tempo:Float = Conductor.bpm / 60;
+		var temp:Float = 1 / tempo;
+
+		if (length > 0)
+			opponentKeyStatus[strum] = true;
+
+		if (!note.isSustainNote)
+		{
+			new FlxTimer().start(length == 0 ? 0.2 : (length / Conductor.crochet * temp) + 0.1, function(tmr:FlxTimer)
+			{
+				if (!opponentKeyStatus[strum])
+					spr.animation.play("static", true);
+				else if (length > 0)
+				{
+					opponentKeyStatus[strum] = false;
+					spr.animation.play("static", true);
+				}
+			});
+		}
 	}
 
 	function endSong():Void
