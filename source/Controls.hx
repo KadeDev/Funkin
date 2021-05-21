@@ -84,6 +84,8 @@ enum KeyboardScheme
 {
 	Solo;
 	Duo(first:Bool);
+	Qwop;
+	Spread;
 	None;
 	Custom;
 }
@@ -502,6 +504,24 @@ class Controls extends FlxActionSet
 				inline bindKeys(Control.DOWN, [F, FlxKey.DOWN]);
 				inline bindKeys(Control.LEFT, [D, FlxKey.LEFT]);
 				inline bindKeys(Control.RIGHT, [K, FlxKey.RIGHT]);
+				inline bindKeys(Control.ACCEPT, [Z, SPACE, ENTER]);
+				inline bindKeys(Control.BACK, [BACKSPACE, ESCAPE]);
+				inline bindKeys(Control.PAUSE, [P, ENTER, ESCAPE]);
+				inline bindKeys(Control.RESET, [R]);
+			case Qwop:
+				inline bindKeys(Control.UP, [O, FlxKey.UP]);
+				inline bindKeys(Control.DOWN, [W, FlxKey.DOWN]);
+				inline bindKeys(Control.LEFT, [Q, FlxKey.LEFT]);
+				inline bindKeys(Control.RIGHT, [P, FlxKey.RIGHT]);
+				inline bindKeys(Control.ACCEPT, [Z, SPACE, ENTER]);
+				inline bindKeys(Control.BACK, [BACKSPACE, ESCAPE]);
+				inline bindKeys(Control.PAUSE, [P, ENTER, ESCAPE]);
+				inline bindKeys(Control.RESET, [R]);
+			case Spread:
+				inline bindKeys(Control.UP, [FlxKey.NUMPADONE, FlxKey.UP]);
+				inline bindKeys(Control.DOWN, [X, FlxKey.DOWN]);
+				inline bindKeys(Control.LEFT, [Z, FlxKey.LEFT]);
+				inline bindKeys(Control.RIGHT, [FlxKey.NUMPADTWO, FlxKey.RIGHT]);
 				inline bindKeys(Control.ACCEPT, [Z, SPACE, ENTER]);
 				inline bindKeys(Control.BACK, [BACKSPACE, ESCAPE]);
 				inline bindKeys(Control.PAUSE, [P, ENTER, ESCAPE]);
