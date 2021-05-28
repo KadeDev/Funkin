@@ -237,13 +237,29 @@ class PlayState extends MusicBeatState
 		repReleases = 0;
 
 		#if windows
-		executeModchart = FileSystem.exists(Paths.lua(PlayState.SONG.song.toLowerCase()  + "/modchart"));
+		switch (storyDifficulty)
+		{
+			case 0:
+				executeModchart = FileSystem.exists(Paths.lua(PlayState.SONG.song.toLowerCase()  + "/modchart-easy"));
+			case 1:
+				executeModchart = FileSystem.exists(Paths.lua(PlayState.SONG.song.toLowerCase()  + "/modchart"));
+			case 2: 
+				executeModchart = FileSystem.exists(Paths.lua(PlayState.SONG.song.toLowerCase()  + "/modchart-hard"));
+		};
 		#end
 		#if !cpp
 		executeModchart = false; // FORCE disable for non cpp targets
 		#end
-
-		trace('Mod chart: ' + executeModchart + " - " + Paths.lua(PlayState.SONG.song.toLowerCase() + "/modchart"));
+		
+		switch (storyDifficulty) 
+		{
+			case 0:
+				trace('Mod chart: ' + executeModchart + " - " + Paths.lua(PlayState.SONG.song.toLowerCase() + "/modchart-easy"));
+			case 1:
+				trace('Mod chart: ' + executeModchart + " - " + Paths.lua(PlayState.SONG.song.toLowerCase() + "/modchart"));
+			case 2: 
+				trace('Mod chart: ' + executeModchart + " - " + Paths.lua(PlayState.SONG.song.toLowerCase() + "/modchart-hard"));
+		};
 
 		#if windows
 		// Making difficulty text for Discord Rich Presence.
