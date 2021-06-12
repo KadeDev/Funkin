@@ -482,6 +482,27 @@ class NPSDisplayOption extends Option
 	}
 }
 
+class HealthDisplyOption extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		FlxG.save.data.healthDisplay = !FlxG.save.data.healthDisplay;
+		display = updateDisplay();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Health Display " + (!FlxG.save.data.healthDisplay ? "off" : "on");
+	}
+}
+
 class ReplayOption extends Option
 {
 	public function new(desc:String)

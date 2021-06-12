@@ -48,6 +48,9 @@ class KadeEngineData
 		if (FlxG.save.data.npsDisplay == null)
 			FlxG.save.data.npsDisplay = false;
 
+		if (FlxG.save.data.healthDisplay == null)
+			FlxG.save.data.healthDisplay = false;
+
 		if (FlxG.save.data.frames == null)
 			FlxG.save.data.frames = 10;
 
