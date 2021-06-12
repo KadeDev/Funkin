@@ -482,7 +482,7 @@ class NPSDisplayOption extends Option
 	}
 }
 
-class HealthDisplyOption extends Option
+class HealthDisplayOption extends Option
 {
 	public function new(desc:String)
 	{
