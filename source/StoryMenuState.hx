@@ -87,24 +87,11 @@ class StoryMenuState extends MusicBeatState
 		return initList;
 	}
 
-	function unlockWeeks():Array<Bool>
-	{
-		var weeks:Array<Bool> = [true];
-
-		for(i in 0...FlxG.save.data.weekUnlocked)
-			{
-				weeks.push(true);
-			}
-		return weeks;
-	}
-
 	override function create()
 	{
 		weekData = getWeeks();
 		weekCharacters = getWeekCharacters();
 		weekNames = getWeekNames();
-		weekUnlocked = unlockWeeks();
-
 		#if windows
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Story Mode Menu", null);
