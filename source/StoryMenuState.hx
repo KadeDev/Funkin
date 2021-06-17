@@ -12,6 +12,7 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import lime.net.curl.CURLCode;
+import openfl.Assets;
 
 #if windows
 import Discord.DiscordClient;
@@ -23,38 +24,13 @@ class StoryMenuState extends MusicBeatState
 {
 	var scoreText:FlxText;
 
-	var weekData:Array<Dynamic> = [
-		['Tutorial'],
-		['Bopeebo', 'Fresh', 'Dad Battle'],
-		['Spookeez', 'South', "Monster"],
-		['Pico', 'Philly Nice', "Blammed"],
-		['Satin Panties', "High", "Milf"],
-		['Cocoa', 'Eggnog', 'Winter Horrorland'],
-		['Senpai', 'Roses', 'Thorns']
-	];
-	var curDifficulty:Int = 1;
+	static var weekData:Array<Array<String>> = [];
+	static var weekCharacters:Array<Array<String>> = [];
+	static var weekNames:Array<String> = [];
 
 	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true, true];
 
-	var weekCharacters:Array<Dynamic> = [
-		['', 'bf', 'gf'],
-		['dad', 'bf', 'gf'],
-		['spooky', 'bf', 'gf'],
-		['pico', 'bf', 'gf'],
-		['mom', 'bf', 'gf'],
-		['parents-christmas', 'bf', 'gf'],
-		['senpai', 'bf', 'gf']
-	];
-
-	var weekNames:Array<String> = [
-		"",
-		"Daddy Dearest",
-		"Spooky Month",
-		"PICO",
-		"MOMMY MUST MURDER",
-		"RED SNOW",
-		"Hating Simulator ft. Moawling"
-	];
+	var curDifficulty:Int = 1;
 
 	var txtWeekTitle:FlxText;
 
@@ -72,8 +48,63 @@ class StoryMenuState extends MusicBeatState
 	var leftArrow:FlxSprite;
 	var rightArrow:FlxSprite;
 
+	public static function getWeeks():Array<Array<String>>
+	{
+		var initList = CoolUtil.coolTextFile(Paths.txt('storyModeWeeks'));
+		var swagGoodArray:Array<Array<String>> = [];
+
+		for (i in 0...initList.length)
+		{
+			var data:Array<String> = initList[i].split(', ');
+			swagGoodArray.push(data);
+		}
+
+		return swagGoodArray;
+	}
+
+	function getWeekCharacters():Array<Array<String>>
+	{
+		var initList = CoolUtil.coolTextFile(Paths.txt('storyModeWeekCharacters'));
+		var swagGoodArray:Array<Array<String>> = [];
+
+		for (i in 0...initList.length)
+		{
+			var data:Array<String> = initList[i].split(', ');
+			swagGoodArray.push(data);
+		}
+
+		return swagGoodArray;
+	}
+
+	function getWeekNames():Array<String>
+	{
+		var initList = CoolUtil.coolTextFile(Paths.txt('storyModeWeekNames'));
+		for(i in 0...initList.length)
+			{
+				if(initList[i] == 'null')
+					initList[i] = initList[i].replace('null', '');
+			}
+		return initList;
+	}
+
+	function unlockWeeks():Array<Bool>
+	{
+		var weeks:Array<Bool> = [true];
+
+		for(i in 0...FlxG.save.data.weekUnlocked)
+			{
+				weeks.push(true);
+			}
+		return weeks;
+	}
+
 	override function create()
 	{
+		weekData = getWeeks();
+		weekCharacters = getWeekCharacters();
+		weekNames = getWeekNames();
+		weekUnlocked = unlockWeeks();
+
 		#if windows
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Story Mode Menu", null);
