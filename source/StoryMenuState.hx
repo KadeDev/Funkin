@@ -24,6 +24,7 @@ class StoryMenuState extends MusicBeatState
 {
 	var scoreText:FlxText;
 
+	var weekTxt:Array<Dynamic> = [];
 	static var weekData:Array<Array<String>> = [];
 	static var weekCharacters:Array<Array<String>> = [];
 	static var weekNames:Array<String> = [];
@@ -48,50 +49,37 @@ class StoryMenuState extends MusicBeatState
 	var leftArrow:FlxSprite;
 	var rightArrow:FlxSprite;
 
-	public static function getWeeks():Array<Array<String>>
+	function getWeeks():Array<Dynamic>
 	{
 		var initList = CoolUtil.coolTextFile(Paths.txt('storyModeWeeks'));
-		var swagGoodArray:Array<Array<String>> = [];
+		var swagGoodFirstArray:Array<String> = [];
+		var swagGoodSecondArray:Array<Array<String>> = [];
+		var swagGoodThirdArray:Array<Array<String>> = [];
 
 		for (i in 0...initList.length)
 		{
-			var data:Array<String> = initList[i].split(', ');
-			swagGoodArray.push(data);
-		}
+			var data:Array<String> = initList[i].split('; ');
 
-		return swagGoodArray;
-	}
-
-	function getWeekCharacters():Array<Array<String>>
-	{
-		var initList = CoolUtil.coolTextFile(Paths.txt('storyModeWeekCharacters'));
-		var swagGoodArray:Array<Array<String>> = [];
-
-		for (i in 0...initList.length)
-		{
-			var data:Array<String> = initList[i].split(', ');
-			swagGoodArray.push(data);
-		}
-
-		return swagGoodArray;
-	}
-
-	function getWeekNames():Array<String>
-	{
-		var initList = CoolUtil.coolTextFile(Paths.txt('storyModeWeekNames'));
-		for(i in 0...initList.length)
+			for(i in 0...data.length)
 			{
-				if(initList[i] == 'null')
-					initList[i] = initList[i].replace('null', '');
+				var dataTwo:Array<String> = data[i].split(', ');
+				if(i == 0)
+					swagGoodFirstArray.push(dataTwo[0]);
+				if(i == 1)
+					swagGoodSecondArray.push(dataTwo);
+				if(i == 2)
+					swagGoodThirdArray.push(dataTwo);
 			}
-		return initList;
+		}
+		return [swagGoodFirstArray, swagGoodSecondArray, swagGoodThirdArray];
 	}
 
 	override function create()
 	{
-		weekData = getWeeks();
-		weekCharacters = getWeekCharacters();
-		weekNames = getWeekNames();
+		weekTxt = getWeeks();
+		weekData = weekTxt[2];
+		weekCharacters = weekTxt[1];
+		weekNames = weekTxt[0];
 		#if windows
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Story Mode Menu", null);
