@@ -136,20 +136,20 @@ Example
 
 ---
 
-replace to image (weeks1)
+![weeks1](https://user-images.githubusercontent.com/55949451/122635123-69bb4900-d0e2-11eb-8bcc-1071cfda4e35.png)
 
 ---
 ## if [#894](https://github.com/KadeDev/Kade-Engine/pull/894) gets accepted, ignore this
 
-replace to image (weeks3-1) *
+![weeks3-1](https://user-images.githubusercontent.com/55949451/122635138-7b9cec00-d0e2-11eb-9793-7d500ac2d034.png) *
 
 **NOTE: You will have to add a new item to `weekUnlocked`, so that the week is playable.**
 
-replace to image (weeks3-2)
+![weeks3-2](https://user-images.githubusercontent.com/55949451/122635144-835c9080-d0e2-11eb-9114-3548526f945d.png)
 
 ---
 
-replace to image (weeks2) *
+![weeks2](https://user-images.githubusercontent.com/55949451/122635129-763fa180-d0e2-11eb-841e-3456e74a50ba.png) *
 
 \* *for these screenshots I removed tankman in the second segment as it would crash because I don't have a tankman character added*
 ### Conclusion
