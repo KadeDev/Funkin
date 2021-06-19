@@ -2,141 +2,133 @@
 
 ## Requirements
 1. The ability to compile Kade Engine from the source code. All information related to building Kade Engine is listed [here.](https://kadedev.github.io/Kade-Engine/building)
-2. A text editor. Some form of IDE that can support Haxe is recommended, such as Visual Studio Code.
+2. A text editor.
 
 ---
 ### Step 1. Navigation
-Navigate to your Kade Engine source code. In the `source` folder, look for `StoryMenuState.hx`. Open it in your text editor.
+Navigate to your Kade Engine source code. In the `assets/preload/data` folder, look for `storyModeWeeks.txt`. Open it in your text editor.
 
-### Step 2. Songlist
-
-Scroll down to Line 26, or Search (Windows/Linux: `Ctrl+F`, Mac: `Cmd+F`) for "weekData". You should find an Array that looks like this:
+It should look like this:
 
 ---
 
-```haxe
-var weekData:Array<Dynamic> = [
-		
-    ['Tutorial'],
-		
-    ['Bopeebo', 'Fresh', 'Dadbattle'],
-		
-    ['Spookeez', 'South', "Monster"],
-		
-    ['Pico', 'Philly', "Blammed"],
-		
-    ['Satin-Panties', "High", "Milf"],
-		
-    ['Cocoa', 'Eggnog', 'Winter-Horrorland'],
-		
-    ['Senpai', 'Roses', 'Thorns']
-    
-];
+```
+; , bf, gf; Tutorial
+
+Daddy Dearest; dad, bf, gf; Bopeebo, Fresh, Dad Battle
+
+Spooky Month; spooky, bf, gf; Spookeez, South, Monster
+
+PICO; pico, bf, gf; Pico, Philly Nice, Blammed
+
+MOMMY MUST MURDER; mom, bf, gf; Satin Panties, High, Milf
+
+RED SNOW; parents-christmas, bf, gf; Cocoa, Eggnog, Winter Horrorland
+
+Hating Simulator ft. Moawling; senpai, bf, gf; Senpai, Roses, Thorns
+
 ```
 
 ---
+The `'; '` splits the weeks into three segments:
 
-Copy `['Senpai', 'Roses', 'Thorns']` into an empty line below it, and change the song names to the song names you want to use.
-Don't forget to add a comma at the end of the previous Week, and you have your songlist for the week completed!
+**1. Week Name** *Name of the week on the top right (max 1 argument)*
+**2. Week Characters** *The characters showing in the story mode menu(max 3 arguments)*
+**3. Week Songs** *The songs that belong to this week (has no maximum, but would recommend a max of 5 for it to look good)*
+### Step 2. Week Name
+
+Copy `Hating Simulator ft. Moawling; senpai, bf, gf; Senpai, Roses, Thorns` into an empty line below it, and change the first segment to whatever you want your week to be called.
 
 Example
 ---
 
 ---
 
-```haxe
-var weekData:Array<Dynamic> = [
-		
-    ['Tutorial'],
-		
-    ['Bopeebo', 'Fresh', 'Dadbattle'],
-		
-    ['Spookeez', 'South', "Monster"],
-		
-    ['Pico', 'Philly', "Blammed"],
-		
-    ['Satin-Panties', "High", "Milf"],
-		
-    ['Cocoa', 'Eggnog', 'Winter-Horrorland'],
-		
-    ['Senpai', 'Roses', 'Thorns'],
-
-    ['Ugh', 'Guns', 'Stress']
-    
-];
 ```
- 
+; , bf, gf; Tutorial
+
+Daddy Dearest; dad, bf, gf; Bopeebo, Fresh, Dad Battle
+
+Spooky Month; spooky, bf, gf; Spookeez, South, Monster
+
+PICO; pico, bf, gf; Pico, Philly Nice, Blammed
+
+MOMMY MUST MURDER; mom, bf, gf; Satin Panties, High, Milf
+
+RED SNOW; parents-christmas, bf, gf; Cocoa, Eggnog, Winter Horrorland
+
+Hating Simulator ft. Moawling; senpai, bf, gf; Senpai, Roses, Thorns
+
+Tankman; senpai, bf, gf; Senpai, Roses, Thorns
+
+```
+
 ---
- 
+
 ### Step 3. Week Characters
-Directly below the songlist should be an Array titled `weekCharacters`. This array tells the game what characters to display in the top yellow bar when a certain week is selected.
-It's not very useful unless you followed the Characters guide (will link to it once it's actually done). If you have, though, you can insert the name of your character into the first pair of quotes in a new "week". Example:
+The second segment tells the game what characters to display in the top yellow bar when a certain week is selected.
+It's not very useful unless you followed the Characters guide (will link to it once it's actually done). If you have, though, you can insert the name of your character into the first field.
 
 Example
 ---
 
 ---
 
-```haxe
-var weekCharacters:Array<Dynamic> = [
-		
-    ['', 'bf', 'gf'],
-		
-    ['dad', 'bf', 'gf'],
-		
-    ['spooky', 'bf', 'gf'],
-		
-    ['pico', 'bf', 'gf'],
-		
-    ['mom', 'bf', 'gf'],
-		
-    ['parents-christmas', 'bf', 'gf'],
-		
-    ['senpai', 'bf', 'gf'],
-    
-    ['tankman', 'bf', 'gf']
-	
-  ];
+```
+; , bf, gf; Tutorial
+
+Daddy Dearest; dad, bf, gf; Bopeebo, Fresh, Dad Battle
+
+Spooky Month; spooky, bf, gf; Spookeez, South, Monster
+
+PICO; pico, bf, gf; Pico, Philly Nice, Blammed
+
+MOMMY MUST MURDER; mom, bf, gf; Satin Panties, High, Milf
+
+RED SNOW; parents-christmas, bf, gf; Cocoa, Eggnog, Winter Horrorland
+
+Hating Simulator ft. Moawling; senpai, bf, gf; Senpai, Roses, Thorns
+
+Tankman; tankman, bf, gf; Senpai, Roses, Thorns
+
 ```
 
 ---
 
-### Step 4. Week Names
+### Step 4. Songlist
 
-Underneath the song list, there should be another array called `weekNames`. Creating a new line in that array, just enter a string that represents what you want the week to be called.
+The last segment are the songs that are gonna be in the week, put in your song names separated with a `', '`. **(don't forget the space)**
 
 Example
 ---
 
 ---
-```haxe
-var weekNames:Array<String> = [
-		
-	"How to Funk",
-		
-	"Daddy dearest",
-		
-	"Spooky Month",
-		
-	"PICO",
-		
-	"Mommy Must Murder",
-		
-	"Red Snow",
-		
-	"Hating Simulator ft. Moawlings",
-    		
-	"Tankman"
-	
-];
+
+```
+; , bf, gf; Tutorial
+
+Daddy Dearest; dad, bf, gf; Bopeebo, Fresh, Dad Battle
+
+Spooky Month; spooky, bf, gf; Spookeez, South, Monster
+
+PICO; pico, bf, gf; Pico, Philly Nice, Blammed
+
+MOMMY MUST MURDER; mom, bf, gf; Satin Panties, High, Milf
+
+RED SNOW; parents-christmas, bf, gf; Cocoa, Eggnog, Winter Horrorland
+
+Hating Simulator ft. Moawling; senpai, bf, gf; Senpai, Roses, Thorns
+
+Tankman; tankman, bf, gf; Ugh, Guns, Stress
+
 ```
 
 ---
 
   Now, compile the game, and if all goes correctly, the Story Mode menu shouldn't crash your game. If you make your way to the bottom of the list, there's your custom week! Except... its displaying as a HaxeFlixel Logo?
-  
+
 ### Step 5. Graphics
-  
+
 Displaying a week icon for your custom week is as simple as dropping a .png into `assets/images/storymenu`. Rename the file to `week7.png`, `week8.png`, etc.
 
 Example
@@ -144,15 +136,22 @@ Example
 
 ---
 
-![frrf](https://user-images.githubusercontent.com/68293280/118160164-cdab6d00-b3d2-11eb-9b29-a940eaf45025.png)
+replace to image (weeks1)
 
-![frrf 2](https://user-images.githubusercontent.com/68293280/118160865-b8830e00-b3d3-11eb-8a23-818a1b4cfdb2.png)
+---
+## if [#894](https://github.com/KadeDev/Kade-Engine/pull/894) gets accepted, ignore this
 
-NOTE: You will have to add a new item to `weekUnlocked`, so that the week is playable.
+replace to image (weeks3-1) *
 
-![frrf 3](https://user-images.githubusercontent.com/68293280/118161461-7908f180-b3d4-11eb-89fa-e531ae5804d8.png)
+**NOTE: You will have to add a new item to `weekUnlocked`, so that the week is playable.**
 
+replace to image (weeks3-2)
 
+---
+
+replace to image (weeks2) *
+
+\* *for these screenshots I removed tankman in the second segment as it would crash because I don't have a tankman character added*
 ### Conclusion
 
 If you followed all of the steps correctly, you have successfully created a new week in the Story Mode.
