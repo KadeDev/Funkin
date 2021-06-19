@@ -58,11 +58,16 @@ class StoryMenuState extends MusicBeatState
 
 		for (i in 0...initList.length)
 		{
-			var data:Array<String> = initList[i].split('; ');
+			var data:Array<String> = initList[i].split(';');
 
 			for(i in 0...data.length)
 			{
-				var dataTwo:Array<String> = data[i].split(', ');
+				var dataTwo:Array<String> = data[i].trim().split(',');
+
+				for(i in 0...dataTwo.length)
+				{
+					dataTwo[i] = dataTwo[i].trim();
+				}
 				if(i == 0)
 					swagGoodFirstArray.push(dataTwo[0]);
 				if(i == 1)
