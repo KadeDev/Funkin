@@ -1,4 +1,7 @@
+
 import flixel.tweens.FlxEase;
+import flixel.math.FlxMath;
+
 
 class HelperFunctions
 {
