@@ -2,11 +2,18 @@
 
 Download FFMPEG (GPL Shared Ver) https://github.com/BtbN/FFmpeg-Builds/releases
 
-Install extension-webm fork in CMD/Terminal: haxelib git extension-webm https://github.com/GrowtopiaFli/extension-webm, lime rebuild extension-webm [windows/mac/linux]
+Install OpenFL https://openfl.org/
 
-(Replace '[windows/mac/linux]' with your operating system)
+Install these in CMD/Terminal:
+```js
+haxelib git extension-webm https://github.com/KadeDev/extension-webm
 
- Install Actuate in CMD/Terminal: haxelib install actuate
+lime rebuild extension-webm [windows/mac/linux]
+
+haxelib install openfl-webm
+
+haxelib install actuate
+```
 
 # Getting Your Video
 
