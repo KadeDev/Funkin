@@ -36,6 +36,7 @@ Put your Webm video, MP4 video, OGG file, and txt file in the folder you just ma
 For this part I'll give you an example.
 
 Let's say our video's name is "prime" and I want to play it during the beginning of Week 1 it would look something like:
+
 (StoryMenuState, Line 308)
 
 ``` haxe
@@ -48,3 +49,5 @@ Let's say our video's name is "prime" and I want to play it during the beginning
 			LoadingState.loadAndSwitchState(new PlayState(), true);
 		}
 ```
+
+It should play the video at the beginning of Week 1
