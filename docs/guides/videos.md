@@ -32,3 +32,19 @@ Go into your source code then go to 'assets/preload/videos' there make a new fol
 Put your Webm video, MP4 video, OGG file, and txt file in the folder you just made.
 
 # Playing The Video
+
+For this part I'll give you an example.
+
+Let's say our video's name is "prime" and I want to play it during the beginning of Week 1 it would look something like:
+(StoryMenuState, Line 308)
+
+``` haxe
+				if (curWeek == 1)
+				{
+					FlxG.switchState(new VideoState('assets/videos/prime.webm', new PlayState()));
+				}
+				else
+				{
+					LoadingState.loadAndSwitchState(new PlayState(), true);
+				}
+```
