@@ -2,13 +2,16 @@
 
 Download FFMPEG (GPL Shared Ver) https://github.com/BtbN/FFmpeg-Builds/releases
 
-Install OpenFL https://openfl.org/
 
-Install these in CMD/Terminal:
+Install these libraries in CMD/Terminal:
 ```js
 haxelib git extension-webm https://github.com/KadeDev/extension-webm
 
 lime rebuild extension-webm [windows/mac/linux]
+
+haxelib install openfl
+
+haxelib run openfl setup
 
 haxelib install openfl-webm
 
@@ -28,4 +31,4 @@ ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_
 Go into your source code then go to 'assets/preload/videos' there make a new folder and name it to your webm file's name.
 Put your Webm video, MP4 video, OGG file, and txt file in the folder you just made.
 
-I'll change some stuff in a bit.
+# Playing The Video
