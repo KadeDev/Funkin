@@ -28,7 +28,7 @@ ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_
 ```
 (Rename 'yourvideo' to your MP4 file's name) Copy the number that shows, then make a new txt file and name it to your Webm file's name, paste the number into the txt file.
 
-Go into your source code then go to 'assets/preload/videos' there make a new folder and name it to your webm file's name.
+Go into your source code then go to `assets/preload/videos` there make a new folder and name it to your webm file's name.
 Put your Webm video, MP4 video, OGG file, and txt file in the folder you just made.
 
 # Playing The Video
@@ -49,5 +49,15 @@ Let's say our video's name is "prime" and I want to play it during the beginning
 			LoadingState.loadAndSwitchState(new PlayState(), true);
 		}
 ```
+This should play the video at the beginning of Week 1.
 
-It should play the video at the beginning of Week 1
+### The code
+
+``` haxe
+FlxG.switchState(new VideoState('path', new ()));
+```
+A brief explanation of this line of code, first it changes the state to `VideoState`, inside of the part that says `path` would be where you put your video path, after that part you would then switch it to a different state (e.g. PlayState, StoryMenuState, etc).
+
+### Ending
+
+If you follow the steps correctly and compile the game, you should have the video play when/where you wanted it.
