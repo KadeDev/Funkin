@@ -56,7 +56,7 @@ This should play the video at the beginning of Week 1.
 ``` haxe
 FlxG.switchState(new VideoState('path', new ()));
 ```
-A brief explanation of this line of code, first it changes the state to `VideoState`, inside of the part that says `path` would be where you put your video path, after that part you would then switch it to a different state (e.g. PlayState, StoryMenuState, etc).
+A brief explanation of this line of code, first it changes the state to `VideoState`, inside of the part that says `path` (e.g. 'assets/videos/pog.webm')would be where you put your video path, after that part you would then switch it to a different state (e.g. PlayState, StoryMenuState, etc).
 
 ### Ending
 
