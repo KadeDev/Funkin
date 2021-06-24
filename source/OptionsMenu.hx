@@ -51,6 +51,9 @@ class OptionsMenu extends MusicBeatState
 		]),
 		
 		new OptionCategory("Misc", [
+			#if cpp
+			new CachingOption("Before game will start, it will cache songs, weeks and characters."),
+			#end
 			#if desktop
 			new FPSOption("Toggle the FPS Counter"),
 			new ReplayOption("View replays"),
