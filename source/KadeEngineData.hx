@@ -92,6 +92,13 @@ class KadeEngineData
 
 		if (FlxG.save.data.optimize == null)
 			FlxG.save.data.optimize = false;
+	    
+	    	if (FlxG.save.data.caching == null)
+			#if cpp
+			FlxG.save.data.caching = true;
+			#else 
+			FlxG.save.data.caching = false;
+			#end
 
 		Conductor.recalculateTimings();
 		PlayerSettings.player1.controls.loadKeyBinds();
