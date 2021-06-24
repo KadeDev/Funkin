@@ -42,7 +42,7 @@ Let's say our video's name is "prime" and I want to play it during the beginning
 ``` haxe
 		if (curWeek == 1)
 		{
-			FlxG.switchState(new VideoState('assets/videos/prime.webm', new PlayState()));
+			FlxG.switchState(new VideoState('assets/videos/prime/prime.webm', new PlayState()));
 		}
 		else
 		{
