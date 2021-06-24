@@ -122,13 +122,12 @@ class TitleState extends MusicBeatState
 			#if cpp
 			if (FlxG.save.data.caching == true && !Caching.allowedToStart)
 				FlxG.switchState(new Caching());
-			else {
-				new FlxTimer().start(0, function(tmr:FlxTimer)
-				{
-					startIntro();
-				});
-			}
 			#end
+			new FlxTimer().start(0, function(tmr:FlxTimer)
+			{
+				startIntro();
+			});
+			
 		#end
 	}
 
