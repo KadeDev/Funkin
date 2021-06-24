@@ -83,7 +83,13 @@ class CachingOption extends Option
 	public override function press():Bool
 	{
 		FlxG.save.data.caching = !FlxG.save.data.caching;
-
+		if (FlxG.save.data.caching == true)
+			Caching.allowedToStart = true;
+		else 
+			Caching.allowedToStart = false; 
+		//I DID IT BECAUSE YOU CAN ENABLE THIS THING GO TO TITLE AND IT WILL START CACHING LMAO
+		//IF YOU HAVE BETTER IDEAS PLZ HELP
+		//- codeeater_ (aka toxichead)
 		display = updateDisplay();
 		return true;
 	}
