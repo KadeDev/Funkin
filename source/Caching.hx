@@ -24,6 +24,7 @@ class Caching extends MusicBeatState
 {
     var toBeDone = 0;
     var done = 0;
+    public static var allowedToStart:Bool = false;
 
     var text:FlxText;
     var kadeLogo:FlxSprite;
@@ -121,7 +122,8 @@ class Caching extends MusicBeatState
         }
 
         trace("Finished caching...");
-
+	allowedToStart = true;
+		
         FlxG.switchState(new TitleState());
     }
 
