@@ -3183,7 +3183,7 @@ class PlayState extends MusicBeatState
 						var directionsAccounted:Array<Bool> = [false,false,false,false]; // we don't want to do judgments for more than one presses
 						
 						notes.forEachAlive(function(daNote:Note)
-							{
+						{
 								directionsAccounted[daNote.noteData] = true;
 								possibleNotes.push(daNote);
 								directionList.push(daNote.noteData);
@@ -3215,9 +3215,9 @@ class PlayState extends MusicBeatState
 										possibleNotes.push(daNote);
 										directionList.push(daNote.noteData);
 									}
-							}
-						}
-					});
+						});
+					}
+				}
 
 					trace('notes that can be hit: ' + possibleNotes.length);
 
