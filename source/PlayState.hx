@@ -253,6 +253,8 @@ class PlayState extends MusicBeatState
 		}
 		misses = 0;
 
+
+		highestCombo = 0;
 		repPresses = 0;
 		repReleases = 0;
 
@@ -3146,6 +3148,8 @@ class PlayState extends MusicBeatState
 				if (controls.RIGHT_P){luaModchart.executeState('keyPressed',["right"]);};
 				};
 				#end
+		 
+				
 				// Prevent player input if botplay is on
 				if(PlayStateChangeables.botPlay)
 				{
@@ -3183,14 +3187,10 @@ class PlayState extends MusicBeatState
 						var directionsAccounted:Array<Bool> = [false,false,false,false]; // we don't want to do judgments for more than one presses
 						
 						notes.forEachAlive(function(daNote:Note)
-						{
-								directionsAccounted[daNote.noteData] = true;
-								possibleNotes.push(daNote);
-								directionList.push(daNote.noteData);
-								if (directionList.contains(daNote.noteData))
-									{
-										directionsAccounted[daNote.noteData] = true;
-										for (coolNote in possibleNotes)
+							{
+								if (daNote.canBeHit && daNote.mustPress && !daNote.tooLate && !daNote.wasGoodHit && !directionsAccounted[daNote.noteData])
+								{
+									if (directionList.contains(daNote.noteData))
 										{
 											directionsAccounted[daNote.noteData] = true;
 											for (coolNote in possibleNotes)
@@ -3209,27 +3209,13 @@ class PlayState extends MusicBeatState
 												}
 											}
 										}
-									}
-									else
-									{
-										possibleNotes.push(daNote);
-										directionList.push(daNote.noteData);
-									}
+										else
+										{
+											possibleNotes.push(daNote);
+											directionList.push(daNote.noteData);
+										}
+								}
 						});
-					}
-				}
-
-					trace('notes that can be hit: ' + possibleNotes.length);
-
-					for (note in dumbNotes)
-					{
-						FlxG.log.add("killing dumb ass note at " + note.strumTime);
-						note.kill();
-						notes.remove(note, true);
-						note.destroy();
-					}
-		 
-					possibleNotes.sort((a, b) -> Std.int(a.strumTime - b.strumTime));
 
 						for (note in dumbNotes)
 						{
@@ -3279,7 +3265,7 @@ class PlayState extends MusicBeatState
 						for (i in anas)
 							if (i != null)
 								replayAna.anaArray.push(i); // put em all there
-
+				}
 				notes.forEachAlive(function(daNote:Note)
 				{
 					if(PlayStateChangeables.useDownscroll && daNote.y > strumLine.y ||
