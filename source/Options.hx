@@ -830,6 +830,7 @@ class ResetSettings extends Option
 		FlxG.save.data.strumline = null;
 		FlxG.save.data.customStrumLine = null;
 		FlxG.save.data.camzoom = null;
+		FlxG.save.data.practice = null;
 		KadeEngineData.initSave();
 		confirm = false;
 		trace('All settings have been reset');
