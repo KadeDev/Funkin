@@ -6,7 +6,10 @@ class KadeEngineData
 {
     public static function initSave()
     {
-        if (FlxG.save.data.weekUnlocked == null)
+	    	if (FlxG.save.data.practice == null)
+			FlxG.save.data.practice = false;
+	    
+        	if (FlxG.save.data.weekUnlocked == null)
 			FlxG.save.data.weekUnlocked = 7;
 
 		if (FlxG.save.data.newInput == null)
