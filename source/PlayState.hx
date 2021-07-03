@@ -2362,7 +2362,7 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-		if (health <= 0)
+		if (health <= 0 && !FlxG.save.data.practice)
 		{
 			boyfriend.stunned = true;
 
