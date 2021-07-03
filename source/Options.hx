@@ -140,6 +140,27 @@ class DownscrollOption extends Option
 	}
 }
 
+class PracticeMode extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		FlxG.save.data.practice = !FlxG.save.data.practice;
+		display = updateDisplay();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return FlxG.save.data.practice ? "Practice Mode" : "Normal Mode";
+	}
+}
+
 class GhostTapOption extends Option
 {
 	public function new(desc:String)
