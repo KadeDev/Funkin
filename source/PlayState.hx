@@ -2399,7 +2399,7 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-		if (health <= 0)
+		if (health <= 0  && !FlxG.save.data.practice)
 		{
 			boyfriend.stunned = true;
 
@@ -2743,8 +2743,10 @@ class PlayState extends MusicBeatState
 			}
 
 			#if !switch
-			Highscore.saveScore(songHighscore, Math.round(songScore), storyDifficulty);
-			Highscore.saveCombo(songHighscore, Ratings.GenerateLetterRank(accuracy), storyDifficulty);
+			if(!FlxG.save.data.practice) {
+				Highscore.saveScore(songHighscore, Math.round(songScore), storyDifficulty);
+				Highscore.saveCombo(songHighscore, Ratings.GenerateLetterRank(accuracy), storyDifficulty);
+			}
 			#end
 		}
 
@@ -2925,8 +2927,10 @@ class PlayState extends MusicBeatState
 				{
 	
 	
-			songScore += Math.round(score);
-			songScoreDef += Math.round(ConvertScore.convertScore(noteDiff));
+			if(!FlxG.save.data.practice) {
+				songScore += Math.round(score);
+				songScoreDef += Math.round(ConvertScore.convertScore(noteDiff));
+			}
 	
 			/* if (combo > 60)
 					daRating = 'sick';
