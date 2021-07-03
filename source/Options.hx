@@ -41,8 +41,7 @@ class OptionCategory
 
 class Option
 {
-	public function new()
-	{
+	public function new() {
 		display = updateDisplay();
 	}
 	private var description:String = "";
