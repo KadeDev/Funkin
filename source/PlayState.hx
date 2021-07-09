@@ -3280,10 +3280,40 @@ class PlayState extends MusicBeatState
 								trace(n);
 								if(n != null)
 								{
+									playerStrums.forEach(function(spr:FlxSprite)
+									{
+										if (Math.abs(daNote.noteData) == spr.ID)
+										{
+											spr.animation.play('confirm', true);
+										}
+										if (spr.animation.curAnim.name == 'confirm' && !curStage.startsWith('school'))
+										{
+											spr.centerOffsets();
+											spr.offset.x -= 13;
+											spr.offset.y -= 13;
+										}
+										else
+											spr.centerOffsets();
+									});
 									goodNoteHit(daNote);
 									boyfriend.holdTimer = daNote.sustainLength;
 								}
 							}else {
+								playerStrums.forEach(function(spr:FlxSprite)
+									{
+										if (Math.abs(daNote.noteData) == spr.ID)
+										{
+											spr.animation.play('confirm', true);
+										}
+										if (spr.animation.curAnim.name == 'confirm' && !curStage.startsWith('school'))
+										{
+											spr.centerOffsets();
+											spr.offset.x -= 13;
+											spr.offset.y -= 13;
+										}
+										else
+											spr.centerOffsets();
+									});
 								goodNoteHit(daNote);
 								boyfriend.holdTimer = daNote.sustainLength;
 							}
@@ -3297,22 +3327,35 @@ class PlayState extends MusicBeatState
 						boyfriend.playAnim('idle');
 				}
 		 
-				playerStrums.forEach(function(spr:FlxSprite)
-				{
-					if (pressArray[spr.ID] && spr.animation.curAnim.name != 'confirm')
-						spr.animation.play('pressed');
-					if (!holdArray[spr.ID])
-						spr.animation.play('static');
-		 
-					if (spr.animation.curAnim.name == 'confirm' && !curStage.startsWith('school'))
+				if (!FlxG.save.data.botplay && !loadRep)
 					{
-						spr.centerOffsets();
-						spr.offset.x -= 13;
-						spr.offset.y -= 13;
+						playerStrums.forEach(function(spr:FlxSprite)
+							{
+								if (pressArray[spr.ID] && spr.animation.curAnim.name != 'confirm')
+									spr.animation.play('pressed');
+								if (!holdArray[spr.ID])
+									spr.animation.play('static');
+					 
+								if (spr.animation.curAnim.name == 'confirm' && !curStage.startsWith('school'))
+								{
+									spr.centerOffsets();
+									spr.offset.x -= 13;
+									spr.offset.y -= 13;
+								}
+								else
+									spr.centerOffsets();
+							});		
 					}
-					else
-						spr.centerOffsets();
-				});
+					else {
+						playerStrums.forEach(function(spr:FlxSprite)
+							{
+								if (spr.animation.finished)
+								{
+									spr.animation.play('static');
+									spr.centerOffsets();
+								}
+							});
+					}
 			}
 
 			public function findByTime(time:Float):Array<Dynamic>
